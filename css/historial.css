@@ -1,0 +1,65 @@
+main{
+    display: block;
+}
+.Record {
+    margin: 0 50px;
+    background-color: #EEEEE4;;
+}
+
+.set_games{
+    margin: 10px 5px;
+    padding: 10px 0 ;
+}
+.game_data{
+    font-family: Arial, Helvetica, sans-serif
+
+}
+.game_results{
+    margin: 5px 5px;
+    background-color: #FFFF;
+    border-radius: 5px;
+}
+.one{
+    display: flex;
+    align-items: center;
+}
+.game{
+    margin:0 10px;
+
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-evenly;
+}
+.img-flag{
+    width: 100%;
+    display: block;
+}
+.content-img-flag{
+    display: flex;
+    width: 1.5rem;
+}
+.content_info_cluster{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5px;
+}
+.content_info_cluster h6{
+    margin: 5px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.name_flag{
+    margin: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.content-result{
+    display: flex;
+    align-items: center;
+}
+.result{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 10px ;
+}
+.content-result p{
+    font-size: larger;
+    margin:0;
+}
