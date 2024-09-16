@@ -1,1 +1,158 @@
-/*hola mundo*/
+@import url("paletaColores.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--gris);
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    font-size: 24px;
+    color: var(--blanco);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    font-size: 22px;
+    color: var(--negro);
+}
+
+main {
+    background-color: var(--blanco);
+    color: var(--negro);
+    display: flex;
+    flex-grow: 1;
+    margin-top: 70px;
+    margin-bottom: 60px;
+    padding: 20px;
+    gap: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.section-container {
+    flex-direction: column;
+    width: 80%;
+}
+
+.section-container section {
+    margin-bottom: 10px;
+}
+
+section {
+    flex: 2;
+    padding: 20px;
+    border: 5px solid var(--negro);
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+aside {
+    flex: 1;
+    padding: 20px;
+    border: 5px solid var(--negro);
+}
+
+footer {
+    background-color: var(--gris);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.list-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+li a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+}
+
+li a i {
+    margin-right: 8px;
+}
+
+.github-list a {
+    color: #333;
+}
+
+.linkedin-list a {
+    color: var(--celeste);
+}
+
+.name-list {
+    font-weight: bold;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: var(--gris);
+}

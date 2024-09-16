@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Mundial</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
+
 <body>
 
     <header>
@@ -21,29 +25,76 @@
             </ul>
         </nav>
     </header>
-
     <!--La idea es que es ir cambiando el contenido(secciones) del main mediante js-->
     <main>
-
-        <section class="sorteoFaseGrupos">
-            <!--Aqui va a aparecer las tablas de cada confederación para realizar el sorteo de grupos-->
-        </section>
-
-        <section class="faseGrupos">
-            <!--Aqui va a aparecer los grupos formados-->
-        </section>
-
-        <section class="faseFinal">
-            <!--Aqui va a aparecer los brackets de la fase final-->
-        </section>
-
-        <aside class="partidosHoy">
+        <div class="section-container">
+            <section class="sorteoFaseGrupos">
+                <article>
+                    <h2>Artículo</h2>
+                    <p>Contenido del artículo.</p>
+                    <!--Aqui va a aparecer las tablas de cada confederación para realizar el sorteo de grupos-->
+                </article>
+            </section>
+            <section class="faseGrupos">
+                <article>
+                    <h2>Artículo</h2>
+                    <p>Contenido del artículo.</p>
+                    <!--Aqui va a aparecer los grupos formados-->
+                </article>
+            </section>
+            <section class="faseFinal">
+                <article>
+                    <h2>Artículo</h2>
+                    <p>Contenido del artículo.</p>
+                </article>
+                <!--Aqui va a aparecer los brackets de la fase final-->
+            </section>
+        </div>
+        <aside>
+            <h2>Barra Lateral</h2>
+            <p>Contenido del sidebar.</p>
             <!--Aqui va a aparecer los partidos de el dia actual-->
         </aside>
     </main>
 
     <footer>
-        <p>Derechos reservados &copy; 2024</p>
+        <div class="footer-content">
+            <div class="list-container">
+                <ul class="github-list">
+                    <li><a href="https://github.com/perfil1" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                            1</a></li>
+                    <li><a href="https://github.com/perfil2" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                            2</a></li>
+                    <li><a href="https://github.com/perfil3" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                            3</a></li>
+                    <li><a href="https://github.com/perfil4" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                            4</a></li>
+                </ul>
+                <ul class="linkedin-list">
+                    <li><a href="https://www.linkedin.com/in/perfil1" target="_blank"><i class="fab fa-linkedin"></i>
+                            Perfil LinkedIn 1</a></li>
+                    <li><a href="https://www.linkedin.com/in/perfil2" target="_blank"><i class="fab fa-linkedin"></i>
+                            Perfil LinkedIn 2</a></li>
+                    <li><a href="https://www.linkedin.com/in/perfil3" target="_blank"><i class="fab fa-linkedin"></i>
+                            Perfil LinkedIn 3</a></li>
+                    <li><a href="https://www.linkedin.com/in/perfil4" target="_blank"><i class="fab fa-linkedin"></i>
+                            Perfil LinkedIn 4</a></li>
+                </ul>
+                <ul class="name-list">
+                    <li><i class="fas fa-user"></i> Nombre del Integrante 1</li>
+                    <li><i class="fas fa-user"></i> Nombre del Integrante 2</li>
+                    <li><i class="fas fa-user"></i> Nombre del Integrante 3</li>
+                    <li><i class="fas fa-user"></i> Nombre del Integrante 4</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+
+
 </body>
+
 </html>
