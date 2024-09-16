@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 95%;
+    /* Reduce el tamaño de fuente de todos los elementos */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    /* background-image: url('fondo.jpg');
+    background-size: cover;
+    
+    background-repeat: no-repeat;
+
+    background-position: 0 20%; */
+}
+
+header {
+    position: fixed;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--gris);
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: grey;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.tournament {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    padding: 5%;
+    position: absolute;
+    top: 5%;
+    /* border: 1px solid black; */
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid black; */
+    gap: 10px;
+}
+
+.round h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.match {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    padding: 1px 5px;
+
+}
+
+.left .match {
+    box-shadow: 5px 5px 5px grey;
+}
+
+.right .match {
+    box-shadow: -5px 5px 5px grey;
+}
+
+.team {
+    background-color: #ccc;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.finals .final .match {
+    background-color: #ffdb4d;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 5px 5px grey;
+}
+
+.finals .third .match {
+    background-color: #4e3f03;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0;
+    width: 100%;
+    box-shadow: 0 5px 5px grey;
+}
+
+.finals {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+}
+
+h3 {
+    /* border: 1px solid red; */
+    text-align: center;
+    width: 100%;
+}
+
+.third,
+.final {
+    width: 80%;
+}
+
+.octavos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120%;
+}
+
+.octavos h3 {
+    margin-top: 30%;
+}
+
+.cuartos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.semifinales {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+}
+
+.semifinales h3 {
+    margin-top: 35%;
+}
+
+.semifinales .match {
+    margin-bottom: 35%;
+}
+
+.cuartos h3 {
+    margin-top: 3%;
+}
+
+.divMatch {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+
+}
+
+.octavos .divMatch {
+    padding-bottom: 15%;
+
+}
+
+h2 {
+    font-size: 3em;
+    text-align: center;
+    text-shadow: 5px 5px 5px grey;
+}
+
+.textThird {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.final {
+    margin-bottom: 50%;
+}
+
+.dieciseisavos>.winner1::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: #000000;
+}
+
+.dieciseisavos>.winner2::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: #000000;
+}
+
+.dieciseisavos>.winner3::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: #000000;
+}
+
+.dieciseisavos>.winner4::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: black;
+}
+
+.dieciseisavos>.winner5::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    right: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: black;
+}
+
+.dieciseisavos>.winner6::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    right: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: black;
+}
+
+.dieciseisavos>.winner7::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    right: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: black;
+}
+
+.dieciseisavos>.winner8::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    right: 110%;
+    width: 5px;
+    height: 50%;
+    background-color: black;
+}
+
+.octavos .winner9a::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.octavos .winner9b::before {
+    content: '';
+    position: absolute;
+    bottom: 60%;
+    left: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.octavos .winner10a::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.octavos .winner10b::before {
+    content: '';
+    position: absolute;
+    bottom: 60%;
+    left: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.octavos .winner11a::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    right: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.octavos .winner11b::before {
+    content: '';
+    position: absolute;
+    bottom: 60%;
+    right: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.octavos .winner12a::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    right: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.octavos .winner12b::before {
+    content: '';
+    position: absolute;
+    bottom: 60%;
+    right: 110%;
+    width: 5px;
+    height: 70%;
+    background-color: #000000;
+}
+
+.cuartos .winner13a::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 110%;
+    width: 5px;
+    height: 180%;
+    background-color: #000000;
+}
+
+.cuartos .winner13b::before {
+    content: '';
+    position: absolute;
+    bottom: 60%;
+    left: 110%;
+    width: 5px;
+    height: 180%;
+    background-color: #000000;
+}
+
+.cuartos .winner14a::before {
+    content: '';
+    position: absolute;
+    top: 60%;
+    right: 110%;
+    width: 5px;
+    height: 180%;
+    background-color: #000000;
+}
+
+.cuartos .winner14b::before {
+    content: '';
+    position: absolute;
+    bottom: 60%;
+    right: 110%;
+    width: 5px;
+    height: 180%;
+    background-color: #000000;
+}
+
+.semifinales .winner15::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 110%;
+    width: 5px;
+    height: 180%;
+    background-color: #000000;
+}
+
+.semifinales .winner16::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: 110%;
+    width: 5px;
+    height: 180%;
+    background-color: #000000;
+}
