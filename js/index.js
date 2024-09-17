@@ -1,4 +1,3 @@
-
 const buttons = document.querySelectorAll(".toggle-btn");
 
 buttons.forEach((button) => {

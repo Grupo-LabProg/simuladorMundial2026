@@ -16,23 +16,28 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    background-image: url("../img/fondo.jpeg");
+    background-size: cover; /* La imagen ocupará todo el espacio y se ajustará */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 header {
-    position: fixed;
     top: 0;
     width: 100%;
+    height: 15%;
     padding: 10px 20px;
     background-color: var(--gris-claro);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px var();
+    box-shadow: 0 2px 5px var(--negro);
     z-index: 1000;
 }
 
 .logo img {
-    height: 40px;
+    height: 60px;
+    width:60px;
     max-width: 100%;
     border-radius: 10px;
 }
@@ -44,7 +49,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: var(--negro);
+    color: var(--blanco);
     text-decoration: none;
     font-size: 16px;
     padding: 8px 12px;
@@ -62,23 +67,26 @@ nav ul li a:active {
     color: var(--blanco);
 }
 
+.section-container {
+    z-index: 2; 
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.fondo-img {
+    width: 100%; 
+    height: auto;
+    margin-top: 20px; 
+}
 
 main {
     display: flex;
     flex-grow: 1;
-    margin-top: 90px;
     padding: 20px;
     gap: 20px;
-    background-color: var(--blanco);
     background-repeat: no-repeat;
     background-position: center;
-}
-
-.section-container {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 section {
@@ -94,8 +102,9 @@ article {
 
 aside {
     flex: 1;
+    color: var(--blanco);
     padding: 20px;
-    border: 5px solid var(--negro);
+    border: 5px solid var(--blanco);
     border-radius: 5px;
     background-color: var(--gris-claro);
     height: fit-content;
