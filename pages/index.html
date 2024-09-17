@@ -11,10 +11,9 @@
 </head>
 
 <body>
-
     <header>
         <div class="logo">
-            <img src="" alt="Logo">
+            <img src="../img/logo.png" alt="Logo">
         </div>
         <nav>
             <ul>
@@ -29,28 +28,34 @@
     <!--La idea es que es ir cambiando el contenido(secciones) del main mediante js-->
     <main>
         <div class="section-container">
-            <section class="sorteoFaseGrupos">
+            <button class="toggle-btn" data-target="sorteoFaseGrupos">Sorteo Fase Grupos</button>
+            <section class="sorteoFaseGrupos content">
                 <article>
                     <h2>Artículo</h2>
                     <p>Contenido del artículo.</p>
                     <!--Aqui va a aparecer las tablas de cada confederación para realizar el sorteo de grupos-->
                 </article>
             </section>
-            <section class="faseGrupos">
+
+            <button class="toggle-btn" data-target="faseGrupos">Fase Grupos</button>
+            <section class="faseGrupos content">
                 <article>
                     <h2>Artículo</h2>
                     <p>Contenido del artículo.</p>
                     <!--Aqui va a aparecer los grupos formados-->
                 </article>
             </section>
-            <section class="faseFinal">
+
+            <button class="toggle-btn" data-target="faseFinal">Fase Final</button>
+            <section class="faseFinal content">
                 <article>
                     <h2>Artículo</h2>
                     <p>Contenido del artículo.</p>
+                    <!--Aqui va a aparecer los brackets de la fase final-->
                 </article>
-                <!--Aqui va a aparecer los brackets de la fase final-->
             </section>
         </div>
+
         <aside>
             <h2>Barra Lateral</h2>
             <p>Contenido del sidebar.</p>
@@ -60,7 +65,6 @@
 
     <footer>
         <div class="footer-content">
-            <div class="list-container">
                 <ul class="github-list">
                     <li><a href="https://github.com/perfil1" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
                             1</a></li>
@@ -87,7 +91,6 @@
                     <li><i class="fas fa-user"></i> Nombre del Integrante 3</li>
                     <li><i class="fas fa-user"></i> Nombre del Integrante 4</li>
                 </ul>
-            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
