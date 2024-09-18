@@ -195,3 +195,11 @@ li a {
     font-size: 0.9em;
     color: var(--blanco);
 }
+
+.github-list a {
+    color: white;
+}
+
+.linkedin-list a {
+    color: white;
+}
