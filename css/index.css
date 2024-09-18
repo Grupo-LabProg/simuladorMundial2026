@@ -72,7 +72,6 @@ nav ul li a:active {
 
 .section-container {
     z-index: 2;
-    padding: 20px;
     width: 100%;
     max-width: 1200px;
 }
@@ -88,30 +87,41 @@ main {
     flex-grow: 1;
     padding: 20px;
     gap: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
+    min-height: 90vh;
+}
+
+.content {
+    display: none;
+}
+
+/* Clase activa para mostrar la sección seleccionada */
+.content.active {
+    display: block;
 }
 
 section {
     padding: 20px;
-    border: 5px solid var(--negro);
+    color: var(--blanco);
+    border: 5px solid var(--blanco);
     border-radius: 5px;
-    background-color: var(--blanco);
+    background-color: var(--transparente);
+    min-height: 85vh;
 }
 
 article {
     margin-bottom: 20px;
+    
 }
 
 aside {
     flex: 1;
     color: var(--blanco);
     padding: 20px;
-    margin-top: 30px;
     border: 5px solid var(--blanco);
     border-radius: 5px;
     background-color: var(--gris-claro);
     height: fit-content;
+    min-height: 85vh;
 }
 
 .content {

@@ -1,9 +1,17 @@
-const buttons = document.querySelectorAll(".toggle-btn");
+document.querySelectorAll("nav a").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Evita que el enlace navegue a otra página
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const target = document.querySelector(`.${button.dataset.target}`);
+    const target = link.getAttribute("data-target");
 
-    target.classList.toggle("active");
+    // Oculta todas las secciones
+    document.querySelectorAll(".content").forEach((section) => {
+      section.classList.remove("active");
+    });
+
+    // Muestra la sección correspondiente
+    if (target) {
+      document.querySelector(`.${target}`).classList.add("active");
+    }
   });
 });
