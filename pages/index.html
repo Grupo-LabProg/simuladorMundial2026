@@ -7,90 +7,90 @@
     <title>Simulador Mundial 2026</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="../img/favicon.png" style="border-radius: 10px;"type="image/x-icon">
+    <link rel="icon" href="../img/favicon.png" style="border-radius: 10px;" type="image/x-icon">
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo">
+            <a href=""><img src="../img/logo.png" alt="Logo"></a>
         </div>
         <nav>
             <ul>
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Sorteo Grupos</a></li>
-                <li><a href="#">Fase Grupos</a></li>
-                <li><a href="simulacionFaseFinal.html">Fase Final</a></li>
-                <li><a href="#">Acerca De</a></li>
+                <li><a href="#" data-target="sorteoFaseGrupos">Sorteo Grupos</a></li>
+                <li><a href="#" data-target="faseGrupos">Fase Grupos</a></li>
+                <li><a href="#" data-target="faseFinal">Fase Final</a></li>
+                <li><a href="#" data-target="acercaDe">Acerca De</a></li>
             </ul>
         </nav>
     </header>
-    
-    <!--La idea es que es ir cambiando el contenido(secciones) del main mediante js-->
+
     <main>
         <div class="section-container">
-            <button class="toggle-btn" data-target="sorteoFaseGrupos">Sorteo Fase Grupos</button>
             <section class="sorteoFaseGrupos content">
                 <article>
-                    <h2>Artículo</h2>
-                    <p>Contenido del artículo.</p>
-                    <!--Aqui va a aparecer las tablas de cada confederación para realizar el sorteo de grupos-->
+                    <h2>Artículo Sorteo Fase Grupos</h2>
+                    <p>Contenido del artículo de Sorteo Fase Grupos.</p>
                 </article>
             </section>
 
-            <button class="toggle-btn" data-target="faseGrupos">Fase Grupos</button>
             <section class="faseGrupos content">
                 <article>
-                    <h2>Artículo</h2>
-                    <p>Contenido del artículo.</p>
-                    <!--Aqui va a aparecer los grupos formados-->
+                    <h2>Artículo Fase Grupos</h2>
+                    <p>Contenido del artículo de Fase Grupos.</p>
                 </article>
             </section>
 
-            <button class="toggle-btn" data-target="faseFinal">Fase Final</button>
             <section class="faseFinal content">
                 <article>
-                    <h2>Artículo</h2>
-                    <p>Contenido del artículo.</p>
-                    <!--Aqui va a aparecer los brackets de la fase final-->
+                    <h2>Artículo Fase Final</h2>
+                    <p>Contenido del artículo de Fase Final.</p>
+                </article>
+            </section>
+
+            <section class="acercaDe content">
+                <article>
+                    <h2>Artículo Acerca De</h2>
+                    <p>Contenido del artículo de Acerca De.</p>
                 </article>
             </section>
         </div>
+
         <aside>
             <h2>Barra Lateral</h2>
-            <p>Contenido del sidebar.</p>
-            <!--Aqui va a aparecer los partidos de el dia actual-->
+            <p>Contenido Partidos de Hoy.</p>
         </aside>
     </main>
 
     <footer>
         <div class="footer-content">
-                <ul class="github-list">
-                    <li><a href="https://github.com/perfil1" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
-                            1</a></li>
-                    <li><a href="https://github.com/perfil2" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
-                            2</a></li>
-                    <li><a href="https://github.com/perfil3" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
-                            3</a></li>
-                    <li><a href="https://github.com/perfil4" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
-                            4</a></li>
-                </ul>
-                <ul class="linkedin-list">
-                    <li><a href="https://www.linkedin.com/in/perfil1" target="_blank"><i class="fab fa-linkedin"></i>
-                            Perfil LinkedIn 1</a></li>
-                    <li><a href="https://www.linkedin.com/in/perfil2" target="_blank"><i class="fab fa-linkedin"></i>
-                            Perfil LinkedIn 2</a></li>
-                    <li><a href="https://www.linkedin.com/in/perfil3" target="_blank"><i class="fab fa-linkedin"></i>
-                            Perfil LinkedIn 3</a></li>
-                    <li><a href="https://www.linkedin.com/in/perfil4" target="_blank"><i class="fab fa-linkedin"></i>
-                            Perfil LinkedIn 4</a></li>
-                </ul>
-                <ul class="name-list">
-                    <li><i class="fas fa-user"></i> Nombre del Integrante 1</li>
-                    <li><i class="fas fa-user"></i> Nombre del Integrante 2</li>
-                    <li><i class="fas fa-user"></i> Nombre del Integrante 3</li>
-                    <li><i class="fas fa-user"></i> Nombre del Integrante 4</li>
-                </ul>
+            <ul class="github-list">
+                <li><a href="https://github.com/perfil1" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                        1</a></li>
+                <li><a href="https://github.com/perfil2" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                        2</a></li>
+                <li><a href="https://github.com/perfil3" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                        3</a></li>
+                <li><a href="https://github.com/perfil4" target="_blank"><i class="fab fa-github"></i> Perfil GitHub
+                        4</a></li>
+            </ul>
+            <ul class="linkedin-list">
+                <li><a href="https://www.linkedin.com/in/perfil1" target="_blank"><i class="fab fa-linkedin"></i>
+                        Perfil LinkedIn 1</a></li>
+                <li><a href="https://www.linkedin.com/in/perfil2" target="_blank"><i class="fab fa-linkedin"></i>
+                        Perfil LinkedIn 2</a></li>
+                <li><a href="https://www.linkedin.com/in/perfil3" target="_blank"><i class="fab fa-linkedin"></i>
+                        Perfil LinkedIn 3</a></li>
+                <li><a href="https://www.linkedin.com/in/perfil4" target="_blank"><i class="fab fa-linkedin"></i>
+                        Perfil LinkedIn 4</a></li>
+            </ul>
+            <ul class="name-list">
+                <li><i class="fas fa-user"></i> Nombre del Integrante 1</li>
+                <li><i class="fas fa-user"></i> Nombre del Integrante 2</li>
+                <li><i class="fas fa-user"></i> Nombre del Integrante 3</li>
+                <li><i class="fas fa-user"></i> Nombre del Integrante 4</li>
+            </ul>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
@@ -98,4 +98,5 @@
     </footer>
     <script src="../js/index.js"></script>
 </body>
+
 </html>
