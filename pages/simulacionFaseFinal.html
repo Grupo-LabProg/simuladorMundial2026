@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulacion fase final</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/simulacionFinal.js" defer></script>
 </head>
 
 <body>
@@ -26,37 +27,37 @@
     <div class="tournament">
         <div class="round dieciseisavos left">
             <h3>16vos de final</h3>
-            <div class="match d1">
-                <div class="team">Equipo 1</div>
-                <div class="team">Equipo 2</div>
+            <div class="match d1 d-knockout1">
+                <div class="team1">Equipo 1</div>
+                <div class="team2">Equipo 2</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 3</div>
-                <div class="team">Equipo 4</div>
+            <div class="match d-knockout2">
+                <div class="team3">Equipo 3</div>
+                <div class="team4">Equipo 4</div>
             </div>
-            <div class="match d2">
-                <div class="team">Equipo 5</div>
-                <div class="team">Equipo 6</div>
+            <div class="match d2 d-knockout3">
+                <div class="team5">Equipo 5</div>
+                <div class="team6">Equipo 6</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 7</div>
-                <div class="team">Equipo 8</div>
+            <div class="match d-knockout4">
+                <div class="team7">Equipo 7</div>
+                <div class="team8">Equipo 8</div>
             </div>
-            <div class="match d3">
-                <div class="team">Equipo 9</div>
-                <div class="team">Equipo 10</div>
+            <div class="match d3 d-knockout5">
+                <div class="team9">Equipo 9</div>
+                <div class="team10">Equipo 10</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 11</div>
-                <div class="team">Equipo 12</div>
+            <div class="match d-knockout6">
+                <div class="team11">Equipo 11</div>
+                <div class="team12">Equipo 12</div>
             </div>
-            <div class="match d4">
-                <div class="team">Equipo 13</div>
-                <div class="team">Equipo 14</div>
+            <div class="match d4 d-knockout7">
+                <div class="team13">Equipo 13</div>
+                <div class="team14">Equipo 14</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 15</div>
-                <div class="team">Equipo 16</div>
+            <div class="match d-knockout8">
+                <div class="team15">Equipo 15</div>
+                <div class="team16">Equipo 16</div>
             </div>
         </div>
 
@@ -65,21 +66,21 @@
                 <h3>8vos de final</h3>
             </div>
             <div class="divMatch">
-                <div class="match d9">
-                    <div class="team">Ganador 1</div>
-                    <div class="team">Ganador 2</div>
+                <div class="match d9 o-knockout1">
+                    <div class="team winner-d-knockout1">Ganador 1</div>
+                    <div class="team winner-d-knockout2">Ganador 2</div>
                 </div>
-                <div class="match ">
-                    <div class="team">Ganador 3</div>
-                    <div class="team">Ganador 4</div>
+                <div class="match o-knockout2">
+                    <div class="team winner-d-knockout3">Ganador 3</div>
+                    <div class="team winner-d-knockout4">Ganador 4</div>
                 </div>
-                <div class="match d10">
-                    <div class="team">Ganador 5</div>
-                    <div class="team">Ganador 6</div>
+                <div class="match d10 o-knockout3">
+                    <div class="team winner-d-knockout5">Ganador 5</div>
+                    <div class="team winner-d-knockout6">Ganador 6</div>
                 </div>
-                <div class="match ">
-                    <div class="team">Ganador 7</div>
-                    <div class="team">Ganador 8</div>
+                <div class="match o-knockout4">
+                    <div class="team winner-d-knockout7">Ganador 7</div>
+                    <div class="team winner-d-knockout8">Ganador 8</div>
                 </div>
             </div>
         </div>
@@ -89,22 +90,22 @@
                 <h3>4tos de final</h3>
             </div>
             <div class="divMatch">
-                <div class="match d13">
-                    <div class="team">Ganador 17</div>
-                    <div class="team">Ganador 18</div>
+                <div class="match d13 c-knockout1">
+                    <div class="team winner-o-knockout1">Ganador 17</div>
+                    <div class="team winner-o-knockout2">Ganador 18</div>
                 </div>
-                <div class="match ">
-                    <div class="team">Ganador 19</div>
-                    <div class="team">Ganador 20</div>
+                <div class="match c-knockout2">
+                    <div class="team winner-o-knockout3">Ganador 19</div>
+                    <div class="team winner-o-knockout4">Ganador 20</div>
                 </div>
             </div>
         </div>
 
         <div class="round semifinales left">
             <h3>Semifinales</h3>
-            <div class="match d15">
-                <div class="team">Ganador 25</div>
-                <div class="team">Ganador 26</div>
+            <div class="match d15 s-knockout1">
+                <div class="team winner-c-knockout1">Ganador 25</div>
+                <div class="team winner-c-knockout2">Ganador 26</div>
             </div>
         </div>
 
@@ -112,20 +113,19 @@
             <h2>FASE ELIMINATORIA</h2>
             <div class="final">
                 <h3>FINAL</h3>
-                <div class="match">
-                    <div class="team">Finalista 1</div>
-                    <div class="team">Finalista 2</div>
+                <div class="match f-final">
+                    <div class="team winner-s-knockout1">Finalista 1</div>
+                    <div class="team winner-s-knockout2">Finalista 2</div>
                 </div>
             </div>
+
             <div class="div-btn-simulation">
-                <button class="btn-simulation" type="button"><b>SIMULAR</b></button>
+                <button id="btn-simulation" type="button"><b>SIMULAR</b></button>
             </div>
-
-
             <div class="third">
-                <div class="match">
-                    <div class="team">Perdedor 1</div>
-                    <div class="team">Perdedor 2</div>
+                <div class="match f-third">
+                    <div class="team looser-s-knockout1">Perdedor 1</div>
+                    <div class="team looser-s-knockout1">Perdedor 2</div>
                 </div>
                 <h3 class="textThird">TERCER LUGAR</h3>
             </div>
@@ -134,9 +134,9 @@
 
         <div class="round semifinales right">
             <h3>Semifinales</h3>
-            <div class="match d16">
-                <div class="team">Ganador 27</div>
-                <div class="team">Ganador 28</div>
+            <div class="match d16 s-knockout2">
+                <div class="team winner-c-knockout3">Ganador 27</div>
+                <div class="team winner-c-knockout4">Ganador 28</div>
             </div>
         </div>
 
@@ -145,13 +145,13 @@
                 <h3>4tos de final</h3>
             </div>
             <div class="divMatch">
-                <div class="match d14">
-                    <div class="team">Ganador 21</div>
-                    <div class="team">Ganador 22</div>
+                <div class="match d14 c-knockout3">
+                    <div class="team winner-o-knockout5">Ganador 21</div>
+                    <div class="team winner-o-knockout6">Ganador 22</div>
                 </div>
-                <div class="match ">
-                    <div class="team">Ganador 23</div>
-                    <div class="team">Ganador 24</div>
+                <div class="match c-knockout4">
+                    <div class="team winner-o-knockout7">Ganador 23</div>
+                    <div class="team winner-o-knockout8">Ganador 24</div>
                 </div>
             </div>
         </div>
@@ -161,58 +161,58 @@
                 <h3>8vos de final</h3>
             </div>
             <div class="divMatch">
-                <div class="match d11">
-                    <div class="team">Ganador 9</div>
-                    <div class="team">Ganador 10</div>
+                <div class="match d11 o-knockout5">
+                    <div class="team winner-d-knockout9">Ganador 9</div>
+                    <div class="team winner-d-knockout10">Ganador 10</div>
                 </div>
-                <div class="match ">
-                    <div class="team">Ganador 11</div>
-                    <div class="team">Ganador 12</div>
+                <div class="match o-knockout6">
+                    <div class="team winner-d-knockout11">Ganador 11</div>
+                    <div class="team winner-d-knockout12">Ganador 12</div>
                 </div>
-                <div class="match d12">
-                    <div class="team">Ganador 13</div>
-                    <div class="team">Ganador 14</div>
+                <div class="match d12 o-knockout7">
+                    <div class="team winner-d-knockout13">Ganador 13</div>
+                    <div class="team winner-d-knockout14">Ganador 14</div>
                 </div>
-                <div class="match ">
-                    <div class="team">Ganador 15</div>
-                    <div class="team">Ganador 16</div>
+                <div class="match o-knockout8">
+                    <div class="team winner-d-knockout15">Ganador 15</div>
+                    <div class="team winner-d-knockout16">Ganador 16</div>
                 </div>
             </div>
         </div>
 
         <div class="round dieciseisavos right">
             <h3>16vos de final</h3>
-            <div class="match d5">
-                <div class="team">Equipo 17</div>
-                <div class="team">Equipo 18</div>
+            <div class="match d5 d-knockout9">
+                <div class="team17">Equipo 17</div>
+                <div class="team18">Equipo 18</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 19</div>
-                <div class="team">Equipo 20</div>
+            <div class="match d-knockout10">
+                <div class="team19">Equipo 19</div>
+                <div class="team20">Equipo 20</div>
             </div>
-            <div class="match d6">
-                <div class="team">Equipo 21</div>
-                <div class="team">Equipo 22</div>
+            <div class="match d6 d-knockout11">
+                <div class="team21">Equipo 21</div>
+                <div class="team22">Equipo 22</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 23</div>
-                <div class="team">Equipo 24</div>
+            <div class="match d-knockout12">
+                <div class="team23">Equipo 23</div>
+                <div class="team24">Equipo 24</div>
             </div>
-            <div class="match d7">
-                <div class="team">Equipo 25</div>
-                <div class="team">Equipo 26</div>
+            <div class="match d7 d-knockout13">
+                <div class="team25">Equipo 25</div>
+                <div class="team26">Equipo 26</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 27</div>
-                <div class="team">Equipo 28</div>
+            <div class="match d-knockout14">
+                <div class="team27">Equipo 27</div>
+                <div class="team28">Equipo 28</div>
             </div>
-            <div class="match d8">
-                <div class="team">Equipo 29</div>
-                <div class="team">Equipo 30</div>
+            <div class="match d8 d-knockout15">
+                <div class="team29">Equipo 29</div>
+                <div class="team30">Equipo 30</div>
             </div>
-            <div class="match ">
-                <div class="team">Equipo 31</div>
-                <div class="team">Equipo 32</div>
+            <div class="match d-knockout16">
+                <div class="team31">Equipo 31</div>
+                <div class="team32">Equipo 32</div>
             </div>
         </div>
     </div>
