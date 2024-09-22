@@ -11,7 +11,6 @@ const teamNames = [
     'Escocia', 'Brasil'
 ];
 
-
 // Selecciona todos los divs con clase que empieza con 'team'
 // const teams = document.querySelectorAll('[class^="team"]');
 
@@ -159,7 +158,6 @@ button.addEventListener('click', () => {
         }
     });
 
-
     let final = document.querySelector('.f-final');
     equipos = final.querySelectorAll('div');
     winner = determinarGanador(equipos);
@@ -179,7 +177,7 @@ button.addEventListener('click', () => {
 
 function determinarGanador(equipos) {
     // Elige un índice aleatorio: 0 para el primer equipo, 1 para el segundo equipo
-    const ganadorIndex = Math.floor(Math.random() * equipos.length);
+    let ganadorIndex = Math.floor(Math.random() * equipos.length);
 
     // Retorna el elemento del equipo ganador
     return equipos[ganadorIndex];
