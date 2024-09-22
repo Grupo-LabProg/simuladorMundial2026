@@ -1,4 +1,5 @@
 @import url("paletaColores.css");
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
 
 * {
     margin: 0;
@@ -16,13 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-image: url("../img/fondo.jpeg");
-    background-size: cover;
-    /* La imagen ocupará todo el espacio y se ajustará */
-    background-position: center;
-    /* Centra la imagen */
-    background-repeat: no-repeat;
-    /* Evita que la imagen se repita */
+    background-color: var(--fondo);
 }
 
 header {
@@ -72,8 +67,7 @@ nav ul li a:active {
 
 .section-container {
     z-index: 2;
-    width: 100%;
-    max-width: 1200px;
+    width: 80%;
 }
 
 .fondo-img {
@@ -84,10 +78,20 @@ nav ul li a:active {
 
 main {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
     flex-grow: 1;
+    /* Permite que main crezca y ocupe el espacio restante */
     padding: 20px;
+    box-sizing: border-box;
     gap: 20px;
-    min-height: 90vh;
+    background-image: url("../img/fondo.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .content {
@@ -104,13 +108,12 @@ section {
     color: var(--blanco);
     border: 5px solid var(--blanco);
     border-radius: 5px;
-    background-color: var(--transparente);
     min-height: 85vh;
 }
 
 article {
     margin-bottom: 20px;
-    
+
 }
 
 aside {
@@ -157,8 +160,9 @@ footer {
     background-color: var(--fondo);
     padding: 20px;
     text-align: center;
-    margin-top: auto;
     box-shadow: 0 2px 5px var(--negro);
+    margin-top: auto;
+    /* Empuja el footer hacia abajo cuando el main crezca */
 }
 
 h2 {
@@ -202,4 +206,65 @@ li a {
 
 .linkedin-list a {
     color: white;
+}
+
+.grupos{
+    display: flex;
+    /* Usar flexbox */
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan */
+    gap: 20px;
+    /* Espacio entre los divs */
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #333;
+}
+
+.team {
+    text-align: left;
+}
+
+th,
+td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #444;
+    color: #bbb;
+}
+
+td {
+    background-color: #222;
+}
+
+td img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.circle {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 3px;
+}
+
+.win {
+    background-color: #00c851;
+}
+
+.loss {
+    background-color: #ff4444;
+}
+
+.draw {
+    background-color: #ffbb33;
 }
