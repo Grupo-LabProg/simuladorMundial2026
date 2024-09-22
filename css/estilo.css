@@ -422,3 +422,22 @@ h2 {
     border: 1px solid black;
 }
     */
+
+.ganador {
+    background-color: green;
+    color: white;
+    /* Opcional, para mayor contraste */
+}
+
+/* Clase para equipos perdedores */
+.perdedor {
+    background-color: red;
+    color: white;
+    /* Opcional, para mayor contraste */
+}
+
+/* Opcional: clase para el hover de los equipos */
+.ganador:hover,
+.perdedor:hover {
+    opacity: 0.8;
+}

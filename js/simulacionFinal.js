@@ -29,151 +29,12 @@ let teamsFinal = document.querySelectorAll('.winner-s-knockout1, .winner-s-knock
 let teamsThirdPlace = document.querySelectorAll('.looser-s-knockout1, .looser-s-knockout2');
 
 
-// Recorre todos los equipos y asigna los nombres del array
-button.addEventListener('click', () => {
-    // Recorre todos los equipos y asigna los nombres del array
-    teamsRound16.forEach((teamsRound16, index) => {
-        teamsRound16.textContent = teamNames[index];
+// Asignar nombres de equipos a una ronda
+function asignarEquipos(rondaEquipos, ganadores) {
+    rondaEquipos.forEach((equipo, index) => {
+        equipo.textContent = ganadores[index];
     });
-
-    let arrayGanadores16vos = [16];
-    for (let i = 1; i <= 16; i++) {
-        let match = document.querySelector('.d-knockout' + i);
-        let equipos = match.querySelectorAll('div');
-        let winner = determinarGanador(equipos);
-
-        winner.style.backgroundColor = 'green';
-
-        equipos.forEach(team => {
-            if (team !== winner) {
-                team.style.backgroundColor = 'red';
-            }
-        });
-
-        let ganador = winner.textContent;
-        arrayGanadores16vos.push(ganador);
-    }
-
-    console.log('Ganadores 16vos');
-    console.log(arrayGanadores16vos);
-
-    teamsRound8.forEach((teamsRound8, index) => {
-        teamsRound8.textContent = arrayGanadores16vos[index + 1];
-    })
-
-    let arrayGanadores8vos = [8];
-    for (let i = 1; i <= 8; i++) {
-        let match = document.querySelector('.o-knockout' + i);
-        let equipos = match.querySelectorAll('div');
-        let winner = determinarGanador(equipos);
-
-        winner.style.backgroundColor = 'green';
-
-        equipos.forEach(team => {
-            if (team !== winner) {
-                team.style.backgroundColor = 'red';
-            }
-        });
-
-        let ganador = winner.textContent;
-
-        arrayGanadores8vos.push(ganador);
-
-    }
-
-    console.log('Ganadores 8vos');
-    console.log(arrayGanadores8vos);
-
-    teamsRound4.forEach((teamsRound4, index) => {
-        teamsRound4.textContent = arrayGanadores8vos[index + 1];
-    })
-
-    let arrayGanadores4tos = [4];
-    for (let i = 1; i <= 4; i++) {
-        let match = document.querySelector('.c-knockout' + i);
-        let equipos = match.querySelectorAll('div');
-        let winner = determinarGanador(equipos);
-
-        winner.style.backgroundColor = 'green';
-
-        equipos.forEach(team => {
-            if (team !== winner) {
-                team.style.backgroundColor = 'red';
-            }
-        });
-
-        let ganador = winner.textContent;
-
-        arrayGanadores4tos.push(ganador);
-
-    }
-
-    console.log('Ganadores 4tos');
-    console.log(arrayGanadores4tos);
-
-    teamsRound2.forEach((teamsRound2, index) => {
-        teamsRound2.textContent = arrayGanadores4tos[index + 1];
-    })
-
-    let arrayGanadoresSemis = [2];
-    for (let i = 1; i <= 2; i++) {
-        let match = document.querySelector('.s-knockout' + i);
-        let equipos = match.querySelectorAll('div');
-        let winner = determinarGanador(equipos);
-
-        winner.style.backgroundColor = 'green';
-
-        equipos.forEach(team => {
-            if (team !== winner) {
-                team.style.backgroundColor = 'red';
-            }
-        });
-
-        let ganador = winner.textContent;
-
-        arrayGanadoresSemis.push(ganador);
-
-    }
-
-    const arrayPerdedoresSemis = arrayGanadores4tos.filter(element => !arrayGanadoresSemis.includes(element));
-
-    console.log('Ganadores Semis');
-    console.log(arrayGanadoresSemis);
-
-    console.log('Perdedores Semis');
-    console.log(arrayPerdedoresSemis);
-
-    teamsThirdPlace.forEach((teamsThirdPlace, index) => {
-        teamsThirdPlace.textContent = arrayPerdedoresSemis[index + 1];
-    })
-
-
-    let thirdPlace = document.querySelector('.f-third');
-    let equipos = thirdPlace.querySelectorAll('div');
-    let winner = determinarGanador(equipos);
-    winner.style.backgroundColor = 'green';
-    equipos.forEach(team => {
-        if (team !== winner) {
-            team.style.backgroundColor = 'red';
-        }
-    });
-
-    let final = document.querySelector('.f-final');
-    equipos = final.querySelectorAll('div');
-    winner = determinarGanador(equipos);
-    winner.style.backgroundColor = 'green';
-    equipos.forEach(team => {
-        if (team !== winner) {
-            team.style.backgroundColor = 'red';
-        }
-    });
-
-    teamsFinal.forEach((teamsFinal, index) => {
-        teamsFinal.textContent = arrayGanadoresSemis[index + 1];
-    })
-
-});
-
+}
 
 function determinarGanador(equipos) {
     // Elige un índice aleatorio: 0 para el primer equipo, 1 para el segundo equipo
@@ -183,3 +44,80 @@ function determinarGanador(equipos) {
     return equipos[ganadorIndex];
 }
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function procesarRonda(clasePartido, numPartidos) {
+    let ganadores = [];
+    for (let i = 1; i <= numPartidos; i++) {
+        let match;
+        if (clasePartido === 'f-final') {
+            match = document.querySelector('.f-final');
+        } else if (clasePartido === 'f-third') {
+            match = document.querySelector('.f-third');
+        } else {
+            match = document.querySelector(`.${clasePartido}${i}`);
+        }
+
+        let equipos = match.querySelectorAll('div');
+        let winner = determinarGanador(equipos);
+
+        winner.style.backgroundColor = 'green';
+        equipos.forEach(team => {
+            if (team !== winner) {
+                team.style.backgroundColor = 'red';
+            }
+        });
+
+        ganadores.push(winner.textContent);
+
+        // Espera 1 segundo (1000 ms) antes de continuar a la siguiente iteración
+        await delay(1000);
+        console.log("clase partido: " + clasePartido)
+    }
+    return ganadores;
+}
+
+
+button.addEventListener('click', async () => {
+    let teams = document.querySelectorAll('[class^="team"]');
+    teams.forEach((equipo) => {
+        equipo.style.backgroundColor = '#4b4a4a';
+    });
+
+    // Asignar equipos de la primera ronda (16vos)
+    teamsRound16.forEach((equipo, index) => {
+        equipo.textContent = teamNames[index];
+    });
+
+    // Procesar cada ronda
+    let ganadores16vos = await procesarRonda('d-knockout', 16);
+    console.log('Ganadores 16vos:', ganadores16vos);
+    asignarEquipos(teamsRound8, ganadores16vos);
+
+    let ganadores8vos = await procesarRonda('o-knockout', 8);
+    console.log('Ganadores 8vos:', ganadores8vos);
+    asignarEquipos(teamsRound4, ganadores8vos);
+
+    let ganadores4tos = await procesarRonda('c-knockout', 4);
+    console.log('Ganadores 4tos:', ganadores4tos);
+    asignarEquipos(teamsRound2, ganadores4tos);
+
+    let ganadoresSemis = await procesarRonda('s-knockout', 2);
+    console.log('Ganadores Semis:', ganadoresSemis);
+
+    let perdedoresSemis = ganadores4tos.filter(element => !ganadoresSemis.includes(element));
+    console.log('Perdedores Semis:', perdedoresSemis);
+
+    asignarEquipos(teamsThirdPlace, perdedoresSemis);
+
+    // Procesar tercer lugar
+    await procesarRonda('f-third', 1);
+
+    // Asignar finalistas
+    asignarEquipos(teamsFinal, ganadoresSemis);
+
+    // Procesar final
+    await procesarRonda('f-final', 1);
+});
