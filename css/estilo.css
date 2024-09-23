@@ -13,7 +13,7 @@ body {
     font-family: Arial, sans-serif;
     /* background-color: #f4f4f4; */
     margin: 0;
-    background-image: url('../../ak.jpg');
+    background-image: url('../img/fondoSimulacionFinal.jpg');
     background-size: auto;
     background-repeat: no-repeat;
     background-position: 0 2%;
@@ -66,7 +66,7 @@ nav ul li a:active {
     color: var(--blanco);
 }
 
-.finals .btn-simulation {
+#btn-simulation {
     color: black;
     background-color: rgb(32, 240, 32);
     padding: 10px;
@@ -126,14 +126,15 @@ b {
 }
 
 .left .match {
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 5px rgb(10, 9, 9);
 }
 
 .right .match {
-    box-shadow: -5px 5px 5px grey;
+    box-shadow: -5px 5px 5px rgb(10, 9, 9);
 }
 
-.team {
+[class^="team"] {
+    /* aplica el estilo a todas las clases que empiezen por team* */
     background-color: #4b4a4a;
     padding: 10px;
     margin: 5px 0;
@@ -243,6 +244,7 @@ h2 {
     text-align: center;
 }
 
+/*
 
 .dieciseisavos>.d1::before {
     content: '';
@@ -418,4 +420,24 @@ h2 {
     height: 300%;
     background-color: white;
     border: 1px solid black;
+}
+    */
+
+.ganador {
+    background-color: green;
+    color: white;
+    /* Opcional, para mayor contraste */
+}
+
+/* Clase para equipos perdedores */
+.perdedor {
+    background-color: red;
+    color: white;
+    /* Opcional, para mayor contraste */
+}
+
+/* Opcional: clase para el hover de los equipos */
+.ganador:hover,
+.perdedor:hover {
+    opacity: 0.8;
 }
