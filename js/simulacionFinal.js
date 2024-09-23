@@ -81,6 +81,7 @@ async function procesarRonda(clasePartido, numPartidos) {
 
 
 button.addEventListener('click', async () => {
+    // Resetear estilo por defecto
     let teams = document.querySelectorAll('[class^="team"]');
     teams.forEach((equipo) => {
         equipo.style.backgroundColor = '#4b4a4a';
