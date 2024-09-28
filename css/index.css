@@ -70,12 +70,6 @@ nav ul li a:active {
     width: 80%;
 }
 
-.fondo-img {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-}
-
 main {
     display: flex;
     flex-direction: row;
@@ -83,14 +77,15 @@ main {
     align-items: flex-start;
     width: 100%;
     flex-grow: 1;
-    padding: 20px;
     box-sizing: border-box;
     gap: 20px;
     background-image: url("../img/fondo.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
+    min-height: 95vh;
+    margin-top: 30px;
+    padding: 20px;
 }
 
 .content {
@@ -125,7 +120,7 @@ aside {
     border-radius: 5px;
     background-color: var(--gris-claro);
     height: fit-content;
-    min-height: 76vh;
+    min-height: 70vh;
 
 }
 
@@ -216,7 +211,7 @@ li a {
 
 .grupos {
     border: 5px solid var(--blanco);
-    max-height: 76vh;
+    max-height: 70vh;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -281,8 +276,13 @@ td img {
     margin: 0 3px;
 }
 
+.default{
+    background-color: rgb(255, 255, 255) ;
+}
+
 .win {
     background-color: #00c851;
+    
 }
 
 .loss {

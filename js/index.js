@@ -42,56 +42,55 @@ function insertarTabla() {
         <tbody>
           <tr>
             <td>1</td> <!-- Número de equipo -->
-            <td class="team"><img src="https://flagcdn.com/w20/nl.png" alt="Países Bajos">
-              Países Bajos</td>
-            <td>3</td>
-            <td>2</td>
-            <td>1</td>
+            <td class="team"><img src="https://flagcdn.com/w20/nl.png" alt="Países Bajos">Países Bajos</td>
             <td>0</td>
-            <td>5</td>
-            <td>1</td>
-            <td>4</td>
-            <td>7</td>
-            <td><span class="circle win"></span><span class="circle draw"></span><span class="circle win"></span></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><span class="circle default"></span><span class="circle default"></span><span class="circle default"></span></td>
           </tr>
           <tr>
             <td>2</td> <!-- Número de equipo -->
             <td class="team"><img src="https://flagcdn.com/w20/sn.png" alt="Senegal"> Senegal</td>
-            <td>3</td>
-            <td>2</td>
             <td>0</td>
-            <td>1</td>
-            <td>5</td>
-            <td>4</td>
-            <td>1</td>
-            <td>6</td>
-            <td><span class="circle loss"></span><span class="circle win"></span><span class="circle win"></span></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><span class="circle default"></span><span class="circle default"></span><span class="circle default"></span></td>
           </tr>
           <tr>
             <td>3</td> <!-- Número de equipo -->
             <td class="team"><img src="https://flagcdn.com/w20/ec.png" alt="Ecuador"> Ecuador</td>
-            <td>3</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>4</td>
-            <td>3</td>
-            <td>1</td>
-            <td>4</td>
-            <td><span class="circle win"></span><span class="circle loss"></span><span class="circle loss"></span></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><span class="circle default"></span><span class="circle default"></span><span class="circle default"></span></td>
           </tr>
           <tr>
             <td>4</td> <!-- Número de equipo -->
             <td class="team"><img src="https://flagcdn.com/w20/qa.png" alt="Catar"> Catar</td>
-            <td>3</td>
             <td>0</td>
             <td>0</td>
-            <td>3</td>
-            <td>1</td>
-            <td>7</td>
-            <td>-6</td>
             <td>0</td>
-            <td><span class="circle loss"></span><span class="circle loss"></span><span class="circle loss"></span></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><span class="circle default"></span><span class="circle default"></span><span class="circle default"></span></td>
           </tr>
         </tbody>
       </table>
