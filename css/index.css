@@ -70,12 +70,6 @@ nav ul li a:active {
     width: 80%;
 }
 
-.fondo-img {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-}
-
 main {
     display: flex;
     flex-direction: row;
@@ -83,40 +77,43 @@ main {
     align-items: flex-start;
     width: 100%;
     flex-grow: 1;
-    /* Permite que main crezca y ocupe el espacio restante */
-    padding: 20px;
     box-sizing: border-box;
     gap: 20px;
     background-image: url("../img/fondo.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
+    min-height: 95vh;
+    margin-top: 30px;
+    padding: 20px;
 }
 
 .content {
     display: none;
 }
 
-/* Clase activa para mostrar la sección seleccionada */
 .content.active {
     display: block;
 }
 
+.sorteoFaseGrupos,.faseGrupos {
+    margin-top: -30px;
+}
+
+
 section {
     padding: 20px;
     color: var(--blanco);
-    border: 5px solid var(--blanco);
     border-radius: 5px;
     min-height: 85vh;
 }
 
 article {
     margin-bottom: 20px;
-
 }
 
 aside {
+    margin-top: 52px;
     flex: 1;
     color: var(--blanco);
     padding: 20px;
@@ -124,7 +121,8 @@ aside {
     border-radius: 5px;
     background-color: var(--gris-claro);
     height: fit-content;
-    min-height: 85vh;
+    min-height: 70vh;
+
 }
 
 .content {
@@ -162,7 +160,6 @@ footer {
     text-align: center;
     box-shadow: 0 2px 5px var(--negro);
     margin-top: auto;
-    /* Empuja el footer hacia abajo cuando el main crezca */
 }
 
 h2 {
@@ -208,20 +205,44 @@ li a {
     color: white;
 }
 
-.grupos{
+.table-container {
+    min-width: 685px;
+    max-width: 700px;
+    overflow-x: auto;
+}
+
+.grupos,.faseDegrupos {
+    border: 5px solid var(--blanco);
+    max-height: 70vh;
+    min-height: 70vh;
     display: flex;
-    /* Usar flexbox */
     flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan */
+    width: 100%;
     gap: 20px;
-    /* Espacio entre los divs */
     justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-collapse: collapse;
+    padding: 10px;
 }
 
 table {
-    border-collapse: collapse;
     width: 100%;
     background-color: #333;
+    color: white;
+    border-spacing: 0;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+thead p {
+    margin: 0;
+    font-weight: bold;
 }
 
 .team {
@@ -257,8 +278,13 @@ td img {
     margin: 0 3px;
 }
 
+.default{
+    background-color: rgb(255, 255, 255) ;
+}
+
 .win {
     background-color: #00c851;
+    
 }
 
 .loss {
