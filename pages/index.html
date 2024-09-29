@@ -28,34 +28,28 @@
     <main>
         <div class="section-container">
             <section class="sorteoFaseGrupos content">
-
                 <div class="buttons">
-                    <button class="button is-white">Simular</button>
+                    <button class="button is-white" id="simularSorteoGruposBtn">Simular Sorteo</button>
                 </div>
 
-                <div class="grupos">
-                    <!--Aqui van aparecer las tablas de cada grupo-->
+                <div class="grupos" id="grupos">
+                    <!--Aquí van aparecer las tablas de cada grupo-->
                 </div>
             </section>
 
             <section class="faseGrupos content">
-                <article>
-                    <h2>Artículo Fase Grupos</h2>
-                    <p>Contenido del artículo de Fase Grupos.</p>
-                </article>
+                <div class="buttons">
+                    <button class="button is-white" id="simularGruposBtn">Simular Fase Grupos</button>
+                </div>
+                <div class="faseDegrupos" id="faseGrupos">
+                    <!--Aquí van aparecer las tablas de cada grupo-->
+                </div>
             </section>
 
             <section class="faseFinal content">
                 <article>
                     <h2>Artículo Fase Final</h2>
                     <p>Contenido del artículo de Fase Final.</p>
-                </article>
-            </section>
-
-            <section class="acercaDe content">
-                <article>
-                    <h2>Artículo Acerca De</h2>
-                    <p>Contenido del artículo de Acerca De.</p>
                 </article>
             </section>
         </div>
@@ -97,7 +91,7 @@
             <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="../js/index.js"></script>
+    <script type="module" src="../js/index.js"></script>
 </body>
 
 </html>

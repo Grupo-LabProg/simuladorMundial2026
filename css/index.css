@@ -96,9 +96,10 @@ main {
     display: block;
 }
 
-.sorteoFaseGrupos {
+.sorteoFaseGrupos,.faseGrupos {
     margin-top: -30px;
 }
+
 
 section {
     padding: 20px;
@@ -205,13 +206,15 @@ li a {
 }
 
 .table-container {
-    min-width: 500px;
+    min-width: 685px;
+    max-width: 700px;
     overflow-x: auto;
 }
 
-.grupos {
+.grupos,.faseDegrupos {
     border: 5px solid var(--blanco);
     max-height: 70vh;
+    min-height: 70vh;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -221,7 +224,6 @@ li a {
     overflow-x: hidden;
     border-collapse: collapse;
     padding: 10px;
-
 }
 
 table {
