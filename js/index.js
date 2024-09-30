@@ -1,5 +1,11 @@
 import { equiposMundial2022 } from "./paises.js";
 
+function hideNavMenu() {
+  if (window.innerWidth <= 800) {
+    document.getElementById("nav_check").checked = false;
+  }
+}
+
 document.querySelectorAll("nav .link").forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault(); // Evita que el enlace navegue a otra página
@@ -14,6 +20,7 @@ document.querySelectorAll("nav .link").forEach((link) => {
     // Muestra la sección correspondiente
     if (target) {
       document.querySelector(`.${target}`).classList.add("active");
+      hideNavMenu();
     }
   });
 });
@@ -173,7 +180,6 @@ function simularFaseDeGrupos(grupo, equipos) {
 document
   .getElementById("simularSorteoGruposBtn")
   .addEventListener("click", function () {
-    
     sorteo(equiposMundial2022);
 
     // Crear los grupos

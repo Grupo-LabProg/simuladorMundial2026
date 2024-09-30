@@ -56,19 +56,61 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: var(--gris);
     color: var(--blanco);
 }
 
 nav ul li a:active {
     background-color: var(--negro);
-    color: var(--blanco);
+    color: var(--gris);
 }
 
-.section-container {
-    z-index: 2;
-    width: 80%;
+.nav_menu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--fondo);
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(90, 90, 90, 0.1);
 }
+
+.hamburger {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+#nav_check:checked+nav .nav_menu {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    .nav_menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}
+
 
 main {
     display: flex;
@@ -96,10 +138,11 @@ main {
     display: block;
 }
 
-.sorteoFaseGrupos,.faseGrupos {
+.sorteoFaseGrupos,
+.faseGrupos {
     margin-top: -30px;
+    width: 100%;
 }
-
 
 section {
     padding: 20px;
@@ -211,19 +254,22 @@ li a {
     overflow-x: auto;
 }
 
-.grupos,.faseDegrupos {
+.grupos,
+.faseDegrupos {
     border: 5px solid var(--blanco);
     max-height: 70vh;
     min-height: 70vh;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    gap: 20px;
     justify-content: center;
     overflow-y: auto;
     overflow-x: hidden;
     border-collapse: collapse;
     padding: 10px;
+    gap: 10px;
+    min-width: 206vh;
+
 }
 
 table {
@@ -278,13 +324,13 @@ td img {
     margin: 0 3px;
 }
 
-.default{
-    background-color: rgb(255, 255, 255) ;
+.default {
+    background-color: rgb(255, 255, 255);
 }
 
 .win {
     background-color: #00c851;
-    
+
 }
 
 .loss {
