@@ -8,16 +8,14 @@ function hideNavMenu() {
 
 document.querySelectorAll("nav .link").forEach((link) => {
   link.addEventListener("click", (event) => {
-    event.preventDefault(); // Evita que el enlace navegue a otra página
+    event.preventDefault();
 
     const target = link.getAttribute("data-target");
 
-    // Oculta todas las secciones
     document.querySelectorAll(".content").forEach((section) => {
       section.classList.remove("active");
     });
 
-    // Muestra la sección correspondiente
     if (target) {
       document.querySelector(`.${target}`).classList.add("active");
       hideNavMenu();
@@ -25,19 +23,17 @@ document.querySelectorAll("nav .link").forEach((link) => {
   });
 });
 
-// Función para mezclar los equipos
 function sorteo(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]; // Intercambiar elementos
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-// Función para insertar la tabla
 function insertarTabla(grupo, equipos) {
-  const gruposDiv = document.querySelector(".grupos"); // Contenedor donde se insertará la tabla
+  const gruposDiv = document.querySelector(".grupos");
   const faseGrupos = document.querySelector(".faseDegrupos");
-  // Estructura HTML de la tabla
+
   let html = `
       <div class="table-container">
           <h3>Grupo ${grupo}</h3>
@@ -59,7 +55,6 @@ function insertarTabla(grupo, equipos) {
               </thead>
               <tbody>`;
 
-  // Generar las filas de los equipos
   equipos.forEach((equipo, index) => {
     html += `
           <tr>
@@ -83,49 +78,44 @@ function insertarTabla(grupo, equipos) {
           </table>
       </div>`;
 
-  // Insertar el HTML en el contenedor
   faseGrupos.insertAdjacentHTML("beforeend", html);
   gruposDiv.insertAdjacentHTML("beforeend", html);
 }
 
-// Función para simular resultados de partidos
 function simularResultados(equipos) {
   equipos.forEach((equipo) => {
-    // Generar resultados aleatorios
-    equipo.PJ = 3; // Partidos Jugados
-    equipo.G = Math.floor(Math.random() * 4); // Ganados
-    equipo.E = Math.floor(Math.random() * (3 - equipo.G)); // Empatados
-    equipo.P = 3 - (equipo.G + equipo.E); // Perdidos
-    equipo.GF = equipo.G * (Math.floor(Math.random() * 4) + 1); // Goles a favor
-    equipo.GC = equipo.P * (Math.floor(Math.random() * 4) + 1); // Goles en contra
-    equipo.DG = equipo.GF - equipo.GC; // Diferencia de goles
-    equipo.Pts = equipo.G * 3 + equipo.E; // Puntos
-    // Asignar clase a los círculos según el resultado
+    equipo.PJ = 3;
+    equipo.G = Math.floor(Math.random() * 4);
+    equipo.E = Math.floor(Math.random() * (3 - equipo.G));
+    equipo.P = 3 - (equipo.G + equipo.E);
+    equipo.GF = equipo.G * (Math.floor(Math.random() * 4) + 1);
+    equipo.GC = equipo.P * (Math.floor(Math.random() * 4) + 1);
+    equipo.DG = equipo.GF - equipo.GC;
+    equipo.Pts = equipo.G * 3 + equipo.E;
+
     equipo.circles = [];
     for (let i = 0; i < equipo.G; i++) {
-      equipo.circles.push("win"); // Ganas
+      equipo.circles.push("win");
     }
     for (let i = 0; i < equipo.E; i++) {
-      equipo.circles.push("draw"); // Empates
+      equipo.circles.push("draw");
     }
     for (let i = 0; i < equipo.P; i++) {
-      equipo.circles.push("loss"); // Pérdidas
+      equipo.circles.push("loss");
     }
   });
 }
 
-// Función para insertar la tabla
 function simularFaseDeGrupos(grupo, equipos) {
-  // Ordenar los equipos por puntos y diferencia de goles
   equipos.sort((a, b) => {
     if (b.Pts === a.Pts) {
-      return b.DG - a.DG; // Ordenar por diferencia de goles si los puntos son iguales
+      return b.DG - a.DG;
     }
-    return b.Pts - a.Pts; // Ordenar por puntos
+    return b.Pts - a.Pts;
   });
 
   const faseGrupos = document.querySelector(".faseDegrupos");
-  // Estructura HTML de la tabla
+
   let html = `
       <div class="table-container">
           <h3 style="color:grey">Grupo ${grupo}</h3>
@@ -146,8 +136,6 @@ function simularFaseDeGrupos(grupo, equipos) {
                   </tr>
               </thead>
               <tbody>`;
-
-  // Generar las filas de los equipos
   equipos.forEach((equipo, index) => {
     html += `
           <tr>
@@ -173,7 +161,6 @@ function simularFaseDeGrupos(grupo, equipos) {
           </table>
       </div>`;
 
-  // Insertar el HTML en el contenedor
   faseGrupos.insertAdjacentHTML("beforeend", html);
 }
 
@@ -182,21 +169,17 @@ document
   .addEventListener("click", function () {
     sorteo(equiposMundial2022);
 
-    // Crear los grupos
     const grupos = {};
-    const letras = "ABCDEFGHIJKL"; // Letras para los grupos A-L
+    const letras = "ABCDEFGHIJKL";
 
     for (let i = 0; i < letras.length; i++) {
-      grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4); // Asignar 4 equipos a cada grupo
+      grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4);
     }
 
-    // Limpiar grupos previos
     const gruposDiv = document.getElementById("grupos");
-    gruposDiv.innerHTML = ""; // Limpiar el contenedor
-    // Limpiar grupos previos
+    gruposDiv.innerHTML = "";
     const faseGrupos = document.getElementById("faseGrupos");
-    faseGrupos.innerHTML = ""; // Limpiar el contenedor
-    // Insertar tablas para cada grupo
+    faseGrupos.innerHTML = "";
     for (const grupo in grupos) {
       insertarTabla(grupo, grupos[grupo]);
     }
@@ -207,50 +190,42 @@ document
 document
   .getElementById("simularGruposBtn")
   .addEventListener("click", function () {
-    // Crear los grupos
     const grupos = {};
-    const letras = "ABCDEFGHIJKL"; // Letras para los grupos A-L
+    const letras = "ABCDEFGHIJKL";
 
     for (let i = 0; i < letras.length; i++) {
-      grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4); // Asignar 4 equipos a cada grupo
+      grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4);
     }
 
-    // Limpiar grupos previos
     const faseGrupos = document.getElementById("faseGrupos");
-    faseGrupos.innerHTML = ""; // Limpiar el contenedor
+    faseGrupos.innerHTML = "";
 
-    const clasificados = []; // Arreglo para los clasificados
+    const clasificados = [];
 
-    // Insertar tablas para cada grupo
     for (const grupo in grupos) {
-      simularResultados(grupos[grupo]); // Simular resultados para los equipos
+      simularResultados(grupos[grupo]);
       simularFaseDeGrupos(grupo, grupos[grupo]);
 
-      // Agregar los dos primeros equipos al arreglo de clasificados
-      clasificados.push(grupos[grupo][0]); // Primer equipo
-      clasificados.push(grupos[grupo][1]); // Segundo equipo
+      clasificados.push(grupos[grupo][0]);
+      clasificados.push(grupos[grupo][1]);
     }
 
-    // Calcular los mejores terceros
     const mejoresTerceros = [];
     for (let i = 0; i < letras.length; i++) {
-      const equipoTercero = grupos[letras[i]][2]; // Tercer equipo de cada grupo
+      const equipoTercero = grupos[letras[i]][2];
       mejoresTerceros.push(equipoTercero);
     }
 
-    // Ordenar los mejores terceros
     mejoresTerceros.sort((a, b) => {
       if (b.Pts === a.Pts) {
-        return b.DG - a.DG; // Ordenar por diferencia de goles si los puntos son iguales
+        return b.DG - a.DG;
       }
-      return b.Pts - a.Pts; // Ordenar por puntos
+      return b.Pts - a.Pts;
     });
 
-    // Agregar los mejores 3 terceros (8 en total) al arreglo de clasificados
     for (let i = 0; i < 8; i++) {
       clasificados.push(mejoresTerceros[i]);
     }
 
-    // Imprimir los clasificados en la consola
     console.log("Clasificados:", clasificados);
   });
