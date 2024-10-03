@@ -140,9 +140,10 @@ function simularFaseDeGrupos(grupo, equipos) {
     html += `
           <tr>
               <td>${index + 1}</td>
-              <td class="team"><img src="${equipo.flag}" alt="${
-      equipo.name
-    }" width="20">${equipo.name}</td>
+              <td class="team">
+                <img src="${equipo.flag}" alt="${equipo.name}" width="20">
+                ${equipo.name}
+              </td>
               <td>${equipo.PJ}</td>
               <td>${equipo.G}</td>
               <td>${equipo.E}</td>
@@ -205,15 +206,17 @@ document
     for (const grupo in grupos) {
       simularResultados(grupos[grupo]);
       simularFaseDeGrupos(grupo, grupos[grupo]);
-
-      clasificados.push(grupos[grupo][0]);
-      clasificados.push(grupos[grupo][1]);
+      const equipo1 = grupos[grupo][0]
+      const equipo2 = grupos[grupo][1]
+      
+      clasificados.push(`<td class="team"> <img src="${equipo1.flag}" alt="${equipo1.name}" width="20">${equipo1.name}</td>`);
+      clasificados.push(`<td class="team"> <img src="${equipo2.flag}" alt="${equipo2.name}" width="20">${equipo2.name}</td>`);
     }
 
     const mejoresTerceros = [];
     for (let i = 0; i < letras.length; i++) {
       const equipoTercero = grupos[letras[i]][2];
-      mejoresTerceros.push(equipoTercero);
+      mejoresTerceros.push(`<td class="team"> <img src="${equipoTercero.flag}" alt="${equipoTercero.name}" width="20">${equipoTercero.name}</td>`);
     }
 
     mejoresTerceros.sort((a, b) => {
@@ -226,6 +229,9 @@ document
     for (let i = 0; i < 8; i++) {
       clasificados.push(mejoresTerceros[i]);
     }
-
-    console.log("Clasificados:", clasificados);
+    //ver cada equipo claficado
+    for (let i = 0; i < clasificados.length; i++) {
+      console.log(clasificados[i]);
+    }
+   // console.log("Clasificados:", clasificados);
   });
