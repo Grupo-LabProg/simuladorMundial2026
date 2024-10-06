@@ -1,443 +1,271 @@
 @import url("paletaColores.css");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 95%;
-    color: white;
-    /* Reduce el tamaño de fuente de todos los elementos */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 95%;
+  color: white;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    /* background-color: #f4f4f4; */
-    margin: 0;
-    background-image: url('../img/fondoSimulacionFinal.jpg');
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: 0 2%;
-
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-image: url("../img/fondoSimulacionFinal.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: 0 2%;
 }
 
 header {
-    position: fixed;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--gris-claro);
-    box-shadow: 0 2px 5px var(--negro);
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: black;
+  position: fixed;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--gris-claro);
+  box-shadow: 0 2px 5px var(--negro);
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: black;
 }
 
 .logo img {
-    height: 60px;
-    width: 60px;
-    max-width: 100%;
-    border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+  list-style: none;
+  display: flex;
+  gap: 15px;
 }
 
 nav ul li a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 3px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: var(--gris);
-    color: var(--blanco);
+  background-color: var(--gris);
+  color: var(--blanco);
 }
 
 nav ul li a:active {
-    background-color: var(--negro);
-    color: var(--blanco);
+  background-color: var(--negro);
+  color: var(--blanco);
 }
 
 #btn-simulation {
-    color: black;
-    background-color: rgb(32, 240, 32);
-    padding: 10px;
-    width: 60%;
-    border-radius: 5%;
-    margin-bottom: 80px;
-    margin-top: 50px;
-    height: 40%;
-    font-size: 2em;
+  color: black;
+  background-color: rgb(32, 240, 32);
+  padding: 10px;
+  width: 60%;
+  border-radius: 5%;
+  margin-bottom: 80px;
+  margin-top: 50px;
+  height: 40%;
+  font-size: 2em;
 }
 
 b {
-    color: black;
+  color: black;
 }
 
 .div-btn-simulation {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 .tournament {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 90%;
-    padding: 5%;
-    position: absolute;
-    top: 9.5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  padding: 5%;
+  position: absolute;
+  top: 9.5%;
 }
 
 .round {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    /* border: 1px solid black; */
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* border: 1px solid black; */
+  gap: 10px;
 }
 
 .round h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .match {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 80%;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 1px 5px;
-    background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1px 5px;
+  background-color: white;
 }
 
 .left .match {
-    box-shadow: 5px 5px 5px rgb(10, 9, 9);
+  box-shadow: 5px 5px 5px rgb(10, 9, 9);
 }
 
 .right .match {
-    box-shadow: -5px 5px 5px rgb(10, 9, 9);
+  box-shadow: -5px 5px 5px rgb(10, 9, 9);
 }
 
 [class^="team"] {
-    /* aplica el estilo a todas las clases que empiezen por team* */
-    background-color: #4b4a4a;
-    padding: 10px;
-    margin: 5px 0;
-    text-align: center;
-    border-radius: 5px;
-    width: 100%;
+  /* aplica el estilo a todas las clases que empiezen por team* */
+  background-color: #4b4a4a;
+  padding: 10px;
+  margin: 5px 0;
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+  height: 32px;
+  display: flex;
 }
 
 .finals .final .match {
-    background-color: #ffdb4d;
-    padding: 15px;
-    border-radius: 10px;
-    margin: 0;
-    width: 100%;
-    box-shadow: 0 5px 5px grey;
+  background-color: #ffdb4d;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0;
+  width: 100%;
+  box-shadow: 0 5px 5px blak;
 }
 
 .finals .third .match {
-    background-color: #5f1515;
-    padding: 15px;
-    border-radius: 10px;
-    margin: 0;
-    width: 100%;
-    box-shadow: 0 5px 5px grey;
+  background-color: #5f1515;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 0;
+  width: 100%;
+  box-shadow: 0 5px 5px black;
 }
 
 .finals {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 h3 {
-    /* border: 1px solid red; */
-    text-align: center;
-    padding: 5px 10px;
-    color: black;
-    border-radius: 5%;
-    background-color: white;
-    border: 1px solid black;
+  /* border: 1px solid red; */
+  text-align: center;
+  padding: 5px 10px;
+  color: black;
+  border-radius: 5%;
+  background-color: white;
+  border: 1px solid black;
 }
 
 .third,
 .final {
-    width: 80%;
+  width: 80%;
 }
 
 .octavos {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 120%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120%;
 }
 
 .octavos h3 {
-    margin-top: 20%;
+  margin-top: 20%;
 }
 
 .cuartos {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 82%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 82%;
 }
 
 .semifinales {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
 }
 
 .semifinales h3 {
-    margin-top: 35%;
+  margin-top: 35%;
 }
 
 .semifinales .match {
-    margin-bottom: 35%;
+  margin-bottom: 35%;
 }
 
-
 .divMatch {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    /* border: 1px solid black; */
-
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .octavos .divMatch {
-    padding-bottom: 15%;
-
+  padding-bottom: 15%;
 }
 
 h2 {
-    font-size: 3em;
-    text-align: center;
-    text-shadow: 5px 5px 5px grey;
+  font-size: 3em;
+  text-align: center;
+  text-shadow: 5px 5px 5px grey;
 }
 
 .textThird {
-    margin-top: 10%;
-    text-align: center;
+  margin-top: 10%;
+  text-align: center;
 }
-
-/*
-
-.dieciseisavos>.d1::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    left: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.dieciseisavos>.d2::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    left: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.dieciseisavos>.d3::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    left: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.dieciseisavos>.d4::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    left: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.dieciseisavos>.d5::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    right: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.dieciseisavos>.d6::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    right: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.dieciseisavos>.d7::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    right: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.dieciseisavos>.d8::before {
-    content: '';
-    position: absolute;
-    top: 38%;
-    right: 110%;
-    width: 5px;
-    height: 150%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.octavos>.divMatch>.d9::before {
-    content: '';
-    position: absolute;
-    top: 70%;
-    left: 110%;
-    width: 5px;
-    height: 200%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.octavos>.divMatch>.d10::before {
-    content: '';
-    position: absolute;
-    top: 60%;
-    left: 110%;
-    width: 5px;
-    height: 200%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.octavos>.divMatch>.d11::before {
-    content: '';
-    position: absolute;
-    top: 70%;
-    right: 110%;
-    width: 5px;
-    height: 200%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.octavos>.divMatch>.d12::before {
-    content: '';
-    position: absolute;
-    top: 60%;
-    right: 110%;
-    width: 5px;
-    height: 200%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.cuartos>.divMatch>.d13::before {
-    content: '';
-    position: absolute;
-    top: 60%;
-    left: 110%;
-    width: 5px;
-    height: 450%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.cuartos>.divMatch>.d14::before {
-    content: '';
-    position: absolute;
-    top: 60%;
-    right: 110%;
-    width: 5px;
-    height: 450%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.semifinales>.d15::before {
-    content: '';
-    position: absolute;
-    bottom: -120%;
-    left: 110%;
-    width: 5px;
-    height: 300%;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.semifinales>.d16::before {
-    content: '';
-    position: absolute;
-    bottom: -120%;
-    right: 110%;
-    width: 5px;
-    height: 300%;
-    background-color: white;
-    border: 1px solid black;
-}
-    */
 
 .ganador {
-    background-color: green;
-    color: white;
-    /* Opcional, para mayor contraste */
+  background-color: green;
+  color: white;
 }
 
-/* Clase para equipos perdedores */
+/* Clase para equipos que perdieron */
 .perdedor {
-    background-color: red;
-    color: white;
-    /* Opcional, para mayor contraste */
+  background-color: red;
+  color: white;
 }
 
 /* Opcional: clase para el hover de los equipos */
 .ganador:hover,
 .perdedor:hover {
-    opacity: 0.8;
+  opacity: 0.8;
+}
+
+td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+}
+
+td > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
