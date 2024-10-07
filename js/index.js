@@ -1,4 +1,12 @@
-import { equiposMundial2022, AFC, CAF, CONCACAF, UEFA, CONMEBOL, OFC } from "./paises.js";
+import {
+  equiposMundial2022,
+  AFC,
+  CAF,
+  CONCACAF,
+  UEFA,
+  CONMEBOL,
+  OFC,
+} from "./paises.js";
 
 function hideNavMenu() {
   if (window.innerWidth <= 800) {
@@ -49,7 +57,9 @@ function insertarTablaConfederacion(confederacion, equipos) {
     html += `
           <tr>
               <td>${index + 1}</td>
-              <td class="team"><img src="${equipo.flag}" alt="${equipo.name}" width="20"> ${equipo.name}</td>
+              <td class="team"><img src="${equipo.flag}" alt="${
+      equipo.name
+    }" width="20"> ${equipo.name}</td>
           </tr>`;
   });
 
@@ -60,7 +70,6 @@ function insertarTablaConfederacion(confederacion, equipos) {
   // Inserta la tabla en la sección de confederaciones
   confederacionesDiv.insertAdjacentHTML("beforeend", html);
 }
-
 
 function insertarTabla(grupo, equipos) {
   const gruposDiv = document.querySelector(".grupos");
@@ -91,8 +100,9 @@ function insertarTabla(grupo, equipos) {
     html += `
           <tr>
               <td>${index + 1}</td>
-              <td class="team"><img src="${equipo.flag}" alt="${equipo.name
-      }" width="20">${equipo.name}</td>
+              <td class="team"><img src="${equipo.flag}" alt="${
+      equipo.name
+    }" width="20">${equipo.name}</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
@@ -114,16 +124,55 @@ function insertarTabla(grupo, equipos) {
 }
 
 function simularResultados(equipos) {
+  // Inicializamos las estadísticas de cada equipo
+  equipos.forEach(equipo => {
+    equipo.G = 0; // Ganados
+    equipo.E = 0; // Empatados
+    equipo.P = 0; // Perdidos
+    equipo.GF = 0; // Goles a favor
+    equipo.GC = 0; // Goles en contra
+  });
+
+  // Simulamos partidos entre todos los equipos (sistema de liga)
+  for (let i = 0; i < equipos.length; i++) {
+    for (let j = i + 1; j < equipos.length; j++) {
+      let resultado = Math.floor(Math.random() * 3); // 0: Empate, 1: Gana equipo[i], 2: Gana equipo[j]
+
+      let golesEquipoI = Math.floor(Math.random() * 4) + 1; // Goles aleatorios para equipo[i]
+      let golesEquipoJ = Math.floor(Math.random() * 4) + 1; // Goles aleatorios para equipo[j]
+
+      if (resultado === 0) { // Empate
+        equipos[i].E++;
+        equipos[j].E++;
+        equipos[i].GF += golesEquipoI;
+        equipos[j].GF += golesEquipoI; // Mismos goles porque empatan
+        equipos[i].GC += golesEquipoI;
+        equipos[j].GC += golesEquipoI;
+      } else if (resultado === 1) { // Gana equipo[i]
+        equipos[i].G++;
+        equipos[j].P++;
+        equipos[i].GF += golesEquipoI;
+        equipos[i].GC += golesEquipoJ;
+        equipos[j].GF += golesEquipoJ;
+        equipos[j].GC += golesEquipoI;
+      } else { // Gana equipo[j]
+        equipos[j].G++;
+        equipos[i].P++;
+        equipos[j].GF += golesEquipoJ;
+        equipos[j].GC += golesEquipoI;
+        equipos[i].GF += golesEquipoI;
+        equipos[i].GC += golesEquipoJ;
+      }
+    }
+  }
+
+  // Actualizar estadísticas generales
   equipos.forEach((equipo) => {
-    equipo.PJ = 3;
-    equipo.G = Math.floor(Math.random() * 4);
-    equipo.E = Math.floor(Math.random() * (3 - equipo.G));
-    equipo.P = 3 - (equipo.G + equipo.E);
-    equipo.GF = equipo.G * (Math.floor(Math.random() * 4) + 1);
-    equipo.GC = equipo.P * (Math.floor(Math.random() * 4) + 1);
+    equipo.PJ = 3; // Cada equipo juega 3 partidos en fase de grupos
     equipo.DG = equipo.GF - equipo.GC;
     equipo.Pts = equipo.G * 3 + equipo.E;
 
+    // Crear círculos de resultados
     equipo.circles = [];
     for (let i = 0; i < equipo.G; i++) {
       equipo.circles.push("win");
@@ -138,6 +187,7 @@ function simularResultados(equipos) {
 }
 
 function simularFaseDeGrupos(grupo, equipos) {
+  // Ordenar por puntos y luego por diferencia de goles
   equipos.sort((a, b) => {
     if (b.Pts === a.Pts) {
       return b.DG - a.DG;
@@ -196,6 +246,7 @@ function simularFaseDeGrupos(grupo, equipos) {
   faseGrupos.insertAdjacentHTML("beforeend", html);
 }
 
+
 document
   .getElementById("simularSorteoGruposBtn")
   .addEventListener("click", function () {
@@ -249,7 +300,6 @@ document
       clasificados.push(
         `<td class="team"> <img src="${equipo2.flag}" alt="${equipo2.name}" width="20">${equipo2.name}</td>`
       );
-
     }
 
     const mejoresTerceros = [];
@@ -283,16 +333,18 @@ document
   .getElementById("mostrarConfederacionesBtn")
   .addEventListener("click", function () {
     const confederaciones = {
-      "CAF": CAF,
-      "CONMEBOL": CONMEBOL,
-      "CONCACAF": CONCACAF,
-      "AFC": AFC,
-      "UEFA": UEFA,
-      "OFC": OFC,
+      CAF: CAF,
+      CONMEBOL: CONMEBOL,
+      CONCACAF: CONCACAF,
+      AFC: AFC,
+      UEFA: UEFA,
+      OFC: OFC,
     };
 
     // Limpiar el contenido previo
-    const faseConfederacionesDiv = document.getElementById("faseConfederaciones");
+    const faseConfederacionesDiv = document.getElementById(
+      "faseConfederaciones"
+    );
     faseConfederacionesDiv.innerHTML = "";
 
     // Insertar cada confederación como si fuera un grupo
@@ -301,5 +353,3 @@ document
       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
     }
   });
-
-

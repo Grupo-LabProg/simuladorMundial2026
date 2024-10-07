@@ -53,6 +53,7 @@ nav ul li a {
     padding: 8px 12px;
     border-radius: 3px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
@@ -62,6 +63,7 @@ nav ul li a:hover {
 nav ul li a:active {
     background-color: var(--negro);
     color: var(--gris);
+    
 }
 
 .nav_menu {
@@ -111,6 +113,14 @@ nav ul li a:active {
     }
 }
 
+.buttons button{
+    font-weight: bold;
+    color: #5a5a5a;
+}
+
+.buttons button:hover{
+    background-color: rgb(201, 201, 201);
+}
 
 main {
     display: flex;
@@ -173,6 +183,7 @@ aside {
 .content {
     display: none;
     transition: all 0.3s ease-in-out;
+    
 }
 
 .toggle-btn {
@@ -296,19 +307,18 @@ li a {
 .faseConfederaciones {
     font-family: Arial, Helvetica, sans-serif;
     border: 5px solid var(--blanco);
-    background-color: rgba(10, 10, 10, 0.7); /* Fondo negro con 80% de opacidad */
+    background-color: rgba(65, 65, 65, 0.61); /* Fondo negro con 80% de opacidad */
     max-height: 70vh;
     min-height: 70vh;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     justify-content: center;
     overflow-y: auto;
     overflow-x: hidden;
     border-collapse: collapse;
     padding: 10px;
     gap: 10px;
-    min-width: 206vh;
+    min-width: 200vh;
 
 }
 
