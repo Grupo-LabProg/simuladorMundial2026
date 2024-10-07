@@ -219,6 +219,8 @@ document
     console.log(grupos);
   });
 
+localStorage.removeItem("clasificados"); // borra el arreglo clasificados del local storage cuando recarga la pagina
+
 document
   .getElementById("simularGruposBtn")
   .addEventListener("click", function () {
@@ -237,17 +239,25 @@ document
     for (const grupo in grupos) {
       simularResultados(grupos[grupo]);
       simularFaseDeGrupos(grupo, grupos[grupo]);
-      const equipo1 = grupos[grupo][0]
-      const equipo2 = grupos[grupo][1]
 
-      clasificados.push(`<td class="team"> <img src="${equipo1.flag}" alt="${equipo1.name}" width="20">${equipo1.name}</td>`);
-      clasificados.push(`<td class="team"> <img src="${equipo2.flag}" alt="${equipo2.name}" width="20">${equipo2.name}</td>`);
+      const equipo1 = grupos[grupo][0];
+      const equipo2 = grupos[grupo][1];
+
+      clasificados.push(
+        `<td class="team"> <img src="${equipo1.flag}" alt="${equipo1.name}" width="20">${equipo1.name}</td>`
+      );
+      clasificados.push(
+        `<td class="team"> <img src="${equipo2.flag}" alt="${equipo2.name}" width="20">${equipo2.name}</td>`
+      );
+
     }
 
     const mejoresTerceros = [];
     for (let i = 0; i < letras.length; i++) {
       const equipoTercero = grupos[letras[i]][2];
-      mejoresTerceros.push(`<td class="team"> <img src="${equipoTercero.flag}" alt="${equipoTercero.name}" width="20">${equipoTercero.name}</td>`);
+      mejoresTerceros.push(
+        `<td class="team"> <img src="${equipoTercero.flag}" alt="${equipoTercero.name}" width="20">${equipoTercero.name}</td>`
+      );
     }
 
     mejoresTerceros.sort((a, b) => {
@@ -265,6 +275,8 @@ document
       console.log(clasificados[i]);
     }
     // console.log("Clasificados:", clasificados);
+
+    localStorage.setItem("clasificados", JSON.stringify(clasificados));
   });
 
 document
