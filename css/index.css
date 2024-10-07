@@ -265,6 +265,7 @@ li a {
 }
 
 .tabla-confederacion table {
+    font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     table-layout: auto; /* Permite que las columnas ajusten su ancho automáticamente */
     border-spacing: 0;
@@ -272,6 +273,7 @@ li a {
 
 .tabla-confederacion th,
 .tabla-confederacion td {
+    font-family: Arial, Helvetica, sans-serif;
     padding: 5px 10px; /* Padding reducido para hacer la tabla más compacta */
     text-align: left; /* Alinear el texto a la izquierda */
     white-space: nowrap; /* Evitar que el texto se desborde a varias líneas */
@@ -292,6 +294,7 @@ li a {
 .grupos,
 .faseDegrupos,
 .faseConfederaciones {
+    font-family: Arial, Helvetica, sans-serif;
     border: 5px solid var(--blanco);
     background-color: rgba(10, 10, 10, 0.7); /* Fondo negro con 80% de opacidad */
     max-height: 70vh;
