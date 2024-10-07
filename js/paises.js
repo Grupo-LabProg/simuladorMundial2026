@@ -9,7 +9,7 @@ const AFC = [
   { name: "Irán", flag: "https://flagcdn.com/w20/ir.png" },
   { name: "Arabia Saudita", flag: "https://flagcdn.com/w20/sa.png" },
   { name: "Omán", flag: "https://flagcdn.com/w20/om.png" },
-  { name: "Emiratos Árabes Unidos", flag: "https://flagcdn.com/w20/ae.png" },
+  { name: "Emiratos Árabes", flag: "https://flagcdn.com/w20/ae.png" },
 ];
 
 // Confederación CAF (África)
@@ -63,8 +63,8 @@ const UEFA = [
 // Confederación CONMEBOL (Sudamérica)
 //7
 const CONMEBOL = [
-  { name: "Brasil", flag: "https://flagcdn.com/w20/br.png" },
   { name: "Argentina", flag: "https://flagcdn.com/w20/ar.png" },
+  { name: "Brasil", flag: "https://flagcdn.com/w20/br.png" },
   { name: "Uruguay", flag: "https://flagcdn.com/w20/uy.png" },
   { name: "Perú", flag: "https://flagcdn.com/w20/pe.png" },
   { name: "Chile", flag: "https://flagcdn.com/w20/cl.png" },

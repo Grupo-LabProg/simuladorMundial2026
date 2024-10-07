@@ -71,10 +71,11 @@ function insertarTablaConfederacion(confederacion, equipos) {
   confederacionesDiv.insertAdjacentHTML("beforeend", html);
 }
 
+let sorteoSimulado = false;
 function insertarTabla(grupo, equipos) {
   const gruposDiv = document.querySelector(".grupos");
   const faseGrupos = document.querySelector(".faseDegrupos");
-
+  sorteoSimulado = true;
   let html = `
       <div class="table-container">
           <h3>Grupo ${grupo}</h3>
@@ -124,38 +125,55 @@ function insertarTabla(grupo, equipos) {
 }
 
 function simularResultados(equipos) {
-  // Inicializamos las estadísticas de cada equipo
-  equipos.forEach(equipo => {
-    equipo.G = 0; // Ganados
-    equipo.E = 0; // Empatados
-    equipo.P = 0; // Perdidos
-    equipo.GF = 0; // Goles a favor
-    equipo.GC = 0; // Goles en contra
+
+  equipos.forEach((equipo) => {
+    equipo.G = 0; 
+    equipo.E = 0; 
+    equipo.P = 0; 
+    equipo.GF = 0; 
+    equipo.GC = 0; 
   });
 
-  // Simulamos partidos entre todos los equipos (sistema de liga)
+
   for (let i = 0; i < equipos.length; i++) {
     for (let j = i + 1; j < equipos.length; j++) {
-      let resultado = Math.floor(Math.random() * 3); // 0: Empate, 1: Gana equipo[i], 2: Gana equipo[j]
+      let resultado;
+      let golesEquipoI = Math.floor(Math.random() * 4) + 1;
+      let golesEquipoJ = Math.floor(Math.random() * 4) + 1;
 
-      let golesEquipoI = Math.floor(Math.random() * 4) + 1; // Goles aleatorios para equipo[i]
-      let golesEquipoJ = Math.floor(Math.random() * 4) + 1; // Goles aleatorios para equipo[j]
+      if (
+        equipos[i].name === "Argentina" ||
+        equipos[j].name === "Argentina"
+      ) {
+        let probabilidad = Math.random();
+        console.log(probabilidad)
+        if (probabilidad < 0.95) {
+          resultado = equipos[i].name === "Argentina" ? 1 : 2;
+        } else {
+          resultado = 0;
+        }
+      } else {
+        resultado = Math.floor(Math.random() * 3); 
+      }
 
-      if (resultado === 0) { // Empate
+      if (resultado === 0) {
+
         equipos[i].E++;
         equipos[j].E++;
         equipos[i].GF += golesEquipoI;
-        equipos[j].GF += golesEquipoI; // Mismos goles porque empatan
+        equipos[j].GF += golesEquipoI;
         equipos[i].GC += golesEquipoI;
         equipos[j].GC += golesEquipoI;
-      } else if (resultado === 1) { // Gana equipo[i]
+      } else if (resultado === 1) {
+       
         equipos[i].G++;
         equipos[j].P++;
         equipos[i].GF += golesEquipoI;
         equipos[i].GC += golesEquipoJ;
         equipos[j].GF += golesEquipoJ;
         equipos[j].GC += golesEquipoI;
-      } else { // Gana equipo[j]
+      } else {
+        
         equipos[j].G++;
         equipos[i].P++;
         equipos[j].GF += golesEquipoJ;
@@ -166,13 +184,13 @@ function simularResultados(equipos) {
     }
   }
 
-  // Actualizar estadísticas generales
+ 
   equipos.forEach((equipo) => {
-    equipo.PJ = 3; // Cada equipo juega 3 partidos en fase de grupos
+    equipo.PJ = 3; 
     equipo.DG = equipo.GF - equipo.GC;
     equipo.Pts = equipo.G * 3 + equipo.E;
 
-    // Crear círculos de resultados
+    
     equipo.circles = [];
     for (let i = 0; i < equipo.G; i++) {
       equipo.circles.push("win");
@@ -187,7 +205,7 @@ function simularResultados(equipos) {
 }
 
 function simularFaseDeGrupos(grupo, equipos) {
-  // Ordenar por puntos y luego por diferencia de goles
+  
   equipos.sort((a, b) => {
     if (b.Pts === a.Pts) {
       return b.DG - a.DG;
@@ -234,8 +252,8 @@ function simularFaseDeGrupos(grupo, equipos) {
               <td>${equipo.DG}</td>
               <td>${equipo.Pts}</td>
               <td>${equipo.circles
-        .map((circle) => `<span class="circle ${circle}"></span>`)
-        .join("")}</td>
+                .map((circle) => `<span class="circle ${circle}"></span>`)
+                .join("")}</td>
           </tr>`;
   });
 
@@ -245,7 +263,6 @@ function simularFaseDeGrupos(grupo, equipos) {
 
   faseGrupos.insertAdjacentHTML("beforeend", html);
 }
-
 
 document
   .getElementById("simularSorteoGruposBtn")
@@ -275,58 +292,67 @@ localStorage.removeItem("clasificados"); // borra el arreglo clasificados del lo
 document
   .getElementById("simularGruposBtn")
   .addEventListener("click", function () {
-    const grupos = {};
-    const letras = "ABCDEFGHIJKL";
+    if (sorteoSimulado) {
+      const grupos = {};
+      const letras = "ABCDEFGHIJKL";
 
-    for (let i = 0; i < letras.length; i++) {
-      grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4);
-    }
-
-    const faseGrupos = document.getElementById("faseGrupos");
-    faseGrupos.innerHTML = "";
-
-    const clasificados = [];
-
-    for (const grupo in grupos) {
-      simularResultados(grupos[grupo]);
-      simularFaseDeGrupos(grupo, grupos[grupo]);
-
-      const equipo1 = grupos[grupo][0];
-      const equipo2 = grupos[grupo][1];
-
-      clasificados.push(
-        `<td class="team"> <img src="${equipo1.flag}" alt="${equipo1.name}" width="20">${equipo1.name}</td>`
-      );
-      clasificados.push(
-        `<td class="team"> <img src="${equipo2.flag}" alt="${equipo2.name}" width="20">${equipo2.name}</td>`
-      );
-    }
-
-    const mejoresTerceros = [];
-    for (let i = 0; i < letras.length; i++) {
-      const equipoTercero = grupos[letras[i]][2];
-      mejoresTerceros.push(
-        `<td class="team"> <img src="${equipoTercero.flag}" alt="${equipoTercero.name}" width="20">${equipoTercero.name}</td>`
-      );
-    }
-
-    mejoresTerceros.sort((a, b) => {
-      if (b.Pts === a.Pts) {
-        return b.DG - a.DG;
+      for (let i = 0; i < letras.length; i++) {
+        grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4);
       }
-      return b.Pts - a.Pts;
-    });
 
-    for (let i = 0; i < 8; i++) {
-      clasificados.push(mejoresTerceros[i]);
-    }
-    //ver cada equipo claficado
-    for (let i = 0; i < clasificados.length; i++) {
-      console.log(clasificados[i]);
-    }
-    // console.log("Clasificados:", clasificados);
+      const faseGrupos = document.getElementById("faseGrupos");
+      faseGrupos.innerHTML = "";
 
-    localStorage.setItem("clasificados", JSON.stringify(clasificados));
+      const clasificados = [];
+
+      for (const grupo in grupos) {
+        simularResultados(grupos[grupo]);
+        simularFaseDeGrupos(grupo, grupos[grupo]);
+
+        const equipo1 = grupos[grupo][0];
+        const equipo2 = grupos[grupo][1];
+
+        clasificados.push(
+          `<td class="team"> <img src="${equipo1.flag}" alt="${equipo1.name}" width="20">${equipo1.name}</td>`
+        );
+        clasificados.push(
+          `<td class="team"> <img src="${equipo2.flag}" alt="${equipo2.name}" width="20">${equipo2.name}</td>`
+        );
+      }
+
+      const mejoresTerceros = [];
+      for (let i = 0; i < letras.length; i++) {
+        const equipoTercero = grupos[letras[i]][2];
+        mejoresTerceros.push(
+          `<td class="team"> <img src="${equipoTercero.flag}" alt="${equipoTercero.name}" width="20">${equipoTercero.name}</td>`
+        );
+      }
+
+      mejoresTerceros.sort((a, b) => {
+        if (b.Pts === a.Pts) {
+          return b.DG - a.DG;
+        }
+        return b.Pts - a.Pts;
+      });
+
+      for (let i = 0; i < 8; i++) {
+        clasificados.push(mejoresTerceros[i]);
+      }
+      //ver cada equipo claficado
+      /*for (let i = 0; i < clasificados.length; i++) {
+        console.log(clasificados[i]);
+      }*/
+      // console.log("Clasificados:", clasificados);
+
+      localStorage.setItem("clasificados", JSON.stringify(clasificados));
+    } else {
+      Swal.fire({
+        title: "¡Falta simular el sorteo de grupos!",
+        color: "#000000",
+        icon: "error",
+        confirmButtonColor: "#000000", 
+      });
+    }
   });
 
 document
