@@ -87,5 +87,5 @@ const equiposMundial2022 = [
 ];
 
 // Exportar los arreglos
-export {equiposMundial2022 };
+export {equiposMundial2022, AFC, CAF, CONCACAF, UEFA, CONMEBOL, OFC };
 
