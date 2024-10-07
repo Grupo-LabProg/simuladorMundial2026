@@ -1,4 +1,4 @@
-import { equiposMundial2022 } from "./paises.js";
+import { equiposMundial2022, AFC, CAF, CONCACAF, UEFA, CONMEBOL, OFC } from "./paises.js";
 
 function hideNavMenu() {
   if (window.innerWidth <= 800) {
@@ -30,6 +30,38 @@ function sorteo(array) {
   }
 }
 
+function insertarTablaConfederacion(confederacion, equipos) {
+  const confederacionesDiv = document.querySelector(".faseConfederaciones");
+
+  let html = `
+      <div class="tabla-confederacion">
+          <h3>Confederación: ${confederacion}</h3>
+          <table>
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Equipo</th>
+                  </tr>
+              </thead>
+              <tbody>`;
+
+  equipos.forEach((equipo, index) => {
+    html += `
+          <tr>
+              <td>${index + 1}</td>
+              <td class="team"><img src="${equipo.flag}" alt="${equipo.name}" width="20"> ${equipo.name}</td>
+          </tr>`;
+  });
+
+  html += `</tbody>
+          </table>
+      </div>`;
+
+  // Inserta la tabla en la sección de confederaciones
+  confederacionesDiv.insertAdjacentHTML("beforeend", html);
+}
+
+
 function insertarTabla(grupo, equipos) {
   const gruposDiv = document.querySelector(".grupos");
   const faseGrupos = document.querySelector(".faseDegrupos");
@@ -59,9 +91,8 @@ function insertarTabla(grupo, equipos) {
     html += `
           <tr>
               <td>${index + 1}</td>
-              <td class="team"><img src="${equipo.flag}" alt="${
-      equipo.name
-    }" width="20">${equipo.name}</td>
+              <td class="team"><img src="${equipo.flag}" alt="${equipo.name
+      }" width="20">${equipo.name}</td>
               <td>0</td>
               <td>0</td>
               <td>0</td>
@@ -153,8 +184,8 @@ function simularFaseDeGrupos(grupo, equipos) {
               <td>${equipo.DG}</td>
               <td>${equipo.Pts}</td>
               <td>${equipo.circles
-                .map((circle) => `<span class="circle ${circle}"></span>`)
-                .join("")}</td>
+        .map((circle) => `<span class="circle ${circle}"></span>`)
+        .join("")}</td>
           </tr>`;
   });
 
@@ -208,7 +239,7 @@ document
       simularFaseDeGrupos(grupo, grupos[grupo]);
       const equipo1 = grupos[grupo][0]
       const equipo2 = grupos[grupo][1]
-      
+
       clasificados.push(`<td class="team"> <img src="${equipo1.flag}" alt="${equipo1.name}" width="20">${equipo1.name}</td>`);
       clasificados.push(`<td class="team"> <img src="${equipo2.flag}" alt="${equipo2.name}" width="20">${equipo2.name}</td>`);
     }
@@ -233,5 +264,30 @@ document
     for (let i = 0; i < clasificados.length; i++) {
       console.log(clasificados[i]);
     }
-   // console.log("Clasificados:", clasificados);
+    // console.log("Clasificados:", clasificados);
   });
+
+document
+  .getElementById("mostrarConfederacionesBtn")
+  .addEventListener("click", function () {
+    const confederaciones = {
+      "CAF": CAF,
+      "CONMEBOL": CONMEBOL,
+      "CONCACAF": CONCACAF,
+      "AFC": AFC,
+      "UEFA": UEFA,
+      "OFC": OFC,
+    };
+
+    // Limpiar el contenido previo
+    const faseConfederacionesDiv = document.getElementById("faseConfederaciones");
+    faseConfederacionesDiv.innerHTML = "";
+
+    // Insertar cada confederación como si fuera un grupo
+    for (const confederacion in confederaciones) {
+      const equipos = confederaciones[confederacion];
+      insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
+    }
+  });
+
+

@@ -20,6 +20,7 @@
         <nav>
             <ul class="nav_menu">
                 <li><a class="link" href="#">Inicio</a></li>
+                <li><a class="link" href="#" data-target="confederaciones">Confederaciones</a></li>
                 <li><a class="link" href="#" data-target="sorteoFaseGrupos">Sorteo Grupos</a></li>
                 <li><a class="link" href="#" data-target="faseGrupos">Fase Grupos</a></li>
                 <li><a href="simulacionFaseFinal.html" target="_blank">Fase Final</a></li>
@@ -34,11 +35,19 @@
 
     <main>
         <div class="section-container">
+            <section class="confederaciones content">
+                <div class="buttons">
+                  <button class="button is-white" id="mostrarConfederacionesBtn">Mostrar Confederaciones</button>
+                </div>
+                <div class="faseConfederaciones" id="faseConfederaciones">
+                  <!-- Aquí se mostrarán las tablas de confederaciones -->
+                </div>
+              </section>
+
             <section class="sorteoFaseGrupos content">
                 <div class="buttons">
                     <button class="button is-white" id="simularSorteoGruposBtn">Simular Sorteo</button>
                 </div>
-
                 <div class="grupos" id="grupos">
                     <!--Aquí van aparecer las tablas de cada grupo-->
                 </div>

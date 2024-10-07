@@ -121,7 +121,8 @@ main {
     flex-grow: 1;
     box-sizing: border-box;
     gap: 20px;
-    background-image: url("../img/fondo.jpeg");
+    /* background-image: url("../img/fondo.jpeg"); */
+    background-image: linear-gradient(rgba(16, 16, 16, 0.1), rgba(16, 16, 16, 0.1)), url("../img/fondo.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -139,7 +140,8 @@ main {
 }
 
 .sorteoFaseGrupos,
-.faseGrupos {
+.faseGrupos,
+.confederaciones {
     margin-top: -30px;
     width: 100%;
 }
@@ -254,9 +256,44 @@ li a {
     overflow-x: auto;
 }
 
+/* Nueva clase específica para las tablas de confederaciones */
+.tabla-confederacion {
+    width: 100%;
+    max-width: 400px; /* Ancho ajustado para las tablas de confederaciones */
+    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+    margin: 10px; /* Añadido margen para separarlas de otras tablas */
+}
+
+.tabla-confederacion table {
+    width: 100%;
+    table-layout: auto; /* Permite que las columnas ajusten su ancho automáticamente */
+    border-spacing: 0;
+}
+
+.tabla-confederacion th,
+.tabla-confederacion td {
+    padding: 5px 10px; /* Padding reducido para hacer la tabla más compacta */
+    text-align: left; /* Alinear el texto a la izquierda */
+    white-space: nowrap; /* Evitar que el texto se desborde a varias líneas */
+}
+
+/* Ajuste del tamaño de las columnas para que se vean más compactas */
+.tabla-confederacion th:first-child,
+.tabla-confederacion td:first-child {
+    width: 40px; /* Ancho de la columna del número */
+}
+
+.tabla-confederacion th:last-child,
+.tabla-confederacion td:last-child {
+    width: auto; /* El resto del espacio para la columna del equipo */
+}
+
+
 .grupos,
-.faseDegrupos {
+.faseDegrupos,
+.faseConfederaciones {
     border: 5px solid var(--blanco);
+    background-color: rgba(10, 10, 10, 0.7); /* Fondo negro con 80% de opacidad */
     max-height: 70vh;
     min-height: 70vh;
     display: flex;
