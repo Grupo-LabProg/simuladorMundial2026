@@ -63,7 +63,7 @@ nav ul li a:hover {
 nav ul li a:active {
     background-color: var(--negro);
     color: var(--gris);
-    
+
 }
 
 .nav_menu {
@@ -113,12 +113,12 @@ nav ul li a:active {
     }
 }
 
-.buttons button{
+.buttons button {
     font-weight: bold;
     color: #5a5a5a;
 }
 
-.buttons button:hover{
+.buttons button:hover {
     background-color: rgb(201, 201, 201);
 }
 
@@ -153,7 +153,7 @@ main {
 .faseGrupos,
 .confederaciones {
     margin-top: -30px;
-    width: 100%;
+    
 }
 
 section {
@@ -183,7 +183,7 @@ aside {
 .content {
     display: none;
     transition: all 0.3s ease-in-out;
-    
+
 }
 
 .toggle-btn {
@@ -247,6 +247,20 @@ li a {
     justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+    .footer-content {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .grupos,
+    .faseDegrupos,
+    .faseConfederaciones {
+        max-width: 70vh;
+        background-color: red; 
+    }
+}
+
 .footer-bottom {
     margin-top: 20px;
     font-size: 0.9em;
@@ -270,35 +284,44 @@ li a {
 /* Nueva clase específica para las tablas de confederaciones */
 .tabla-confederacion {
     width: 100%;
-    max-width: 400px; /* Ancho ajustado para las tablas de confederaciones */
-    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
-    margin: 10px; /* Añadido margen para separarlas de otras tablas */
+    max-width: 400px;
+    /* Ancho ajustado para las tablas de confederaciones */
+    overflow-x: auto;
+    /* Permite el desplazamiento horizontal si es necesario */
+    margin: 10px;
+    /* Añadido margen para separarlas de otras tablas */
 }
 
 .tabla-confederacion table {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    table-layout: auto; /* Permite que las columnas ajusten su ancho automáticamente */
+    table-layout: auto;
+    /* Permite que las columnas ajusten su ancho automáticamente */
     border-spacing: 0;
 }
 
 .tabla-confederacion th,
 .tabla-confederacion td {
     font-family: Arial, Helvetica, sans-serif;
-    padding: 5px 10px; /* Padding reducido para hacer la tabla más compacta */
-    text-align: left; /* Alinear el texto a la izquierda */
-    white-space: nowrap; /* Evitar que el texto se desborde a varias líneas */
+    padding: 5px 10px;
+    /* Padding reducido para hacer la tabla más compacta */
+    text-align: left;
+    /* Alinear el texto a la izquierda */
+    white-space: nowrap;
+    /* Evitar que el texto se desborde a varias líneas */
 }
 
 /* Ajuste del tamaño de las columnas para que se vean más compactas */
 .tabla-confederacion th:first-child,
 .tabla-confederacion td:first-child {
-    width: 40px; /* Ancho de la columna del número */
+    width: 40px;
+    /* Ancho de la columna del número */
 }
 
 .tabla-confederacion th:last-child,
 .tabla-confederacion td:last-child {
-    width: auto; /* El resto del espacio para la columna del equipo */
+    width: auto;
+    /* El resto del espacio para la columna del equipo */
 }
 
 
@@ -307,7 +330,7 @@ li a {
 .faseConfederaciones {
     font-family: Arial, Helvetica, sans-serif;
     border: 5px solid var(--blanco);
-    background-color: rgba(65, 65, 65, 0.61); /* Fondo negro con 80% de opacidad */
+    background-color: rgba(65, 65, 65, 0.61);
     max-height: 70vh;
     min-height: 70vh;
     display: flex;
@@ -318,8 +341,7 @@ li a {
     border-collapse: collapse;
     padding: 10px;
     gap: 10px;
-    min-width: 200vh;
-
+    width: 206vh;
 }
 
 table {
