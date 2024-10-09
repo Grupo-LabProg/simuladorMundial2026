@@ -1,21 +1,32 @@
 // Selecciona todos los divs con clase que empieza con 'team'
 
-const headerHTML = `<div class="logo">
-            <img src="../img/logo.png" alt="Logo">
-        </div>
-        <input type="checkbox" id="nav_check" hidden>
-        <nav>
-            <ul>
-                <li><a class="link" href="index.html">Inicio</a></li>
-                <li><a class="link" href="index.html" data-target="sorteoFaseGrupos">Sorteo Grupos</a></li>
-                <li><a class="link" href="index.html" data-target="faseGrupos">Fase Grupos</a></li>
-                <li><a href="simulacionFaseFinal.html" target="_blank">Fase Final</a></li>
-            </ul>
-        </nav>`;
+const headerHTML1 = `<div class="logo">
+        <a href=""><img src="../img/logo.png" alt="Logo" /></a>
+      </div>
+      <input type="checkbox" id="nav_check" hidden />
+      <nav>
+        <ul class="nav_menu">
+          <li><a class="link" href="index.html">Inicio</a></li>
+          <li>
+            <a class="link" href="#" data-target="confederaciones"
+              >Confederaciones</a
+            >
+          </li>
+          <li>
+            <a class="link" href="index.html" data-target="sorteoFaseGrupos"
+              >Sorteo Grupos</a
+            >
+          </li>
+          <li>
+            <a class="link" href="index.html" data-target="faseGrupos">Fase Grupos</a>
+          </li>
+          <li><a href="simulacionFaseFinal.html" target="">Fase Final</a></li>
+        </ul>
+      </nav>`;
 
 function insertHeader() {
   const headerContainer = document.getElementById("header");
-  headerContainer.innerHTML = headerHTML;
+  headerContainer.innerHTML = headerHTML1;
 }
 
 // Espera a que el DOM esté completamente cargado
