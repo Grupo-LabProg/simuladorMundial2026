@@ -8,7 +8,7 @@ const headerHTML1 = `<div class="logo">
         <ul class="nav_menu">
           <li><a class="link" href="index.html">Inicio</a></li>
           <li>
-            <a class="link" href="#" data-target="confederaciones"
+            <a class="link" href="index.html" data-target="confederaciones"
               >Confederaciones</a
             >
           </li>
