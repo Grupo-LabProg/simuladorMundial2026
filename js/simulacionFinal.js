@@ -171,7 +171,22 @@ button.addEventListener("click", async () => {
     asignarEquipos(teamsFinal, ganadoresSemis);
 
     // Procesar final
-    await procesarRonda("f-final", 1);
+    let ganadorFinal = await procesarRonda("f-final", 1);
+    console.log(ganadorFinal);
+    console.log(ganadorFinal[0]);
+
+    ganadorFinal = await procesarRonda("f-final", 1); // Supongo que esto es un arreglo con un <td>
+    if (ganadorFinal.length > 0) {
+      // Accede al primer (único) elemento del arreglo
+      let tdElement = ganadorFinal[0];
+
+      // Obtén solo el texto, excluyendo la imagen
+      let countryName = tdElement.textContent.trim(); // Devuelve "Ghana"
+
+      console.log(countryName); // Muestra "Ghana"
+    } else {
+      console.error("No se encontró ningún ganador");
+    }
   } else {
     Swal.fire({
       title: "¡Falta simular la fase de grupos!",
