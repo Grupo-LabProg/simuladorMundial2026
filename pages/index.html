@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador Mundial 2026</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="icon"
+      href="../img/favicon.png"
+      style="border-radius: 10px"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href=""><img src="../img/logo.png" alt="Logo" /></a>
+      </div>
+      <input type="checkbox" id="nav_check" hidden />
+      <nav>
+        <ul class="nav_menu">
+          <li><a class="link" href="#">Inicio</a></li>
+          <li>
+            <a class="link" href="#" data-target="confederaciones"
+              >Confederaciones</a
+            >
+          </li>
+          <li>
+            <a class="link" href="#" data-target="sorteoFaseGrupos"
+              >Sorteo Grupos</a
+            >
+          </li>
+          <li>
+            <a class="link" href="#" data-target="faseGrupos">Fase Grupos</a>
+          </li>
+          <li><a href="simulacionFaseFinal.html" target="">Fase Final</a></li>
+          <li><a href="historial.html" target="">Historial</a></li>
+        </ul>
+      </nav>
+      <label for="nav_check" class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+    </header>
+
+    <main>
+      <div class="section-container">
+        <section class="confederaciones content">
+          <div class="buttons">
+            <button class="button is-white" id="mostrarConfederacionesBtn">
+              Mostrar Confederaciones
+            </button>
+          </div>
+          <div class="faseConfederaciones" id="faseConfederaciones">
+            <!-- Aquí se mostrarán las tablas de confederaciones -->
+          </div>
+        </section>
+
+        <section class="sorteoFaseGrupos content">
+          <div class="buttons">
+            <button class="button is-white" id="simularSorteoGruposBtn">
+              Simular Sorteo
+            </button>
+          </div>
+          <div class="grupos" id="grupos">
+            <!--Aquí van aparecer las tablas de cada grupo-->
+          </div>
+        </section>
+
+        <section class="faseGrupos content">
+          <div class="buttons">
+            <button class="button is-white" id="simularGruposBtn">
+              Simular Fase Grupos
+            </button>
+          </div>
+          <div class="faseDegrupos" id="faseGrupos">
+            <!--Aquí van aparecer las tablas de cada grupo-->
+          </div>
+        </section>
+
+        <section class="faseFinal content">
+          <article>
+            <h2>Artículo Fase Final</h2>
+            <p>Contenido del artículo de Fase Final.</p>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <ul class="github-list">
+          <li>
+            <a href="https://github.com/perfil1" target="_blank"
+              ><i class="fab fa-github"></i> Perfil GitHub 1</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/perfil2" target="_blank"
+              ><i class="fab fa-github"></i> Perfil GitHub 2</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/kevinquintero11" target="_blank"
+              ><i class="fab fa-github"></i> Kevin Quintero</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/mcjaben" target="_blank"
+              ><i class="fab fa-github"></i> Benjamín Morales</a
+            >
+          </li>
+        </ul>
+        <ul class="linkedin-list">
+          <li>
+            <a href="https://www.linkedin.com/in/perfil1" target="_blank"
+              ><i class="fab fa-linkedin"></i> Perfil LinkedIn 1</a
+            >
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/perfil2" target="_blank"
+              ><i class="fab fa-linkedin"></i> Perfil LinkedIn 2</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/kevin-quintero-9bb101332/"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i> Kevin Quintero</a
+            >
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/bmorales99/" target="_blank"
+              ><i class="fab fa-linkedin"></i> Benjamín Morales</a
+            >
+          </li>
+        </ul>
+        <ul class="name-list">
+          <li><i class="fas fa-user"></i> Leonardo Galindez FAI-3862</li>
+          <li><i class="fas fa-user"></i> Juan Mamani FAI-</li>
+          <li><i class="fas fa-user"></i> Kevin Quintero FAI-2771</li>
+          <li><i class="fas fa-user"></i> Benjamin Morales FAI-3370</li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+    <script type="module" src="../js/index.js"></script>
+  </body>
+</html>
