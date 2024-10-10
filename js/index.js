@@ -146,7 +146,7 @@ function simularResultados(equipos) {
         equipos[j].name === "Argentina"
       ) {
         let probabilidad = Math.random();
-        console.log(probabilidad)
+        //console.log(probabilidad)
         if (probabilidad < 0.95) {
           resultado = equipos[i].name === "Argentina" ? 1 : 2;
         } else {
