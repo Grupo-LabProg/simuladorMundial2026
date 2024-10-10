@@ -116,7 +116,6 @@ async function procesarRonda(clasePartido, numPartidos) {
 
     let equipos = match.querySelectorAll("div");
     let winner = determinarGanador(equipos);
-
     winner.style.backgroundColor = "green";
     equipos.forEach((team) => {
       if (team !== winner) {
@@ -136,7 +135,7 @@ async function procesarRonda(clasePartido, numPartidos) {
 
 button.addEventListener("click", async () => {
   const clasificados = JSON.parse(localStorage.getItem("clasificados"));
-
+  let datos = [];
   if (clasificados) {
     // Resetear estilo por defecto
     let teams = document.querySelectorAll('[class^="team"]');
@@ -150,10 +149,13 @@ button.addEventListener("click", async () => {
       tdElement.innerHTML = clasificados[index];
       equipo.innerHTML = "";
       equipo.appendChild(tdElement);
+      datos.push(tdElement.innerHTML);
     });
-
+    localStorage.setItem('misDatos', JSON.stringify(datos));
+    
     // Procesar cada ronda
     let ganadores16vos = await procesarRonda("d-knockout", 16);
+    localStorage.setItem('ganadores16vos', JSON.stringify(ganadores16vos));
     console.log("Ganadores 16vos:", ganadores16vos);
     asignarEquipos(teamsRound8, ganadores16vos);
 
