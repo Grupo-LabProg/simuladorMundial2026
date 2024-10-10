@@ -21,6 +21,7 @@ const headerHTML1 = `<div class="logo">
             <a class="link" href="index.html" data-target="faseGrupos">Fase Grupos</a>
           </li>
           <li><a href="simulacionFaseFinal.html" target="">Fase Final</a></li>
+          <li><a href="historial.html" target="">Historial</a></li>
         </ul>
       </nav>`;
 

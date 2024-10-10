@@ -49,11 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
             game.querySelector('.content-result .result_1').innerText = result_1;
             game.querySelector('.content-result .result_2').innerText = result_2;
 
-            // Rellenar los datos de las imágenes
-            game.querySelector('.two .content-img-flag').innerHTML = imgHTML[country1Index];
-            game.querySelector('.two .name_flag').textContent = winnerName1;
+            // Extraer solo la imagen sin texto alternativo ni otros elementos
+            const imgTag1 = imgHTML[country1Index].match(/<img[^>]+>/)[0]; // Solo la etiqueta <img>
+            const imgTag2 = imgHTML[country2Index].match(/<img[^>]+>/)[0]; // Solo la etiqueta <img>
+            
+            // Insertar solo la imagen dentro del div content-img-flag
+            game.querySelector('.two .content-img-flag').innerHTML = imgTag1;
+            game.querySelector('.one .content-img-flag').innerHTML = imgTag2;
 
-            game.querySelector('.one .content-img-flag').innerHTML = imgHTML[country2Index];
+            // Asignar los nombres de los países a los elementos .name_flag
+            game.querySelector('.two .name_flag').textContent = winnerName1;
             game.querySelector('.one .name_flag').textContent = winnerName2;
         });
 
