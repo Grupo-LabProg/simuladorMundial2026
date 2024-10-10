@@ -1,21 +1,32 @@
 // Selecciona todos los divs con clase que empieza con 'team'
 
-const headerHTML = `<div class="logo">
-            <img src="../img/logo.png" alt="Logo">
-        </div>
-        <input type="checkbox" id="nav_check" hidden>
-        <nav>
-            <ul>
-                <li><a class="link" href="index.html">Inicio</a></li>
-                <li><a class="link" href="index.html" data-target="sorteoFaseGrupos">Sorteo Grupos</a></li>
-                <li><a class="link" href="index.html" data-target="faseGrupos">Fase Grupos</a></li>
-                <li><a href="simulacionFaseFinal.html" target="_blank">Fase Final</a></li>
-            </ul>
-        </nav>`;
+const headerHTML1 = `<div class="logo">
+        <a href=""><img src="../img/logo.png" alt="Logo" /></a>
+      </div>
+      <input type="checkbox" id="nav_check" hidden />
+      <nav>
+        <ul class="nav_menu">
+          <li><a class="link" href="index.html">Inicio</a></li>
+          <li>
+            <a class="link" href="index.html" data-target="confederaciones"
+              >Confederaciones</a
+            >
+          </li>
+          <li>
+            <a class="link" href="index.html" data-target="sorteoFaseGrupos"
+              >Sorteo Grupos</a
+            >
+          </li>
+          <li>
+            <a class="link" href="index.html" data-target="faseGrupos">Fase Grupos</a>
+          </li>
+          <li><a href="simulacionFaseFinal.html" target="">Fase Final</a></li>
+        </ul>
+      </nav>`;
 
 function insertHeader() {
   const headerContainer = document.getElementById("header");
-  headerContainer.innerHTML = headerHTML;
+  headerContainer.innerHTML = headerHTML1;
 }
 
 // Espera a que el DOM esté completamente cargado
@@ -171,7 +182,22 @@ button.addEventListener("click", async () => {
     asignarEquipos(teamsFinal, ganadoresSemis);
 
     // Procesar final
-    await procesarRonda("f-final", 1);
+    let ganadorFinal = await procesarRonda("f-final", 1);
+    console.log(ganadorFinal);
+    console.log(ganadorFinal[0]);
+
+    ganadorFinal = await procesarRonda("f-final", 1); // Supongo que esto es un arreglo con un <td>
+    if (ganadorFinal.length > 0) {
+      // Accede al primer (único) elemento del arreglo
+      let tdElement = ganadorFinal[0];
+
+      // Obtén solo el texto, excluyendo la imagen
+      let countryName = tdElement.textContent.trim(); // Devuelve "Ghana"
+
+      console.log(countryName); // Muestra "Ghana"
+    } else {
+      console.error("No se encontró ningún ganador");
+    }
   } else {
     Swal.fire({
       title: "¡Falta simular la fase de grupos!",
