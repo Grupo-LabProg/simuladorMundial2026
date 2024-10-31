@@ -95,7 +95,7 @@ nav ul li a:active {
   transition: 0.3s;
 }
 
-#nav_check:checked + nav .nav_menu {
+#nav_check:checked+nav .nav_menu {
   display: flex;
 }
 
@@ -115,7 +115,7 @@ nav ul li a:active {
 
 .buttons button {
   font-weight: bold;
-  color: #5a5a5a;
+  color: #000000;
 }
 
 .buttons button:hover {
@@ -132,10 +132,8 @@ main {
   box-sizing: border-box;
   gap: 20px;
   /* background-image: url("../img/fondo.jpeg"); */
-  background-image: linear-gradient(
-      rgba(16, 16, 16, 0.1),
-      rgba(16, 16, 16, 0.1)
-    ),
+  background-image: linear-gradient(rgba(16, 16, 16, 0.1),
+      rgba(16, 16, 16, 0.1)),
     url("../img/fondo.jpeg");
   background-size: cover;
   background-position: center;
@@ -185,6 +183,7 @@ aside {
 .content {
   display: none;
   transition: all 0.3s ease-in-out;
+  
 }
 
 .toggle-btn {
@@ -230,16 +229,25 @@ ul {
   margin: 0;
 }
 
-li {
-  margin-bottom: 10px;
-}
-
 li a {
   text-decoration: none;
 }
 
 .name-list {
   color: var(--blanco);
+}
+
+
+ul li {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+ul.github-list li,
+ul.linkedin-list li,
+ul.name-list li {
+  display: block;
 }
 
 .footer-content {
@@ -260,6 +268,16 @@ li a {
 
     overflow: auto;
   }
+
+  ul {
+    margin-bottom: 10px;
+  }
+
+  .footer-content ul li {
+    text-align: center;
+  }
+
+
 }
 
 .footer-bottom {
@@ -331,8 +349,8 @@ li a {
   font-family: Arial, Helvetica, sans-serif;
   border: 5px solid var(--blanco);
   background-color: rgba(65, 65, 65, 0.61);
-  max-height: 70vh;
-  min-height: 70vh;
+  max-height: 75vh;
+  min-height: 75vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -342,6 +360,7 @@ li a {
   padding: 10px;
   gap: 10px;
   width: 206vh;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {
