@@ -6,7 +6,7 @@ import {
   UEFA,
   CONMEBOL,
   OFC,
-} from "./paises.js";
+} from "../server/data/paises.js";
 
 function hideNavMenu() {
   if (window.innerWidth <= 800) {
