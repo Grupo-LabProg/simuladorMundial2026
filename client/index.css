@@ -1,4 +1,5 @@
-@import url("paletaColores.css");
+/* @import url("paletaColores.css"); */
+@import url("./assets/css/paletaColores.css");
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
 
 * {
@@ -131,10 +132,10 @@ main {
   flex-grow: 1;
   box-sizing: border-box;
   gap: 20px;
-  /* background-image: url("../img/fondo.jpeg"); */
+  /* background-image: url("../client/assets/img/fondo.jpeg"); */
   background-image: linear-gradient(rgba(16, 16, 16, 0.1),
       rgba(16, 16, 16, 0.1)),
-    url("../img/fondo.jpeg");
+    url("../client/assets/img/fondo.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

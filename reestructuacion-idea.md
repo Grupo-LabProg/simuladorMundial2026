@@ -2,13 +2,13 @@
 ├── `server/`                     _# Código del backend (Node.js y Express)_
 │   ├── `app.js`                  _# Configuración principal de Express_
 │   ├── `controllers/`            _# Controladores para manejar la lógica de cada endpoint_
-│   │   ├── `confederacionesController.js`
+│   │   ├── `equiposController.js` _# Lo renombro de "confederaciones" a "EquiposController"_
 │   │   └── `partidosController.js`
 │   ├── `routes/`                 _# Rutas de la API organizadas por entidad_
-│   │   ├── `confederaciones.js`
+│   │   ├── `equipos.js` _# Lo renombro de "confederaciones" a "Equipos"_
 │   │   └── `partidos.js`
 │   └── `data/`                   _# Datos en formato JSON o arrays en memoria_
-│       └── `confederaciones.json`
+│       └── `equipos.json` _# de "confederaciones" pasa a ser "Equipos"_
 ├── `client/`                     _# Archivos del frontend (página web)_
 │   ├── `index.html`              _# Página de inicio con navegación dinámica_
 │   ├── `index.js`                _# Lógica para la navegación y contenido dinámico en index.html_
@@ -23,7 +23,7 @@
 │   │   └── `historial.css`
 │   └── `assets/`                 _# Recursos compartidos (imágenes, estilos globales)_
 │       ├── `css/`
-│       │   └── `paletaColores.css`
+│       │    └── `paletaColores.css`
 │       └── `img/`
 │           ├── `flags-icon/`
 │           ├── `logo.png`

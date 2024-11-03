@@ -1,4 +1,5 @@
-@import url("paletaColores.css");
+/* @import url("paletaColores.css"); */
+@import url("../assets/css/paletaColores.css");
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
 
 * {
