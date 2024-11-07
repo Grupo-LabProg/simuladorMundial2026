@@ -14,23 +14,22 @@ let CONCACAF;
 let UEFA;
 let CONMEBOL;
 let OFC;
-let confederaciones;
 let equipos;
 // Función para cargar equipos desde la API y mostrarlos en la página
 async function cargarEquipos() {
   try {
-    const response = await fetch('/api/equipos');
-    this.equipos = await response.json();
-    this.confederaciones = JSON.parse(equipos);
+    // const response = await fetch('/api/equipos');
+    const response = await fetch('http://localhost:3000/api/equipos');
+
+    const equipos = await response.json();
     // Aquí, renderiza los equipos en el HTML, mostrando los nombres y banderas
     console.log(equipos);
-    console.log(confederaciones);
-    AFC = JSON.parse(equipos.AFC);
-    CAF = JSON.parse(equipos.CAF);
-    CONCACAF = JSON.parse(equipos.CONCACAF);
-    UEFA = JSON.parse(equipos.UEFA);
-    CONMEBOL = JSON.parse(equipos.CONMEBOL);
-    OFC = JSON.parse(equipos.OFC);
+    AFC = equipos.AFC;
+    CAF = equipos.CAF;
+    CONCACAF = equipos.CONCACAF;
+    UEFA = equipos.UEFA;
+    CONMEBOL = equipos.CONMEBOL;
+    OFC = equipos.OFC;
   } catch (error) {
     console.error('Error al cargar equipos:', error);
   }
@@ -71,7 +70,11 @@ function sorteo(array) {
 }
 
 function insertarTablaConfederacion(confederacion, equipos) {
+  console.log(confederacion);
+
   const confederacionesDiv = document.querySelector(".faseConfederaciones");
+  console.log(confederacionesDiv);
+
 
   let html = `
       <div class="tabla-confederacion">
@@ -397,9 +400,10 @@ document
       "faseConfederaciones"
     );
     faseConfederacionesDiv.innerHTML = "";
-
+    console.log(confederaciones);
     // Insertar cada confederación como si fuera un grupo
     for (const confederacion in confederaciones) {
+
       const equipos = confederaciones[confederacion];
       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
     }
