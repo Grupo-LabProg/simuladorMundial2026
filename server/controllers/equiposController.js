@@ -1,12 +1,16 @@
 // server/controllers/equiposController.js
 const path = require('path');
 const fs = require('fs');
-const dataPath = path.join(__dirname, '../data/paises.js');
+const dataPath = path.join(__dirname, '../data/confederaciones.json');
 
 // Función para obtener los equipos
 exports.getEquipos = (req, res) => {
+  console.log('dirname'+__dirname);
+  // res.status(404).json({error: 'sdffdasdds'});
   const data = fs.readFileSync(dataPath, 'utf-8');
   const equipos = JSON.parse(data);
+  console.log('data: ' + data);
+  console.log('equipos: ' + equipos);
   res.json(equipos);
 };
 

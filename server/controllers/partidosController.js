@@ -1,8 +1,12 @@
 // server/controllers/partidosController.js
-let partidos = []; // Almacenará los partidos en memoria
+const path = require('path');
+const fs = require('fs');
+const dataPath = path.join(__dirname, '../data/partidos.json');
 
 // Función para obtener todos los partidos
 exports.getPartidos = (req, res) => {
+  const data = fs.readFileSync(dataPath, 'utf-8');
+  const partidos = JSON.parse(data);
   res.json(partidos);
 };
 
@@ -14,6 +18,6 @@ exports.addPartido = (req, res) => {
   }
 
   const partido = { equipo1, equipo2, resultado };
-  partidos.push(partido);
+  partidos.push(partido); // Falta hacer que realmente cree un nuevo partido y lo guarde
   res.status(201).json({ message: 'Partido agregado', partido });
 };

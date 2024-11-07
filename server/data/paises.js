@@ -1,6 +1,3 @@
-// Confederación AFC (Asia)
-// Confederación AFC (Asia)
-//8
 const AFC = [
   { name: "Qatar", flag: "https://flagcdn.com/w20/qa.png" },
   { name: "Australia", flag: "https://flagcdn.com/w20/au.png" },
@@ -12,8 +9,6 @@ const AFC = [
   { name: "Emiratos Árabes", flag: "https://flagcdn.com/w20/ae.png" },
 ];
 
-// Confederación CAF (África)
-//9
 const CAF = [
   { name: "Camerún", flag: "https://flagcdn.com/w20/cm.png" },
   { name: "Senegal", flag: "https://flagcdn.com/w20/sn.png" },
@@ -26,8 +21,6 @@ const CAF = [
   { name: "Egipto", flag: "https://flagcdn.com/w20/eg.png" },
 ];
 
-// Confederación CONCACAF (Norteamérica, Centroamérica y el Caribe)
-//7
 const CONCACAF = [
     { name: "México", flag: "https://flagcdn.com/w20/mx.png" },
     { name: "Estados Unidos", flag: "https://flagcdn.com/w20/us.png" },
@@ -38,8 +31,6 @@ const CONCACAF = [
     { name: "El Salvador", flag: "https://flagcdn.com/w20/sv.png" }
 ];
 
-// Confederación UEFA (Europa)
-//16
 const UEFA = [
   { name: "Francia", flag: "https://flagcdn.com/w20/fr.png" },
   { name: "Bélgica", flag: "https://flagcdn.com/w20/be.png" },
@@ -60,8 +51,6 @@ const UEFA = [
   { name: "Islandia", flag: "https://flagcdn.com/w20/is.png" },
 ];
 
-// Confederación CONMEBOL (Sudamérica)
-//7
 const CONMEBOL = [
   { name: "Argentina", flag: "https://flagcdn.com/w20/ar.png" },
   { name: "Brasil", flag: "https://flagcdn.com/w20/br.png" },
@@ -72,11 +61,8 @@ const CONMEBOL = [
   { name: "Ecuador", flag: "https://flagcdn.com/w20/ec.png" },
 ];
 
-// Confederación OFC (Oceanía)
-//1
 const OFC = [{ name: "Nueva Zelanda", flag: "https://flagcdn.com/w20/nz.png" }];
 
-// Unir todos los equipos en un solo arreglo
 const equiposMundial2022 = [
     ...AFC,
     ...CAF,
@@ -86,6 +72,5 @@ const equiposMundial2022 = [
     ...OFC
 ];
 
-// Exportar los arreglos
 export {equiposMundial2022, AFC, CAF, CONCACAF, UEFA, CONMEBOL, OFC };
 

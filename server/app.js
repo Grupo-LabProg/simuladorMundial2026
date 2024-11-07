@@ -1,8 +1,8 @@
 // server/app.js
 const express = require('express');
 const path = require('path');
-const equiposRoutes = require('./routes/equipos');
-const partidosRoutes = require('./routes/partidos');
+const equiposRoutes = require('./routes/equiposRouter');
+const partidosRoutes = require('./routes/partidosRouter');
 
 const app = express();
 const PORT = 3000;
