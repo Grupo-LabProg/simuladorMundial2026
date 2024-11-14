@@ -1,0 +1,33 @@
+# Node.js
+node_modules/           # Evita subir todas las dependencias instaladas con npm o yarn
+node_modules
+npm-debug.log*          # Archivos de logs generados por npm
+yarn-debug.log*         # Logs generados por Yarn
+yarn-error.log*
+
+# Archivos de entorno y configuración sensible
+.env                    # Archivo de variables de entorno
+.env.*                  # Variantes de archivos .env (e.g., .env.production, .env.development)
+
+# Configuración de editor
+.vscode/                # Configuración de Visual Studio Code
+*.swp                   # Archivos de swap (backup) de editores
+
+# Logs de desarrollo
+logs/                   # Carpeta común para logs
+*.log                   # Archivos individuales de logs
+debug.log               # Archivo de debug log
+
+# Directorios de construcción
+dist/                   # Carpeta para archivos compilados o de distribución
+build/                  # Carpeta de construcción para el frontend (React, Vue, etc.)
+out/                    # Salidas de compilación en algunos entornos
+
+# Dependencias o archivos generados por el frontend
+client/node_modules/    # Dependencias específicas del frontend si están en una subcarpeta
+client/build/           # Carpeta de construcción del frontend
+client/dist/            # Archivos distribuidos del frontend
+
+# Caché y archivos temporales
+*.cache                 # Cachés generados por herramientas de build
+*.tmp                   # Archivos temporales
