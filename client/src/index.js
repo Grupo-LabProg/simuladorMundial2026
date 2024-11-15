@@ -1,13 +1,15 @@
   //eliminar despues de armar el servidor
-import {
-  equiposMundial2022,
-  AFC,
-  CAF,
-  CONCACAF,
-  UEFA,
-  CONMEBOL,
-  OFC,
-} from "./modules/paises.js";
+// import {
+//   equiposMundial2022,
+//   AFC,
+//   CAF,
+//   CONCACAF,
+//   UEFA,
+//   CONMEBOL,
+//   OFC,
+// } from "./modules/paises.js";
+let equiposMundial2022 = [];
+let equipos;
 
 import {
   sorteo,
@@ -20,36 +22,34 @@ import {
   simularFaseDeGrupos,
 } from "./modules/simulacionFaseGrupos.js";
 
-// client/index.js
-//let AFC;
-//let CAF;
-//let CONCACAF;
-//let UEFA;
-//let CONMEBOL;
-//let OFC;
-//let equipos;
-// Función para cargar equipos desde la API y mostrarlos en la página
+
+// * Función para cargar equipos desde la API y mostrarlos en la página
 
 async function cargarEquipos() {
   try {
-    // const response = await fetch('/api/equipos');
     const response = await fetch("http://localhost:3000/api/equipos");
 
-    const equipos = await response.json();
-    // Aquí, renderiza los equipos en el HTML, mostrando los nombres y banderas
-    console.log(equipos);
-    AFC = equipos.AFC;
-    CAF = equipos.CAF;
-    CONCACAF = equipos.CONCACAF;
-    UEFA = equipos.UEFA;
-    CONMEBOL = equipos.CONMEBOL;
-    OFC = equipos.OFC;
+    // obtengo el objeto JSON de la respuesta de la API y lo parseo
+    equipos = await response.json();
+    
+    // Itera sobre el objeto equipos y va seteando cada país en el arreglo de equiposMundial2022
+    Object.values(equipos).forEach(confederacion => {
+      confederacion.forEach(pais => {
+        equiposMundial2022.push(pais); // Agregar cada país al arreglo final
+      });
+    });
+    // console.log("equipos mundial 2022: ", equiposMundial2022);
+    // console.log("equipos: ", equipos);
+
   } catch (error) {
     console.error("Error al cargar equipos:", error);
   }
 }
 // Llama a la función al cargar la página
-//cargarEquipos();
+await cargarEquipos();
+
+// console.log("Supuestamente se ejecutaría dsp de cargar los equipos");
+// console.log("Equipos mundial 2022: ", equiposMundial2022);
 
 document
   .getElementById("simularSorteoGruposBtn")
@@ -145,43 +145,45 @@ document
 document
   .getElementById("mostrarConfederacionesBtn")
   .addEventListener("click", function () {
-    const confederaciones = this.equipos;
+    const confederaciones = equipos;
 
     // Limpiar el contenido previo
     const faseConfederacionesDiv = document.getElementById(
       "faseConfederaciones"
     );
     faseConfederacionesDiv.innerHTML = "";
-    console.log(confederaciones);
+    // console.log(confederaciones);
     // Insertar cada confederación como si fuera un grupo
+    // console.log("Antes del bucle for que inserta confederaciones");
     for (const confederacion in confederaciones) {
       const equipos = confederaciones[confederacion];
+      // console.log("Equipos: ", equipos);
       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
     }
   });
 
-  //eliminar despues de armar el servidor
-document
-  .getElementById("mostrarConfederacionesBtn")
-  .addEventListener("click", function () {
-    const confederaciones = {
-      CAF: CAF,
-      CONMEBOL: CONMEBOL,
-      CONCACAF: CONCACAF,
-      AFC: AFC,
-      UEFA: UEFA,
-      OFC: OFC,
-    };
+//   //eliminar despues de armar el servidor
+// document
+//   .getElementById("mostrarConfederacionesBtn")
+//   .addEventListener("click", function () {
+//     const confederaciones = {
+//       CAF: CAF,
+//       CONMEBOL: CONMEBOL,
+//       CONCACAF: CONCACAF,
+//       AFC: AFC,
+//       UEFA: UEFA,
+//       OFC: OFC,
+//     };
 
-    // Limpiar el contenido previo
-    const faseConfederacionesDiv = document.getElementById(
-      "faseConfederaciones"
-    );
-    faseConfederacionesDiv.innerHTML = "";
+//     // Limpiar el contenido previo
+//     const faseConfederacionesDiv = document.getElementById(
+//       "faseConfederaciones"
+//     );
+//     faseConfederacionesDiv.innerHTML = "";
 
-    // Insertar cada confederación como si fuera un grupo
-    for (const confederacion in confederaciones) {
-      const equipos = confederaciones[confederacion];
-      insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
-    }
-  });
+//     // Insertar cada confederación como si fuera un grupo
+//     for (const confederacion in confederaciones) {
+//       const equipos = confederaciones[confederacion];
+//       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
+//     }
+//   });

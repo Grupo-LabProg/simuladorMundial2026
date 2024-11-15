@@ -1,8 +1,8 @@
 export function insertarTablaConfederacion(confederacion, equipos) {
-  console.log(confederacion);
+  // console.log(confederacion);
 
   const confederacionesDiv = document.querySelector(".faseConfederaciones");
-  console.log(confederacionesDiv);
+  // console.log(confederacionesDiv);
 
   let html = `
         <div class="tabla-confederacion">
