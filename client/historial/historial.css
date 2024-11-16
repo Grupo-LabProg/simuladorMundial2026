@@ -74,9 +74,9 @@ main {
 }
 
 /*estilos historial*/
-body {
+/* body {
     background-color: var(--gris);
-}
+} */
 
 #recordSection {
     display: none;
@@ -85,6 +85,8 @@ body {
 
 .set_games {
     margin: 10px 5px;
+    min-width: 16rem;
+    /* max-width: 30rem */
 }
 
 .game_results {
@@ -111,10 +113,11 @@ body {
     padding: 5px 0;
     height: 40px;
     justify-content: center;
+    background-color: rgba(231, 231, 231, 0.589);
 }
 
 .game_data {
-    color: var(--negro);
+    color: var(--blanco);
 }
 
 .content-img-flag  img {
