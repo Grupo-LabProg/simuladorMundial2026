@@ -4,10 +4,10 @@
   - `app.js`: Archivo principal de configuración del servidor, donde cargamos Express y definimos el middleware necesario.
   - **`controllers`**: Acá colocamos la lógica de cada endpoint, organizando las funciones en archivos por tipo de recurso (e.g., `equiposController.js` para manejar las confederaciones).
   - **`routes`**: Contiene las rutas de la API, organizadas también por recurso. Cada archivo de rutas (`equipos.js`, `partidos.js`, etc.) corresponde a un tipo de dato que la API manejará.
-  - **`data`**: Aquí almacenamos los datos en formato JSON o en arreglos de JavaScript si no usamos bases de datos. `confederaciones.json` contiene la información de las confederaciones y países.
+  - **`data`**: Aquí almacenamos los datos en formato JSON o en arreglos de JavaScript si no usamos bases de datos. `equipos.json` contiene la información de las confederaciones y países.
 
 - **`client`**: Todo el código del frontend.
-  - Cada página tiene su propio directorio (e.g., `confederaciones`, `faseFinal`, etc.) con su archivo HTML, JavaScript, y CSS para facilitar el mantenimiento.
+  - Cada página tiene su propio directorio (e.g., `equipos`, `faseFinal`, etc.) con su archivo HTML, JavaScript, y CSS para facilitar el mantenimiento.
   - **`assets`**: Para almacenar archivos compartidos como imágenes y estilos globales (e.g., `paletaColores.css`).
 
 ### Ventajas de esta estructura

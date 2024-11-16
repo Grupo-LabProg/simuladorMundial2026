@@ -26,7 +26,7 @@ header {
   width: 100%;
   height: 15%;
   padding: 10px 20px;
-  background-color: var(--gris-claro);
+  background-color: var(--negro);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,6 +39,10 @@ header {
   width: 60px;
   max-width: 100%;
   border-radius: 10px;
+}
+
+.section-container {
+  width: 100%;
 }
 
 nav ul {
@@ -135,7 +139,7 @@ main {
   /* background-image: url("../client/assets/img/fondo.jpeg"); */
   background-image: linear-gradient(rgba(16, 16, 16, 0.1),
       rgba(16, 16, 16, 0.1)),
-    url("../client/assets/img/fondo.jpeg");
+    url("./assets/img/fondo.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -146,6 +150,8 @@ main {
 
 .content {
   display: none;
+  width: 100%;
+
 }
 
 .content.active {
@@ -184,7 +190,7 @@ aside {
 .content {
   display: none;
   transition: all 0.3s ease-in-out;
-  
+
 }
 
 .toggle-btn {
@@ -360,7 +366,7 @@ ul.name-list li {
   border-collapse: collapse;
   padding: 10px;
   gap: 10px;
-  width: 206vh;
+  width: 100%;
   border-radius: 10px;
 }
 
