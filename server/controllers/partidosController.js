@@ -1,7 +1,9 @@
+// TODO: Crear un modelo Partidos con su controller y almacenar los resultados
+
 // server/controllers/partidosController.js
 const path = require('path');
 const fs = require('fs');
-const dataPath = path.join(__dirname, '../data/partidos.json');
+// const dataPath = path.join(__dirname, '../data/partidos.json');
 
 // Función para obtener todos los partidos
 exports.getPartidos = (req, res) => {

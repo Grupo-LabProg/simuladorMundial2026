@@ -1,13 +1,3 @@
-  //eliminar despues de armar el servidor
-// import {
-//   equiposMundial2022,
-//   AFC,
-//   CAF,
-//   CONCACAF,
-//   UEFA,
-//   CONMEBOL,
-//   OFC,
-// } from "./modules/paises.js";
 let equiposMundial2022 = [];
 let equipos;
 

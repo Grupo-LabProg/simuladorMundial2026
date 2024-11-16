@@ -2,7 +2,9 @@
 const express = require('express');
 const path = require('path');
 const equiposRoutes = require('./routes/equiposRouter');
-const partidosRoutes = require('./routes/partidosRouter');
+
+// TODO: Partidos
+// const partidosRoutes = require('./routes/partidosRouter');
 
 const app = express();
 const PORT = 3000;
@@ -12,7 +14,9 @@ app.use(express.json());
 
 // Rutas de la API
 app.use('/api/equipos', equiposRoutes);  // Rutas para los equipos
-app.use('/api/partidos', partidosRoutes); // Rutas para los partidos
+
+// TODO: modelo partidos
+// app.use('/api/partidos', partidosRoutes); // Rutas para los partidos
 
 // Middleware para servir archivos estáticos desde `client`
 app.use(express.static(path.join(__dirname, '../client')));

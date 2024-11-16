@@ -24,7 +24,7 @@ const equiposController = require('../controllers/equiposController');
 // Ruta para obtener todos los equipos
 router.get('/', equiposController.getEquipos);
 
-// Ruta para agregar un nuevo equipo
-router.post('/', equiposController.addEquipo);
+// TODO: Ruta para agregar un nuevo equipo
+// router.post('/', equiposController.addEquipo);
 
 module.exports = router;
