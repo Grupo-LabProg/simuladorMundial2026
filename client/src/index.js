@@ -151,6 +151,67 @@ document
   });
 
 document
+  .getElementById("guardarClasificadosBtn")
+  .addEventListener("click", function () {
+    console.log("Se dio al boton guardar");
+    const confederaciones = document.querySelectorAll(".tabla-confederacion");
+    console.log(confederaciones);
+
+    // Crear un objeto vacío para almacenar los equipos por confederación
+    let clasificados = {};
+
+    confederaciones.forEach((confederacion) => {
+      // Obtener el nombre de la confederación
+      const nombreConfederacion = confederacion
+        .querySelector("h3")
+        .textContent.trim()
+        .split(":")[1]
+        ?.trim();
+
+      console.log(nombreConfederacion);
+
+      const equipos = confederacion.querySelectorAll("td.team");
+
+      // Filtramos todos los equipos excepto los últimos dos
+      const equiposFiltrados = Array.from(equipos).slice(0, equipos.length - 2); // Convierte NodeList a Array y excluye los dos últimos equipos
+
+      clasificados[nombreConfederacion] = [];
+
+      // Recorremos los equipos filtrados y extraemos el nombre y la URL de la bandera
+      equiposFiltrados.forEach((equipo) => {
+        const nombre = equipo.textContent.trim().split(" ")[1]; // Obtener el nombre del equipo
+        const bandera = equipo.querySelector("img").src; // Obtener el src de la imagen de la bandera
+        // Guardamos el equipo en el formato deseado
+        clasificados[nombreConfederacion].push({
+          name: nombre,
+          flag: bandera,
+        });
+      });
+    });
+
+    console.log(clasificados);
+    enviarDatosAlServidor(clasificados);
+  });
+
+function enviarDatosAlServidor(equipos) {
+  // Usamos fetch para enviar los datos al servidor
+  fetch("http://localhost:3000/api/equipos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ equipos: equipos }), // Convertir el array de equipos a JSON
+  })
+    .then((response) => response.json()) // Respuesta del servidor
+    .then((data) => {
+      console.log("Respuesta del servidor:", data);
+    })
+    .catch((error) => {
+      console.error("Error al enviar los datos:", error);
+    });
+}
+
+document
   .getElementById("faseConfederaciones")
   .addEventListener("click", (event) => {
     if (event.target.classList.contains("up")) {
