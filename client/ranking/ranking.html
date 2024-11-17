@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Mundial 2026</title>
+  <link rel="stylesheet" href="./ranking.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="icon" href="../assets/img/favicon.png" style="border-radius: 10px" type="image/x-icon" />
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <a href=""><img src="../assets/img/logo.png" alt="Logo" /></a>
+    </div>
+    <input type="checkbox" id="nav_check" hidden />
+    <nav>
+      <ul class="nav_menu">
+        <li><a class="link" href="#">Inicio</a></li>
+        <li>
+          <a class="link" href="#" data-target="confederaciones">Confederaciones</a>
+        </li>
+        <li>
+          <a class="link" href="#" data-target="sorteoFaseGrupos">Sorteo Grupos</a>
+        </li>
+        <li>
+          <a class="link" href="#" data-target="faseGrupos">Fase Grupos</a>
+        </li>
+        <li><a href="./faseFinal/faseFinal.html" target="">Fase Final</a></li>
+        <li><a href="./historial/historial.html" target="">Historial</a></li>
+        <li><a href="" target="">Ranking</a></li>
+      </ul>
+    </nav>
+    <label for="nav_check" class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </label>
+  </header>
+  <section class="content-seach-table">
+    <form class="form-seach" action="/resultado" method="get">
+      <input type="text" id="search" name="query" placeholder="Introduce la cantidad a buscar" required>
+      <button type="submit">Buscar</button>
+    </form>
+    
+    <section class="content-table">
+      <div class="label-content">
+        <span class="label-cl">CL</span>
+        <span class="label-country">Pais</span>
+        <span class="label-flag">Bandera</span>
+        <span class="label-point">Puntos</span>
+      </div>
+      <div class="error-message">No se encontraron resultados.</div>
+    </section>
+  </section>
+  <script src="./ranking.js" defer></script>
+
+
+  <body>
+
+</html>
