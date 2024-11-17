@@ -55,8 +55,6 @@ document
 
     const gruposDiv = document.getElementById("grupos");
     gruposDiv.innerHTML = "";
-    const faseGrupos = document.getElementById("faseGrupos");
-    faseGrupos.innerHTML = "";
     for (const grupo in grupos) {
       insertarTabla(grupo, grupos[grupo]);
     }
@@ -77,7 +75,7 @@ document
         grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4);
       }
 
-      const faseGrupos = document.getElementById("faseGrupos");
+      const faseGrupos = document.getElementById("grupos");
       faseGrupos.innerHTML = "";
 
       const clasificados = [];
@@ -152,28 +150,3 @@ document
     }
   });
 
-//   //eliminar despues de armar el servidor
-// document
-//   .getElementById("mostrarConfederacionesBtn")
-//   .addEventListener("click", function () {
-//     const confederaciones = {
-//       CAF: CAF,
-//       CONMEBOL: CONMEBOL,
-//       CONCACAF: CONCACAF,
-//       AFC: AFC,
-//       UEFA: UEFA,
-//       OFC: OFC,
-//     };
-
-//     // Limpiar el contenido previo
-//     const faseConfederacionesDiv = document.getElementById(
-//       "faseConfederaciones"
-//     );
-//     faseConfederacionesDiv.innerHTML = "";
-
-//     // Insertar cada confederación como si fuera un grupo
-//     for (const confederacion in confederaciones) {
-//       const equipos = confederaciones[confederacion];
-//       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
-//     }
-//   });

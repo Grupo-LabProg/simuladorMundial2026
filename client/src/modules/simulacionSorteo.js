@@ -8,7 +8,6 @@ export function sorteo(array) {
 export let sorteoSimulado = false;
 export function insertarTabla(grupo, equipos) {
   const gruposDiv = document.querySelector(".grupos");
-  const faseGrupos = document.querySelector(".faseDegrupos");
 
   sorteoSimulado = true;
   let html = `
@@ -55,6 +54,5 @@ export function insertarTabla(grupo, equipos) {
           </table>
       </div>`;
 
-  faseGrupos.insertAdjacentHTML("beforeend", html);
   gruposDiv.insertAdjacentHTML("beforeend", html);
 }
