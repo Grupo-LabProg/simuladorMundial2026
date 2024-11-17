@@ -1,10 +1,6 @@
 {
   "AFC": [
     {
-      "name": "Qatar",
-      "flag": "https://flagcdn.com/w20/qa.png"
-    },
-    {
       "name": "Australia",
       "flag": "https://flagcdn.com/w20/au.png"
     },
@@ -29,8 +25,12 @@
       "flag": "https://flagcdn.com/w20/cn.png"
     },
     {
-      "name": "Vietnam",
-      "flag": "https://flagcdn.com/w20/vn.png"
+      "name": "Omán",
+      "flag": "https://flagcdn.com/w20/om.png"
+    },
+    {
+      "name": "Qatar",
+      "flag": "https://flagcdn.com/w20/qa.png"
     }
   ],
   "CAF": [
@@ -169,10 +169,6 @@
   ],
   "CONMEBOL": [
     {
-      "name": "Argentina",
-      "flag": "https://flagcdn.com/w20/ar.png"
-    },
-    {
       "name": "Brasil",
       "flag": "https://flagcdn.com/w20/br.png"
     },
@@ -195,6 +191,10 @@
     {
       "name": "Ecuador",
       "flag": "https://flagcdn.com/w20/ec.png"
+    },
+    {
+      "name": "Paraguay",
+      "flag": "https://flagcdn.com/w20/py.png"
     }
   ],
   "OFC": [

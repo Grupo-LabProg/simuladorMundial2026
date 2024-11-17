@@ -19,10 +19,13 @@ const router = express.Router();
 
 const equiposController = require("../controllers/equiposController");
 
-// Ruta para obtener todos los equipos
-router.get("/", equiposController.getEquipos);
+// Ruta para obtener todos los equipos clasificados
+router.get("/clasificados", equiposController.getEquiposClasificados);
+
+// Ruta para obtener todas confederaciones
+router.get("/confederaciones", equiposController.getConfederaciones);
 
 // TODO: Ruta para agregar un nuevo equipo
-router.post("/", equiposController.addClasificados);
+router.post("/clasificados", equiposController.addClasificados);
 
 module.exports = router;

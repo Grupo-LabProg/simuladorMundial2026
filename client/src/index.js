@@ -1,5 +1,6 @@
 let equiposMundial2022 = [];
 let equipos;
+let conf;
 
 import {
   sorteo,
@@ -16,11 +17,13 @@ import {
 
 async function cargarEquipos() {
   try {
-    const response = await fetch("http://localhost:3000/api/equipos");
+    const response = await fetch(
+      "http://localhost:3000/api/equipos/clasificados"
+    );
 
     // obtengo el objeto JSON de la respuesta de la API y lo parseo
     equipos = await response.json();
-
+    equiposMundial2022 = [];
     // Itera sobre el objeto equipos y va seteando cada país en el arreglo de equiposMundial2022
     Object.values(equipos).forEach((confederacion) => {
       confederacion.forEach((pais) => {
@@ -33,17 +36,19 @@ async function cargarEquipos() {
     console.error("Error al cargar equipos:", error);
   }
 }
-// Llama a la función al cargar la página
-await cargarEquipos();
-
-// console.log("Supuestamente se ejecutaría dsp de cargar los equipos");
-// console.log("Equipos mundial 2022: ", equiposMundial2022);
 
 document
   .getElementById("simularSorteoGruposBtn")
-  .addEventListener("click", function () {
+  .addEventListener("click", async function () {
+    // Cambiar a función async
+    // Cargar equipos antes de ejecutar el sorteo
+
+    await cargarEquipos(); // Espera que los equipos se carguen
+
+    // Ejecutar el sorteo
     sorteo(equiposMundial2022);
 
+    // Generar los grupos
     const grupos = {};
     const letras = "ABCDEFGHIJKL";
 
@@ -51,15 +56,17 @@ document
       grupos[letras[i]] = equiposMundial2022.slice(i * 4, i * 4 + 4);
     }
 
+    // Mostrar los grupos en el HTML
     const gruposDiv = document.getElementById("grupos");
     gruposDiv.innerHTML = "";
     const faseGrupos = document.getElementById("faseGrupos");
     faseGrupos.innerHTML = "";
+
     for (const grupo in grupos) {
       insertarTabla(grupo, grupos[grupo]);
     }
 
-    //console.log(grupos);
+    console.log("Grupos generados:", grupos);
   });
 
 localStorage.removeItem("clasificados"); // borra el arreglo clasificados del local storage cuando recarga la pagina
@@ -130,10 +137,22 @@ document
     }
   });
 
+async function cargarConfederaciones() {
+  try {
+    const response = await fetch(
+      "http://localhost:3000/api/equipos/confederaciones"
+    );
+    conf = await response.json();
+  } catch (error) {
+    console.error("Error al cargar equipos:", error);
+  }
+}
+
 document
   .getElementById("mostrarConfederacionesBtn")
   .addEventListener("click", function () {
-    const confederaciones = equipos;
+    // const conf = equipos;
+    cargarConfederaciones();
 
     // Limpiar el contenido previo
     const faseConfederacionesDiv = document.getElementById(
@@ -143,8 +162,8 @@ document
     // console.log(confederaciones);
     // Insertar cada confederación como si fuera un grupo
     // console.log("Antes del bucle for que inserta confederaciones");
-    for (const confederacion in confederaciones) {
-      const equipos = confederaciones[confederacion];
+    for (const confederacion in conf) {
+      const equipos = conf[confederacion];
       // console.log("Equipos: ", equipos);
       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
     }
@@ -155,7 +174,7 @@ document
   .addEventListener("click", function () {
     console.log("Se dio al boton guardar");
     const confederaciones = document.querySelectorAll(".tabla-confederacion");
-    console.log(confederaciones);
+    //console.log(confederaciones);
 
     // Crear un objeto vacío para almacenar los equipos por confederación
     let clasificados = {};
@@ -168,7 +187,7 @@ document
         .split(":")[1]
         ?.trim();
 
-      console.log(nombreConfederacion);
+      // console.log(nombreConfederacion);
 
       const equipos = confederacion.querySelectorAll("td.team");
 
@@ -195,7 +214,7 @@ document
 
 function enviarDatosAlServidor(equipos) {
   // Usamos fetch para enviar los datos al servidor
-  fetch("http://localhost:3000/api/equipos", {
+  fetch("http://localhost:3000/api/equipos/clasificados", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
