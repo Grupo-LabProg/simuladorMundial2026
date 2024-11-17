@@ -100,7 +100,7 @@ nav ul li a:active {
   transition: 0.3s;
 }
 
-#nav_check:checked+nav .nav_menu {
+#nav_check:checked + nav .nav_menu {
   display: flex;
 }
 
@@ -137,8 +137,10 @@ main {
   box-sizing: border-box;
   gap: 20px;
   /* background-image: url("../client/assets/img/fondo.jpeg"); */
-  background-image: linear-gradient(rgba(16, 16, 16, 0.1),
-      rgba(16, 16, 16, 0.1)),
+  background-image: linear-gradient(
+      rgba(16, 16, 16, 0.1),
+      rgba(16, 16, 16, 0.1)
+    ),
     url("./assets/img/fondo.jpeg");
   background-size: cover;
   background-position: center;
@@ -151,7 +153,6 @@ main {
 .content {
   display: none;
   width: 100%;
-
 }
 
 .content.active {
@@ -190,7 +191,6 @@ aside {
 .content {
   display: none;
   transition: all 0.3s ease-in-out;
-
 }
 
 .toggle-btn {
@@ -244,7 +244,6 @@ li a {
   color: var(--blanco);
 }
 
-
 ul li {
   text-align: left;
   margin-bottom: 10px;
@@ -283,8 +282,6 @@ ul.name-list li {
   .footer-content ul li {
     text-align: center;
   }
-
-
 }
 
 .footer-bottom {
@@ -444,4 +441,14 @@ td img {
 
 .draw {
   background-color: #ffbb33;
+}
+
+.notClasificated > td {
+  background-color: #e74949;
+}
+
+.up,
+.down {
+  cursor: pointer;
+  color: white;
 }

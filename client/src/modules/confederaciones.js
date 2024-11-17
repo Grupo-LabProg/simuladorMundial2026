@@ -7,7 +7,7 @@ export function insertarTablaConfederacion(confederacion, equipos) {
   let html = `
         <div class="tabla-confederacion">
             <h3>Confederación: ${confederacion}</h3>
-            <table>
+            <table class= "table-conf">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -17,12 +17,15 @@ export function insertarTablaConfederacion(confederacion, equipos) {
                 <tbody>`;
 
   equipos.forEach((equipo, index) => {
+    const notClasificated =
+      index >= equipos.length - 2 ? "notClasificated" : "";
+
     html += `
-            <tr>
+            <tr class="${notClasificated}">
                 <td>${index + 1}</td>
-                <td class="team"><img src="${equipo.flag}" alt="${
-      equipo.name
-    }" width="20"> ${equipo.name}</td>
+                <td class="team"><span class="up">⬆</span><span class="down">⬇</span><img src="${
+                  equipo.flag
+                }" alt="${equipo.name}" width="20"> ${equipo.name}</td>
             </tr>`;
   });
 

@@ -12,7 +12,6 @@ import {
   simularFaseDeGrupos,
 } from "./modules/simulacionFaseGrupos.js";
 
-
 // * Función para cargar equipos desde la API y mostrarlos en la página
 
 async function cargarEquipos() {
@@ -21,16 +20,15 @@ async function cargarEquipos() {
 
     // obtengo el objeto JSON de la respuesta de la API y lo parseo
     equipos = await response.json();
-    
+
     // Itera sobre el objeto equipos y va seteando cada país en el arreglo de equiposMundial2022
-    Object.values(equipos).forEach(confederacion => {
-      confederacion.forEach(pais => {
+    Object.values(equipos).forEach((confederacion) => {
+      confederacion.forEach((pais) => {
         equiposMundial2022.push(pais); // Agregar cada país al arreglo final
       });
     });
     // console.log("equipos mundial 2022: ", equiposMundial2022);
     // console.log("equipos: ", equipos);
-
   } catch (error) {
     console.error("Error al cargar equipos:", error);
   }
@@ -149,6 +147,42 @@ document
       const equipos = confederaciones[confederacion];
       // console.log("Equipos: ", equipos);
       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
+    }
+  });
+
+document
+  .getElementById("faseConfederaciones")
+  .addEventListener("click", (event) => {
+    if (event.target.classList.contains("up")) {
+      console.log('Se hizo clic en la flecha "⬆"');
+      const fila = event.target.closest("tr");
+      const filaAnterior = fila.previousElementSibling;
+
+      const equipo1 = fila.querySelector("td.team");
+      const equipo2 = filaAnterior.querySelector("td.team");
+
+      // Elimino los <td> de sus posiciones actuales:
+      fila.removeChild(equipo1);
+      filaAnterior.removeChild(equipo2);
+
+      // Inserto los <td> en las posiciones correspondientes:
+      fila.insertBefore(equipo2, fila.lastChild); // equipo2 en la fila actual
+      filaAnterior.insertBefore(equipo1, filaAnterior.lastChild); // equipo1 en la fila anterior
+    } else if (event.target.classList.contains("down")) {
+      console.log('Se hizo clic en la flecha "⬇"');
+      const fila = event.target.closest("tr");
+      const filaPosterior = fila.nextElementSibling;
+
+      const equipo1 = fila.querySelector("td.team");
+      const equipo2 = filaPosterior.querySelector("td.team");
+
+      // Elimino los <td> de sus posiciones actuales:
+      fila.removeChild(equipo1);
+      filaPosterior.removeChild(equipo2);
+
+      // Inserto los <td> en las posiciones correspondientes:
+      fila.insertBefore(equipo2, null); // equipo2 al final de la fila actual
+      filaPosterior.insertBefore(equipo1, null); // equipo1 al final de la fila posterior
     }
   });
 
