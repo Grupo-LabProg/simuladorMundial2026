@@ -76,7 +76,7 @@ export function simularFaseDeGrupos(grupo, equipos) {
     return b.Pts - a.Pts;
   });
 
-  const faseGrupos = document.querySelector(".faseDegrupos");
+  const faseGrupos = document.querySelector(".grupos");
 
   let html = `
         <div class="table-container">
