@@ -1,27 +1,14 @@
 // Selecciona todos los divs con clase que empieza con 'team'
 
 const headerHTML1 = `<div class="logo">
-        <a href=""><img src="../img/logo.png" alt="Logo" /></a>
+        <a href=""><img src="../assets/img/logo.png" alt="Logo" /></a>
       </div>
       <input type="checkbox" id="nav_check" hidden />
       <nav>
         <ul class="nav_menu">
-          <li><a class="link" href="index.html">Inicio</a></li>
-          <li>
-            <a class="link" href="index.html" data-target="confederaciones"
-              >Confederaciones</a
-            >
-          </li>
-          <li>
-            <a class="link" href="index.html" data-target="sorteoFaseGrupos"
-              >Sorteo Grupos</a
-            >
-          </li>
-          <li>
-            <a class="link" href="index.html" data-target="faseGrupos">Fase Grupos</a>
-          </li>
-          <li><a href="simulacionFaseFinal.html" target="">Fase Final</a></li>
-          <li><a href="historial.html" target="">Historial</a></li>
+          <li><a class="link" href="../index.html">Inicio</a></li>
+          <li><a href="./faseFinal.html" target="">Fase Final</a></li>
+          <li><a href="../historial/historial.html" target="">Historial</a></li>
         </ul>
       </nav>`;
 

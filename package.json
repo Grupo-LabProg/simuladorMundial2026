@@ -1,0 +1,24 @@
+{
+  "name": "simulador-mundial2026",
+  "version": "1.0.0",
+  "description": "Simulador del Mundial de Futbol 2026",
+  "type": "commonjs",
+  "main": "server/app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Grupo-LabProg/simuladorMundial2026.git"
+  },
+  "author": "Benjamín Morales <mcjaben777@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "scripts": {
+    "start": "node server/app.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Grupo-LabProg/simuladorMundial2026/issues"
+  },
+  "homepage": "https://github.com/Grupo-LabProg/simuladorMundial2026#readme",
+  "keywords": []
+}

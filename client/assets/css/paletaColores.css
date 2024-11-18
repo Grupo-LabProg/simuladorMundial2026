@@ -1,5 +1,3 @@
-@import url("paletaColores.css");
-
 :root {
     --blanco: #ffffff;
     --negro: #000000;
@@ -9,6 +7,6 @@
     --celeste: #0073b1; 
     --transparente: #ece6e600;
     --fondo:#101010;
-    --gris:#c7c7c7;
+    /* --gris:#c7c7c7; */
     --gris-oscuro:#656972;
 }

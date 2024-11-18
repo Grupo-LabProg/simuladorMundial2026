@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (winners && imgHTML) {
         document.getElementById('recordSection').style.display = 'block';
-        console.log("mis datos:", imgHTML);
-        console.log("Ganadores de 16vos:", winners);
+        // console.log("mis datos:", imgHTML);
+        // console.log("Ganadores de 16vos:", winners);
 
         const countryNames = winners.map(winner => {
             const match = winner.match(/alt="([^"]+)"/);
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 result_1 = Math.max(score1, score2) + 1;
                 result_2 = Math.min(score1, score2);
             }
-            console.log("W:", result_1, "L:", result_2);
+            // console.log("W:", result_1, "L:", result_2);
             // Actualizar puntajes en el HTML
             game.querySelector('.content-result .result_1').innerText = result_1;
             game.querySelector('.content-result .result_2').innerText = result_2;
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } else {
 
-        console.log("No hay ganadores de 16vos disponibles.");
+        // console.log("No hay ganadores de 16vos disponibles.");
     }
 });
 
