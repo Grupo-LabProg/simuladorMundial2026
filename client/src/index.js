@@ -15,7 +15,6 @@ import {
 
 cargarConfederaciones();
 
-
 // * Función para cargar equipos desde la API y mostrarlos en la página
 
 async function cargarEquipos() {
@@ -144,23 +143,35 @@ async function cargarConfederaciones() {
   } catch (error) {
     console.error("Error al cargar equipos:", error);
   }
+  cargarConfederacionesEnPagina();
 }
 
-document
-  .getElementById("mostrarConfederacionesBtn")
-  .addEventListener("click", function () {
+// document
+//   .getElementById("mostrarConfederacionesBtn")
+//   .addEventListener("click", function () {
 
-    // Limpiar el contenido previo
-    const faseConfederacionesDiv = document.getElementById(
-      "faseConfederaciones"
-    );
-    faseConfederacionesDiv.innerHTML = "";
-    // Insertar cada confederación como si fuera un grupo
-    for (const confederacion in conf) {
-      const equipos = conf[confederacion];
-      insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
-    }
-  });
+//     // Limpiar el contenido previo
+//     const faseConfederacionesDiv = document.getElementById(
+//       "faseConfederaciones"
+//     );
+//     faseConfederacionesDiv.innerHTML = "";
+//     // Insertar cada confederación como si fuera un grupo
+//     for (const confederacion in conf) {
+//       const equipos = conf[confederacion];
+//       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
+//     }
+//   });
+
+function cargarConfederacionesEnPagina() {
+  // Limpiar el contenido previo
+  const faseConfederacionesDiv = document.getElementById("faseConfederaciones");
+  faseConfederacionesDiv.innerHTML = "";
+  // Insertar cada confederación como si fuera un grupo
+  for (const confederacion in conf) {
+    const equipos = conf[confederacion];
+    insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
+  }
+}
 
 document
   .getElementById("guardarClasificadosBtn")
