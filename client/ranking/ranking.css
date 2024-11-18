@@ -203,6 +203,7 @@ button:hover {
   margin-top: 20px;
   width: 76%;
   justify-items: center;
+  height: 1000px;
   /* Ajusta el tamaño máximo según tus necesidades */
 }
 
@@ -210,9 +211,10 @@ button:hover {
   display: flex;
   background-color: #e7e7e7;
   border-radius: 8px;
-  width: 98%;
+  width: 90%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  height: 100%;
   padding: 10px;
   align-items: center;
   justify-content: space-between;
@@ -222,14 +224,16 @@ button:hover {
 
 .rank-id {
   color:var(--negro);
-  margin-left:2rem ;
+  width: 5%;
 }
 .name-country{
   color: var(--negro);
+  width: 25%;
 }
+
 .points{
   color: var(--negro);
-  margin-right:3rem ;
+  width: 15%;
 }
 
 .error-message {
@@ -245,26 +249,43 @@ button:hover {
 .label-content{
   display: flex;
   align-items: center;
-  padding: 0 10px;
-  width: 100%;
+  padding: 10px ;
+  width: 68%;
+  height: 30px;
+  border-radius: 5px;
   justify-content: space-between;
+  background-color: #ffff;
 }
 .label-point,.label-cl,.label-country,.label-flag{
   color: #000000;
-  display: block;
-  background-color: #ffffff;
-  border-radius: 6px;
-  padding: 6px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .label-cl{
-  margin-left: 1.5rem;
-}
-.label-point{
-  margin-right: 1.5rem;
+  width: 5%;
 }
 .label-country{
-  margin-left: 1rem;
+  width: 25%;
 }
-.label-flag{
-  margin-left: 1.4rem;
+
+.label-point{
+  width: 15%;
+}
+.content-button{
+  margin: 2rem 0;
+  align-items: center;
+}
+.content-button img{
+  width: 100%;
+}
+.left{
+  width: 40px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.rigth{
+  width: 40px;
+  margin-left: 10px;
+  border-radius: 5px;
 }

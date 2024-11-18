@@ -1,95 +1,107 @@
-let items = [];
-let practica2 = []
-let practica = [
-  {
-    id: 1,
-    country: "Ucrania",
-    flag: "https://flagcdn.com/w80/ua.png",
-    point: 10
-  },
-  {
-    id: 2,
-    country: "Rusia",
-    flag: "https://flagcdn.com/w80/ru.png",
-    point: 8
-  },
-  {
-    id: 3,
-    country: "Brasil",
-    flag: "https://flagcdn.com/w80/br.png",
-    point: 6
-  },
-  {
-    id: 4,
-    country: "Chile",
-    flag: "https://flagcdn.com/w80/cl.png",
-    point: 5
-  }
-];
+let datos;
+let from = 0;
+const cantidad = 10;
 
+const labelscontent = document.querySelector('.label-content');
+const errorDiv = document.querySelector('.error-message');
+const container = document.querySelector('.content-table');
 
-function rellenar() {
+async function nuevo() {
   try {
-    console.log("Ingreso");
-    // Añadir los elementos de practica al arreglo items
-    practica.forEach(valor => {
-      items.push(valor);
-    });
-    const labelscontent = document.querySelector('.label-content');
-    const errorDiv = document.querySelector('.error-message');
-    if (items.length == 0) {
-      errorDiv.style.display = 'block'; // Mostramos el mensaje
-      labelscontent.style.display = 'none'; 
+    const arrayDatos = [];
+    console.log("fromCli:", from, "cantidad:", cantidad);
+
+    // Realizar la llamada a la API para obtener los nuevos datos
+    const response = await fetch(`http://localhost:3000/api/ranking?cantidad=${cantidad}&from=${from}`);
+    // Obtener los datos JSON de la respuesta
+    const datos = await response.json();
+
+    // Si no hay datos, mostrar mensaje de error
+    if (datos.length == 0) {
+      errorDiv.style.display = 'flex'; // Mostramos el mensaje de error
       console.log("El arreglo está vacío.");
+      return;
     } else {
-      console.log("El arreglo no está vacío.");
+
+      // Si hay datos, continuar con la actualización del DOM
+      console.log("Datos obtenidos: ", datos);
       errorDiv.style.display = 'none';
-      labelscontent.style.display = 'flex';
+
+      // Seleccionar el contenedor para los nuevos elementos
       const container = document.querySelector('.content-table');
-
-      // Verificar si el contenedor existe
-      if (container) {
-        // Recorrer el arreglo de datos
-        items.forEach(item => {
-          // Crear un div para cada item
-          const itemElement = document.createElement('div');
-          itemElement.classList.add('item');
-
-          // Crear los elementos internos (rank, country, points)
-          const rankElement = document.createElement('span');
-          rankElement.classList.add('rank-id');
-          rankElement.textContent = item.id;
-
-          const countryElement = document.createElement('span');
-          countryElement.classList.add('name-country');
-          countryElement.textContent = item.country;
-
-          const flagImage = document.createElement('img');
-          flagImage.src = item.flag;
-          flagImage.alt = `img-country-${item.country}`;
-
-          const pointsElement = document.createElement('span');
-          pointsElement.classList.add('points');
-          pointsElement.textContent = item.point;
-
-          // Agregar los elementos creados al div item
-          itemElement.appendChild(rankElement);
-          itemElement.appendChild(countryElement);
-          itemElement.appendChild(flagImage);
-          itemElement.appendChild(pointsElement);
-
-          // Finalmente, agregar el div item al contenedor
-          container.appendChild(itemElement);
-        });
-      } else {
+      if (!container) {
         console.error("No se encontró el contenedor .content-table");
+        return;
       }
+
+      // Limpiar el contenedor antes de agregar nuevos datos
+      container.innerHTML = ''; // Elimina todos los elementos previos
+
+      // Crear un fragmento de documento para agregar los nuevos elementos de manera eficiente
+      const fragment = document.createDocumentFragment();
+
+      // Recorrer los datos y agregar los elementos al fragmento
+      datos.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('item');
+
+        const rankElement = document.createElement('span');
+        rankElement.classList.add('rank-id');
+        rankElement.textContent = item.rank;
+
+        const countryElement = document.createElement('span');
+        countryElement.classList.add('name-country');
+        countryElement.textContent = item.name;
+
+        const flagImage = document.createElement('img');
+        flagImage.src = item.flag;
+        flagImage.alt = `img-country-${item.name}`;
+
+        const pointsElement = document.createElement('span');
+        pointsElement.classList.add('points');
+        pointsElement.textContent = item.points;
+
+        // Agregar los elementos al div item
+        itemElement.appendChild(rankElement);
+        itemElement.appendChild(countryElement);
+        itemElement.appendChild(flagImage);
+        itemElement.appendChild(pointsElement);
+
+        // Agregar el item al fragmento
+        fragment.appendChild(itemElement);
+      });
+
+      // Agregar todos los elementos de una vez al contenedor
+      container.appendChild(fragment);
     }
+
   } catch (error) {
-    console.error("Error al cargar equipos:", error);
+    console.error("Error al cargar datos:", error);
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  rellenar();  // Llama a la función que rellena la página
+// Función para manejar el botón "derecha"
+document.querySelector('.rigth').addEventListener('click', () => {
+  // Incrementar 'from' para cargar los siguientes 10 elementos
+  if (from <= 207) {
+    from += cantidad;
+    nuevo();
+  }
 });
+
+// Función para manejar el botón "izquierda"
+document.querySelector('.left').addEventListener('click', () => {
+  // Decrementar 'from' para cargar los elementos anteriores (si no estamos en la primera página)
+  if (from >= cantidad) {
+    from -= cantidad;
+    nuevo();
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  nuevo();  // Llama a la función que rellena la página
+});
+
+
+
