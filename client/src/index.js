@@ -13,6 +13,9 @@ import {
   simularFaseDeGrupos,
 } from "./modules/simulacionFaseGrupos.js";
 
+cargarConfederaciones();
+
+
 // * Función para cargar equipos desde la API y mostrarlos en la página
 
 async function cargarEquipos() {
@@ -30,8 +33,6 @@ async function cargarEquipos() {
         equiposMundial2022.push(pais); // Agregar cada país al arreglo final
       });
     });
-    // console.log("equipos mundial 2022: ", equiposMundial2022);
-    // console.log("equipos: ", equipos);
   } catch (error) {
     console.error("Error al cargar equipos:", error);
   }
@@ -148,20 +149,15 @@ async function cargarConfederaciones() {
 document
   .getElementById("mostrarConfederacionesBtn")
   .addEventListener("click", function () {
-    // const conf = equipos;
-    cargarConfederaciones();
 
     // Limpiar el contenido previo
     const faseConfederacionesDiv = document.getElementById(
       "faseConfederaciones"
     );
     faseConfederacionesDiv.innerHTML = "";
-    // console.log(confederaciones);
     // Insertar cada confederación como si fuera un grupo
-    // console.log("Antes del bucle for que inserta confederaciones");
     for (const confederacion in conf) {
       const equipos = conf[confederacion];
-      // console.log("Equipos: ", equipos);
       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
     }
   });
@@ -171,7 +167,6 @@ document
   .addEventListener("click", function () {
     console.log("Se dio al boton guardar");
     const confederaciones = document.querySelectorAll(".tabla-confederacion");
-    //console.log(confederaciones);
 
     // Crear un objeto vacío para almacenar los equipos por confederación
     let clasificados = {};
@@ -183,8 +178,6 @@ document
         .textContent.trim()
         .split(":")[1]
         ?.trim();
-
-      // console.log(nombreConfederacion);
 
       const equipos = confederacion.querySelectorAll("td.team");
 
@@ -205,7 +198,6 @@ document
       });
     });
 
-    console.log(clasificados);
     enviarDatosAlServidor(clasificados);
   });
 
@@ -262,29 +254,3 @@ document
       filaPosterior.insertBefore(equipo1, null); // equipo1 al final de la fila posterior
     }
   });
-
-//   //eliminar despues de armar el servidor
-// document
-//   .getElementById("mostrarConfederacionesBtn")
-//   .addEventListener("click", function () {
-//     const confederaciones = {
-//       CAF: CAF,
-//       CONMEBOL: CONMEBOL,
-//       CONCACAF: CONCACAF,
-//       AFC: AFC,
-//       UEFA: UEFA,
-//       OFC: OFC,
-//     };
-
-//     // Limpiar el contenido previo
-//     const faseConfederacionesDiv = document.getElementById(
-//       "faseConfederaciones"
-//     );
-//     faseConfederacionesDiv.innerHTML = "";
-
-//     // Insertar cada confederación como si fuera un grupo
-//     for (const confederacion in confederaciones) {
-//       const equipos = confederaciones[confederacion];
-//       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
-//     }
-//   });
