@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const equiposRoutes = require('./routes/equiposRouter');
+const rankingRoutes = require('./routes/rankingRouter');
 
 // TODO: Partidos
 // const partidosRoutes = require('./routes/partidosRouter');
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Rutas de la API
 app.use('/api/equipos', equiposRoutes);  // Rutas para los equipos
+app.use('/api/ranking', rankingRoutes);  // Rutas para los equipos
 
 // TODO: modelo partidos
 // app.use('/api/partidos', partidosRoutes); // Rutas para los partidos
