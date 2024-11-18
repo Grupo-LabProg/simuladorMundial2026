@@ -193,6 +193,10 @@ aside {
   transition: all 0.3s ease-in-out;
 }
 
+.content table th:not([align]) {
+  color: var(--blanco)
+}
+
 .toggle-btn {
   display: block;
   width: 100%;
@@ -302,6 +306,19 @@ ul.name-list li {
   min-width: 685px;
   max-width: 700px;
   overflow-x: auto;
+  color: var(--blanco)
+}
+
+.table-container h3 {
+  color: var(--blanco);
+}
+
+.table-container th {
+  color: var(--blanco)
+}
+
+.table-container thead {
+  color: var(--blanco)
 }
 
 /* Nueva clase específica para las tablas de confederaciones */
@@ -382,6 +399,7 @@ ul.name-list li {
   table {
     width: 80% !important;
     margin-left: 70px !important;
+    color:white;
   }
 
   th,

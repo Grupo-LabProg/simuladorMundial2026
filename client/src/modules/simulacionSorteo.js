@@ -37,7 +37,7 @@ export function insertarTabla(grupo, equipos) {
               <td>${index + 1}</td>
               <td class="team"><img src="${equipo.flag}" alt="${
       equipo.name
-    }" width="20">${equipo.name}</td>
+    }" width="20"> ${equipo.name} </td>
               <td>0</td>
               <td>0</td>
               <td>0</td>

@@ -80,7 +80,7 @@ export function simularFaseDeGrupos(grupo, equipos) {
 
   let html = `
         <div class="table-container">
-            <h3 style="color:grey">Grupo ${grupo}</h3>
+            <h3>Grupo ${grupo}</h3>
             <table>
                 <thead>
                     <tr>
