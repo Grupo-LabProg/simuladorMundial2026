@@ -339,12 +339,19 @@ ul.name-list li {
 .tabla-confederacion td:first-child {
   width: 40px;
   /* Ancho de la columna del número */
+  color: var(--blanco)
+
 }
 
 .tabla-confederacion th:last-child,
 .tabla-confederacion td:last-child {
   width: auto;
   /* El resto del espacio para la columna del equipo */
+  color: var(--blanco)
+}
+
+.tabla-confederacion h3 {
+  color: var(--blanco);
 }
 
 .grupos,

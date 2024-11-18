@@ -7,7 +7,7 @@ export function insertarTablaConfederacion(confederacion, equipos) {
   let html = `
         <div class="tabla-confederacion">
             <h3>Confederación: ${confederacion}</h3>
-            <table class= "table-conf">
+            <table>
                 <thead>
                     <tr>
                         <th>#</th>
