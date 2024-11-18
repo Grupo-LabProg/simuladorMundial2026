@@ -14,11 +14,15 @@
     "express": "^4.21.1"
   },
   "scripts": {
-    "start": "node server/app.js"
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
   },
   "bugs": {
     "url": "https://github.com/Grupo-LabProg/simuladorMundial2026/issues"
   },
   "homepage": "https://github.com/Grupo-LabProg/simuladorMundial2026#readme",
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
 }

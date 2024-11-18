@@ -354,7 +354,7 @@ ul.name-list li {
 /* Ajuste del tamaño de las columnas para que se vean más compactas */
 .tabla-confederacion th:first-child,
 .tabla-confederacion td:first-child {
-  width: 40px;
+  width: 1rem;
   /* Ancho de la columna del número */
   color: var(--blanco)
 
@@ -476,4 +476,6 @@ td img {
 .down {
   cursor: pointer;
   color: white;
+  padding-left: 0.2rem;
+  padding-left: 0.2rem
 }

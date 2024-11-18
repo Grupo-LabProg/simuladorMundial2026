@@ -62,8 +62,6 @@ document
     for (const grupo in grupos) {
       insertarTabla(grupo, grupos[grupo]);
     }
-
-    console.log("Grupos generados:", grupos);
   });
 
 localStorage.removeItem("clasificados"); // borra el arreglo clasificados del local storage cuando recarga la pagina
@@ -176,7 +174,6 @@ function cargarConfederacionesEnPagina() {
 document
   .getElementById("guardarClasificadosBtn")
   .addEventListener("click", function () {
-    console.log("Se dio al boton guardar");
     const confederaciones = document.querySelectorAll(".tabla-confederacion");
 
     // Crear un objeto vacío para almacenar los equipos por confederación
@@ -223,7 +220,7 @@ function enviarDatosAlServidor(equipos) {
   })
     .then((response) => response.json()) // Respuesta del servidor
     .then((data) => {
-      console.log("Respuesta del servidor:", data);
+      // console.log("Respuesta del servidor:", data);
     })
     .catch((error) => {
       console.error("Error al enviar los datos:", error);
@@ -234,7 +231,7 @@ document
   .getElementById("faseConfederaciones")
   .addEventListener("click", (event) => {
     if (event.target.classList.contains("up")) {
-      console.log('Se hizo clic en la flecha "⬆"');
+      // console.log('Se hizo clic en la flecha "⬆"');
       const fila = event.target.closest("tr");
       const filaAnterior = fila.previousElementSibling;
 
@@ -249,7 +246,7 @@ document
       fila.insertBefore(equipo2, fila.lastChild); // equipo2 en la fila actual
       filaAnterior.insertBefore(equipo1, filaAnterior.lastChild); // equipo1 en la fila anterior
     } else if (event.target.classList.contains("down")) {
-      console.log('Se hizo clic en la flecha "⬇"');
+      // console.log('Se hizo clic en la flecha "⬇"');
       const fila = event.target.closest("tr");
       const filaPosterior = fila.nextElementSibling;
 
