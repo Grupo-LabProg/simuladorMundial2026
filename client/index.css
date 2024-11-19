@@ -22,6 +22,7 @@ body {
 }
 
 header {
+  position: relative;
   top: 0;
   width: 100%;
   height: 15%;
@@ -194,7 +195,7 @@ aside {
 }
 
 .content table th:not([align]) {
-  color: var(--blanco)
+  color: var(--blanco);
 }
 
 .toggle-btn {
@@ -306,7 +307,7 @@ ul.name-list li {
   min-width: 685px;
   max-width: 700px;
   overflow-x: auto;
-  color: var(--blanco)
+  color: var(--blanco);
 }
 
 .table-container h3 {
@@ -314,11 +315,11 @@ ul.name-list li {
 }
 
 .table-container th {
-  color: var(--blanco)
+  color: var(--blanco);
 }
 
 .table-container thead {
-  color: var(--blanco)
+  color: var(--blanco);
 }
 
 /* Nueva clase específica para las tablas de confederaciones */
@@ -356,15 +357,14 @@ ul.name-list li {
 .tabla-confederacion td:first-child {
   width: 1rem;
   /* Ancho de la columna del número */
-  color: var(--blanco)
-
+  color: var(--blanco);
 }
 
 .tabla-confederacion th:last-child,
 .tabla-confederacion td:last-child {
   width: auto;
   /* El resto del espacio para la columna del equipo */
-  color: var(--blanco)
+  color: var(--blanco);
 }
 
 .tabla-confederacion h3 {
@@ -399,7 +399,7 @@ ul.name-list li {
   table {
     width: 80% !important;
     margin-left: 70px !important;
-    color:white;
+    color: white;
   }
 
   th,
@@ -477,5 +477,5 @@ td img {
   cursor: pointer;
   color: white;
   padding-left: 0.2rem;
-  padding-left: 0.2rem
+  padding-left: 0.2rem;
 }

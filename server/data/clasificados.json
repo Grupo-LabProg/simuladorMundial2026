@@ -63,8 +63,8 @@
       "flag": "https://flagcdn.com/w20/dz.png"
     },
     {
-      "name": "Costa",
-      "flag": "https://flagcdn.com/w20/ci.png"
+      "name": "Mali",
+      "flag": "https://flagcdn.com/w20/ml.png"
     },
     {
       "name": "Sudáfrica",
@@ -159,12 +159,12 @@
       "flag": "https://flagcdn.com/w20/ro.png"
     },
     {
-      "name": "Austria",
-      "flag": "https://flagcdn.com/w20/at.png"
-    },
-    {
       "name": "Hungría",
       "flag": "https://flagcdn.com/w20/hu.png"
+    },
+    {
+      "name": "Austria",
+      "flag": "https://flagcdn.com/w20/at.png"
     }
   ],
   "CONMEBOL": [
@@ -189,12 +189,12 @@
       "flag": "https://flagcdn.com/w20/cl.png"
     },
     {
-      "name": "Colombia",
-      "flag": "https://flagcdn.com/w20/co.png"
-    },
-    {
       "name": "Paraguay",
       "flag": "https://flagcdn.com/w20/py.png"
+    },
+    {
+      "name": "Venezuela",
+      "flag": "https://flagcdn.com/w20/ve.png"
     }
   ],
   "OFC": [
