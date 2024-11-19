@@ -7,8 +7,15 @@ const headerHTML1 = `<div class="logo">
       <nav>
         <ul class="nav_menu">
           <li><a class="link" href="../index.html">Inicio</a></li>
-          <li><a href="./faseFinal.html" target="">Fase Final</a></li>
-          <li><a href="../historial/historial.html" target="">Historial</a></li>
+        <li>
+          <a class="link" href=".." data-target="confederaciones">Confederaciones</a>
+        </li>
+        <li>
+          <a class="link" href=".." data-target="sorteoFaseGrupos">Fase de Grupos</a>
+        </li>
+        <li><a href="#" target="">Fase Final</a></li>
+        <li><a href="../historial/historial.html" target="">Historial</a></li>
+        <li><a href="../ranking/ranking.html" target="">Ranking</a></li>
         </ul>
       </nav>`;
 
@@ -139,11 +146,11 @@ button.addEventListener("click", async () => {
       equipo.appendChild(tdElement);
       datos.push(tdElement.innerHTML);
     });
-    localStorage.setItem('misDatos', JSON.stringify(datos));
-    
+    localStorage.setItem("misDatos", JSON.stringify(datos));
+
     // Procesar cada ronda
     let ganadores16vos = await procesarRonda("d-knockout", 16);
-    localStorage.setItem('ganadores16vos', JSON.stringify(ganadores16vos));
+    localStorage.setItem("ganadores16vos", JSON.stringify(ganadores16vos));
     console.log("Ganadores 16vos:", ganadores16vos);
     asignarEquipos(teamsRound8, ganadores16vos);
 
