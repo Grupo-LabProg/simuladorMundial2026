@@ -13,8 +13,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   margin: 0;
   background-color: var(--fondo);
 }
@@ -70,14 +70,9 @@ main {
   display: block;
 }
 
-/*estilos historial*/
-/* body {
-    background-color: var(--gris);
-} */
-
 #recordSection {
-  display: none;
-  margin: 100px 400px;
+  margin: auto;
+  max-width: 30%;
 }
 
 .set_games {
