@@ -120,7 +120,7 @@ nav ul li a:active {
   background-color: rgb(201, 201, 201);
 }
 
-.content-seach-table {
+.content-search-table {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -288,4 +288,39 @@ button:hover {
 
 #divContainer {
   background-color: var(--fondo);
+}
+
+/* Estilos adicionales para la ventana modal */
+.modal-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.modal-details {
+  text-align: center;
+}
+
+.modal-details img {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 128px;
+  max-height: 128px;
+}
+
+.modal-details p {
+  margin: 10px 0;
+}
+
+.modal-details h2 {
+  margin-bottom: 20px;
+}
+
+/* Animación de deslizamiento */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

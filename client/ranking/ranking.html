@@ -13,58 +13,45 @@
 
 <body>
   <header id="header">
-    <!-- <div class="logo">
-      <a href=""><img src="../assets/img/logo.png" alt="Logo" /></a>
-    </div>
-    <input type="checkbox" id="nav_check" hidden />
-    <nav>
-      <ul class="nav_menu">
-        <li><a class="link" href="#">Inicio</a></li>
-        <li>
-          <a class="link" href="#" data-target="confederaciones">Confederaciones</a>
-        </li>
-        <li>
-          <a class="link" href="#" data-target="sorteoFaseGrupos">Sorteo Grupos</a>
-        </li>
-        <li>
-          <a class="link" href="#" data-target="faseGrupos">Fase Grupos</a>
-        </li>
-        <li><a href="./faseFinal/faseFinal.html" target="">Fase Final</a></li>
-        <li><a href="./historial/historial.html" target="">Historial</a></li>
-        <li><a href="" target="">Ranking</a></li>
-      </ul>
-    </nav>
-    <label for="nav_check" class="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </label> -->
   </header>
+
   <div id="divContainer">
-    <section class="content-seach-table">
-    <form class="form-seach" action="/resultado" method="get">
-      <input type="text" id="search" name="query" placeholder="Introduce la cantidad a buscar" required>
-      <button id="btnBuscar" type="submit">Buscar</button>
-    </form>
-    <div class="label-content">
-      <span class="label-cl">CL</span>
-      <span class="label-country">Pais</span>
-      <span class="label-flag">Bandera</span>
-      <span class="label-point">Puntos</span>
+    <br>
+    <section class="content-search-table">
+      <div class="label-content">
+        <span class="label-cl">CL</span>
+        <span class="label-country">Pais</span>
+        <span class="label-flag">Bandera</span>
+        <span class="label-point">Puntos</span>
+      </div>
+      <section class="content-table">
+        <div class="error-message">No se encontraron resultados.</div>
+      </section>
+      <section class="content-button">
+        <button class="left">
+          <img src="../assets/img/flags-icon/left-arrow.png" alt="left-arrow">
+        </button>
+        <button class="rigth">
+          <img src="../assets/img/flags-icon/right-arrow.png" alt="right-arrow">
+        </button>
+      </section>
+    </section>
+  </div>
+
+  <!-- Ventana modal -->
+  <div id="modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <button class="delete is-large" aria-label="close" id="close-btn"></button>
+        <div class="modal-details">
+          <!-- Aquí se mostrarán los detalles del país -->
+        </div>
+      </div>
     </div>
-    <section class="content-table">
-      <div class="error-message">No se encontraron resultados.</div>
-    </section>
-    <section class="content-button">
-      <button class="left">
-        <img src="../assets/img/flags-icon/left-arrow.png" alt="left-arrow">
-      </button>
-      <button class="rigth">
-        <img src="../assets/img/flags-icon/right-arrow.png" alt="right-arrow">
-      </button>
-    </section>
-    </section>
-</div>
+  </div>
+  
+  
   <script src="./ranking.js" defer></script>
 
   <body>

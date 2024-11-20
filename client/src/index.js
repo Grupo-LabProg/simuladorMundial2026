@@ -244,13 +244,13 @@ document
 
 const target = localStorage.getItem("targetSection");
 if (target) {
-  console.log(target);
+  // console.log(target);
   const targetElement = document.querySelector(`section.${target}`);
-  console.log(targetElement);
+  // console.log(targetElement);
   if (targetElement) {
     // targetElement.scrollIntoView({ behavior: "auto" }); // Desplázate suavemente
     targetElement.classList.add("active");
-    console.log("dentro");
+    // console.log("dentro");
   }
   localStorage.removeItem("targetSection"); // Limpia el valor para evitar comportamiento repetitivo
 }
