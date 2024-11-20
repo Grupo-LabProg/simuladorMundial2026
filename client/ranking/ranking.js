@@ -5,11 +5,15 @@ const cantidad = 10;
 const labelscontent = document.querySelector(".label-content");
 const errorDiv = document.querySelector(".error-message");
 const container = document.querySelector(".content-table");
+// Agrego ventana flotante (modal)
+const modal = document.getElementById("modal");
+const modalContent = document.querySelector(".modal-details");
+const closeBtn = document.querySelector("#close-btn");
 
 async function nuevo() {
   try {
     const arrayDatos = [];
-    console.log("fromCli:", from, "cantidad:", cantidad);
+    // console.log("fromCli:", from, "cantidad:", cantidad);
 
     // Realizar la llamada a la API para obtener los nuevos datos
     const response = await fetch(
@@ -21,11 +25,11 @@ async function nuevo() {
     // Si no hay datos, mostrar mensaje de error
     if (datos.length == 0) {
       errorDiv.style.display = "flex"; // Mostramos el mensaje de error
-      console.log("El arreglo está vacío.");
+      // console.log("El arreglo está vacío.");
       return;
     } else {
       // Si hay datos, continuar con la actualización del DOM
-      console.log("Datos obtenidos: ", datos);
+      // console.log("Datos obtenidos: ", datos);
       errorDiv.style.display = "none";
 
       // Seleccionar el contenedor para los nuevos elementos
@@ -45,6 +49,7 @@ async function nuevo() {
       datos.forEach((item) => {
         const itemElement = document.createElement("div");
         itemElement.classList.add("item");
+        itemElement.dataset.id = item.id; // Agregar el ID del país como atributo de datos
 
         const rankElement = document.createElement("span");
         rankElement.classList.add("rank-id");
@@ -74,6 +79,17 @@ async function nuevo() {
 
       // Agregar todos los elementos de una vez al contenedor
       container.appendChild(fragment);
+
+      // Agregar evento de clic a cada país
+      document.querySelectorAll(".item").forEach((item) => {
+        item.addEventListener("click", async () => {
+          const countryId = item.dataset.id;
+          // console.log("countryID: ", countryId);
+          const countryDetails = await fetchCountryDetails(countryId);
+          showModal(countryDetails);
+          openModal(modal);
+        });
+      });
     }
   } catch (error) {
     console.error("Error al cargar datos:", error);
@@ -137,3 +153,55 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Función para mostrar la ventana flotante con los detalles del país
+function showModal(countryDetails) {
+  const modalContent = document.querySelector(".modal-details");
+  modalContent.innerHTML = `
+    <h2 class="title is-2">${countryDetails.name}</h2>
+    <img src="${countryDetails.flag}" alt="${countryDetails.name}" class="image is-70x46 is-justify-content-center">
+    <p><strong>Posición:</strong> ${countryDetails.rank}</p>
+    <p><strong>Puntos:</strong> ${countryDetails.points}</p>
+    <p><strong>Posición anterior:</strong> ${countryDetails.previous_rank}</p>
+    <p><strong>Confederación:</strong> ${countryDetails.confederation}</p>
+  `;
+}
+
+// Función para cerrar la ventana modal
+function closeModal() {
+  // console.log("funcion closeModal()...");
+  modal.classList.remove('is-active');
+}
+
+// Función para abrir la ventana modal
+function openModal($el) {
+  // console.log("funcion openModal()...");
+  $el.classList.add('is-active');
+}
+
+// Agregar un evento de clic en el botón de cerrar
+closeBtn.addEventListener("click", () => {
+  // console.log("Evento del boton closeModal()...");
+  closeModal();
+});
+
+// Agregar un evento de clic en el fondo de la ventana modal para cerrarla
+document.querySelector('.modal-background').addEventListener('click', () => {
+  // console.log("Evento fuera de la ventana modal...");
+  closeModal();
+});
+
+// Función para obtener los detalles del país desde la API
+async function fetchCountryDetails(countryId) {
+  try {
+    // console.log("countryId: ", countryId);
+    const response = await fetch(`http://localhost:3000/api/ranking/${countryId}`);
+    // console.log("response: ", response);
+    const countryDetails = await response.json();
+    // console.log("countryDetails: ", countryDetails);
+    return countryDetails;
+  } catch (error) {
+    console.error("Error al obtener detalles del país:", error);
+    return null;
+  }
+}

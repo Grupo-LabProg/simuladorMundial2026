@@ -124,7 +124,7 @@ async function procesarRonda(clasePartido, numPartidos) {
 
     // Espera  200ms antes de continuar a la siguiente iteración
     await delay(200);
-    console.log("clase partido: " + clasePartido);
+    // console.log("clase partido: " + clasePartido);
   }
   return ganadores;
 }
@@ -152,24 +152,24 @@ button.addEventListener("click", async () => {
     // Procesar cada ronda
     let ganadores16vos = await procesarRonda("d-knockout", 16);
     localStorage.setItem("ganadores16vos", JSON.stringify(ganadores16vos));
-    console.log("Ganadores 16vos:", ganadores16vos);
+    // console.log("Ganadores 16vos:", ganadores16vos);
     asignarEquipos(teamsRound8, ganadores16vos);
 
     let ganadores8vos = await procesarRonda("o-knockout", 8);
-    console.log("Ganadores 8vos:", ganadores8vos);
+    // console.log("Ganadores 8vos:", ganadores8vos);
     asignarEquipos(teamsRound4, ganadores8vos);
 
     let ganadores4tos = await procesarRonda("c-knockout", 4);
-    console.log("Ganadores 4tos:", ganadores4tos);
+    // console.log("Ganadores 4tos:", ganadores4tos);
     asignarEquipos(teamsRound2, ganadores4tos);
 
     let ganadoresSemis = await procesarRonda("s-knockout", 2);
-    console.log("Ganadores Semis:", ganadoresSemis);
+    // console.log("Ganadores Semis:", ganadoresSemis);
 
     let perdedoresSemis = ganadores4tos.filter(
       (element) => !ganadoresSemis.includes(element)
     );
-    console.log("Perdedores Semis:", perdedoresSemis);
+    // console.log("Perdedores Semis:", perdedoresSemis);
 
     asignarEquipos(teamsThirdPlace, perdedoresSemis);
 
@@ -181,8 +181,8 @@ button.addEventListener("click", async () => {
 
     // Procesar final
     let ganadorFinal = await procesarRonda("f-final", 1);
-    console.log(ganadorFinal);
-    console.log(ganadorFinal[0]);
+    // console.log(ganadorFinal);
+    // console.log(ganadorFinal[0]);
 
     ganadorFinal = await procesarRonda("f-final", 1); // Supongo que esto es un arreglo con un <td>
     if (ganadorFinal.length > 0) {
@@ -192,7 +192,7 @@ button.addEventListener("click", async () => {
       // Obtén solo el texto, excluyendo la imagen
       let countryName = tdElement.textContent.trim(); // Devuelve "Ghana"
 
-      console.log(countryName); // Muestra "Ghana"
+      // console.log(countryName); // Muestra "Ghana"
     } else {
       console.error("No se encontró ningún ganador");
     }
