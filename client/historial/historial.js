@@ -99,3 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log("No hay ganadores de 16vos disponibles.");
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", (event) => {
+    if (event.target.classList.contains("link")) {
+      //event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+      const target = event.target.dataset.target; // Obtengo el valor de data-target
+      localStorage.setItem("targetSection", target); // Guarda el valor en localStorage
+      // window.location.href = event.target.href; // Redirige a la página principal
+    }
+  });
+});

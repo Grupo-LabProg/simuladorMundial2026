@@ -1,4 +1,5 @@
 // Selecciona todos los divs con clase que empieza con 'team'
+// import { mostrarConf } from "../src/components/libreriaFuncionesVarias.js";
 
 const headerHTML1 = `<div class="logo">
         <a href=""><img src="../assets/img/logo.png" alt="Logo" /></a>
@@ -203,4 +204,13 @@ button.addEventListener("click", async () => {
       confirmButtonColor: "#000000", // Color del botón de confirmar
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", (event) => {
+    if (event.target.classList.contains("link")) {
+      const target = event.target.dataset.target; // Obtengo el valor de data-target
+      localStorage.setItem("targetSection", target); // Guarda el valor en localStorage
+    }
+  });
 });

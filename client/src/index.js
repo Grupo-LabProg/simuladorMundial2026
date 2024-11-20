@@ -115,11 +115,6 @@ document
       for (let i = 0; i < 8; i++) {
         clasificados.push(mejoresTerceros[i]);
       }
-      //ver cada equipo claficado
-      /*for (let i = 0; i < clasificados.length; i++) {
-        console.log(clasificados[i]);
-      }*/
-      // console.log("Clasificados:", clasificados);
 
       localStorage.setItem("clasificados", JSON.stringify(clasificados));
     } else {
@@ -143,22 +138,6 @@ async function cargarConfederaciones() {
   }
   cargarConfederacionesEnPagina();
 }
-
-// document
-//   .getElementById("mostrarConfederacionesBtn")
-//   .addEventListener("click", function () {
-
-//     // Limpiar el contenido previo
-//     const faseConfederacionesDiv = document.getElementById(
-//       "faseConfederaciones"
-//     );
-//     faseConfederacionesDiv.innerHTML = "";
-//     // Insertar cada confederación como si fuera un grupo
-//     for (const confederacion in conf) {
-//       const equipos = conf[confederacion];
-//       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
-//     }
-//   });
 
 function cargarConfederacionesEnPagina() {
   // Limpiar el contenido previo
@@ -262,3 +241,16 @@ document
       filaPosterior.insertBefore(equipo1, null); // equipo1 al final de la fila posterior
     }
   });
+
+const target = localStorage.getItem("targetSection");
+if (target) {
+  console.log(target);
+  const targetElement = document.querySelector(`section.${target}`);
+  console.log(targetElement);
+  if (targetElement) {
+    // targetElement.scrollIntoView({ behavior: "auto" }); // Desplázate suavemente
+    targetElement.classList.add("active");
+    console.log("dentro");
+  }
+  localStorage.removeItem("targetSection"); // Limpia el valor para evitar comportamiento repetitivo
+}
