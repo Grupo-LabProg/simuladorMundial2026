@@ -9,6 +9,10 @@
       "flag": "https://flagcdn.com/w20/au.png"
     },
     {
+      "name": "Japón",
+      "flag": "https://flagcdn.com/w20/jp.png"
+    },
+    {
       "name": "Corea",
       "flag": "https://flagcdn.com/w20/kr.png"
     },
@@ -27,10 +31,6 @@
     {
       "name": "Vietnam",
       "flag": "https://flagcdn.com/w20/vn.png"
-    },
-    {
-      "name": "Irán",
-      "flag": "https://flagcdn.com/w20/ir.png"
     }
   ],
   "CAF": [
@@ -63,12 +63,12 @@
       "flag": "https://flagcdn.com/w20/dz.png"
     },
     {
-      "name": "Costa",
-      "flag": "https://flagcdn.com/w20/ci.png"
+      "name": "Mali",
+      "flag": "https://flagcdn.com/w20/ml.png"
     },
     {
-      "name": "Egipto",
-      "flag": "https://flagcdn.com/w20/eg.png"
+      "name": "Sudáfrica",
+      "flag": "https://flagcdn.com/w20/za.png"
     }
   ],
   "CONCACAF": [
@@ -89,12 +89,12 @@
       "flag": "https://flagcdn.com/w20/cr.png"
     },
     {
-      "name": "Jamaica",
-      "flag": "https://flagcdn.com/w20/jm.png"
+      "name": "El",
+      "flag": "https://flagcdn.com/w20/sv.png"
     },
     {
-      "name": "Honduras",
-      "flag": "https://flagcdn.com/w20/hn.png"
+      "name": "Panamá",
+      "flag": "https://flagcdn.com/w20/pa.png"
     }
   ],
   "UEFA": [
@@ -159,12 +159,12 @@
       "flag": "https://flagcdn.com/w20/ro.png"
     },
     {
-      "name": "Austria",
-      "flag": "https://flagcdn.com/w20/at.png"
+      "name": "Hungría",
+      "flag": "https://flagcdn.com/w20/hu.png"
     },
     {
-      "name": "Islandia",
-      "flag": "https://flagcdn.com/w20/is.png"
+      "name": "Austria",
+      "flag": "https://flagcdn.com/w20/at.png"
     }
   ],
   "CONMEBOL": [
@@ -189,18 +189,18 @@
       "flag": "https://flagcdn.com/w20/cl.png"
     },
     {
-      "name": "Colombia",
-      "flag": "https://flagcdn.com/w20/co.png"
+      "name": "Paraguay",
+      "flag": "https://flagcdn.com/w20/py.png"
     },
     {
-      "name": "Ecuador",
-      "flag": "https://flagcdn.com/w20/ec.png"
+      "name": "Venezuela",
+      "flag": "https://flagcdn.com/w20/ve.png"
     }
   ],
   "OFC": [
     {
-      "name": "Nueva",
-      "flag": "https://flagcdn.com/w20/nz.png"
+      "name": "Islas",
+      "flag": "https://flagcdn.com/w20/sb.png"
     }
   ]
 }

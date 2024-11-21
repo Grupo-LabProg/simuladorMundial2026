@@ -49,18 +49,3 @@ exports.addClasificados = (req, res) => {
     }
   );
 };
-
-// TODO Función para agregar un equipo
-// exports.addEquipo = (req, res) => {
-//   const { confederacion, nombre, flag } = req.body;
-//   if (!confederacion || !nombre || !flag) {
-//     return res.status(400).json({ error: 'Todos los campos son requeridos' });
-//   }
-
-//   const data = fs.readFileSync(confederacionesPath , 'utf-8');
-//   const equipos = JSON.parse(data);
-//   equipos.push({ confederacion, nombre, flag });
-//   fs.writeFileSync(confederacionesPath , JSON.stringify(equipos, null, 2));
-
-//   res.status(201).json({ message: 'Equipo agregado', equipo: { confederacion, nombre, flag } });
-// };

@@ -3,168 +3,160 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 95%;
-    color: white;
-    /* Reduce el tamaño de fuente de todos los elementos */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 95%;
+  color: white;
+  /* Reduce el tamaño de fuente de todos los elementos */
 }
 
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    background-color: var(--fondo);
+  font-family: Arial, Helvetica, sans-serif;
+  /* display: flex;
+  flex-direction: column; */
+  margin: 0;
+  background-color: var(--fondo);
 }
 
 header {
-    position: fixed;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--gris-claro);
-    box-shadow: 0 2px 5px var(--negro);
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: black;
+  /* position: fixed; */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--gris-claro);
+  box-shadow: 0 2px 5px var(--negro);
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: black;
 }
 
 .logo img {
-    height: 60px;
-    width: 60px;
-    max-width: 100%;
-    border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+  list-style: none;
+  display: flex;
+  gap: 15px;
 }
 
 nav ul li a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 3px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: bold;
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: bold;
 }
 
 nav ul li a:hover {
-    background-color: var(--gris);
-    color: var(--blanco);
+  background-color: var(--gris);
+  color: var(--blanco);
 }
 
 nav ul li a:active {
-    background-color: var(--negro);
-    color: var(--blanco);
+  background-color: var(--negro);
+  color: var(--blanco);
 }
-
-
 
 main {
-    display: block;
+  display: block;
 }
 
-/*estilos historial*/
-/* body {
-    background-color: var(--gris);
-} */
-
 #recordSection {
-    display: none;
-    margin: 100px 400px;
+  margin: auto;
+  max-width: 30%;
 }
 
 .set_games {
-    margin: 10px 5px;
-    min-width: 16rem;
-    /* max-width: 30rem */
+  margin: 10px 5px;
+  min-width: 16rem;
+  /* max-width: 30rem */
 }
 
 .game_results {
-    margin: 1rem 0;
-    background-color: var(--blanco);
-    border-radius: 5px;
+  margin: 1rem 0;
+  background-color: var(--blanco);
+  border-radius: 5px;
 }
 
 .one {
-    display: flex;
-    width: 50%;
-    align-items: center;
+  display: flex;
+  width: 50%;
+  align-items: center;
 }
 
 .two {
-    display: flex;
-    width: 50%;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .game {
-    display: flex;
-    padding: 5px 0;
-    height: 40px;
-    justify-content: center;
-    background-color: rgba(231, 231, 231, 0.589);
+  display: flex;
+  padding: 5px 0;
+  height: 40px;
+  justify-content: center;
+  background-color: rgba(231, 231, 231, 0.589);
 }
 
 .game_data {
-    color: var(--blanco);
+  color: var(--blanco);
 }
 
-.content-img-flag  img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.content-img-flag img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .content-img-flag {
-    display: flex;
-    width: 1.5rem;
+  display: flex;
+  width: 1.5rem;
 }
 
 .content_info_cluster {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 5px;
-}   
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px;
+}
 
 .content_info_cluster h6 {
-    margin: 5px 0;
-    color: var(--gris-oscuro);
-    font-size: smaller;
+  margin: 5px 0;
+  color: var(--gris-oscuro);
+  font-size: smaller;
 }
 
 .name_flag {
-    margin: 0 10px;
-    color: var(--negro);
+  margin: 0 10px;
+  color: var(--negro);
 }
 
 .content-result {
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
 }
 
 .result_1 {
-    margin: 0 10px;
-    color: var(--negro);
+  margin: 0 10px;
+  color: var(--negro);
 }
 .result_2 {
-    margin: 0 10px;
-    color: var(--negro);
+  margin: 0 10px;
+  color: var(--negro);
 }
 
 .content-result p {
-    font-size: larger;
-    margin: 0;
-    color: var(--negro);
+  font-size: larger;
+  margin: 0;
+  color: var(--negro);
 }

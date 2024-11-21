@@ -15,7 +15,6 @@ export function simularResultados(equipos) {
 
       if (equipos[i].name === "Argentina" || equipos[j].name === "Argentina") {
         let probabilidad = Math.random();
-        //console.log(probabilidad)
         if (probabilidad < 0.95) {
           resultado = equipos[i].name === "Argentina" ? 1 : 2;
         } else {
@@ -80,7 +79,7 @@ export function simularFaseDeGrupos(grupo, equipos) {
 
   let html = `
         <div class="table-container">
-            <h3 style="color:grey">Grupo ${grupo}</h3>
+            <h3>Grupo ${grupo}</h3>
             <table>
                 <thead>
                     <tr>

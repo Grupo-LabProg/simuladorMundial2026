@@ -62,8 +62,6 @@ document
     for (const grupo in grupos) {
       insertarTabla(grupo, grupos[grupo]);
     }
-
-    console.log("Grupos generados:", grupos);
   });
 
 localStorage.removeItem("clasificados"); // borra el arreglo clasificados del local storage cuando recarga la pagina
@@ -117,11 +115,6 @@ document
       for (let i = 0; i < 8; i++) {
         clasificados.push(mejoresTerceros[i]);
       }
-      //ver cada equipo claficado
-      /*for (let i = 0; i < clasificados.length; i++) {
-        console.log(clasificados[i]);
-      }*/
-      // console.log("Clasificados:", clasificados);
 
       localStorage.setItem("clasificados", JSON.stringify(clasificados));
     } else {
@@ -146,22 +139,6 @@ async function cargarConfederaciones() {
   cargarConfederacionesEnPagina();
 }
 
-// document
-//   .getElementById("mostrarConfederacionesBtn")
-//   .addEventListener("click", function () {
-
-//     // Limpiar el contenido previo
-//     const faseConfederacionesDiv = document.getElementById(
-//       "faseConfederaciones"
-//     );
-//     faseConfederacionesDiv.innerHTML = "";
-//     // Insertar cada confederación como si fuera un grupo
-//     for (const confederacion in conf) {
-//       const equipos = conf[confederacion];
-//       insertarTablaConfederacion(confederacion, equipos); // Aquí invocamos la función de insertar tabla
-//     }
-//   });
-
 function cargarConfederacionesEnPagina() {
   // Limpiar el contenido previo
   const faseConfederacionesDiv = document.getElementById("faseConfederaciones");
@@ -176,7 +153,6 @@ function cargarConfederacionesEnPagina() {
 document
   .getElementById("guardarClasificadosBtn")
   .addEventListener("click", function () {
-    console.log("Se dio al boton guardar");
     const confederaciones = document.querySelectorAll(".tabla-confederacion");
 
     // Crear un objeto vacío para almacenar los equipos por confederación
@@ -208,8 +184,8 @@ document
         });
       });
     });
-
     enviarDatosAlServidor(clasificados);
+
   });
 
 function enviarDatosAlServidor(equipos) {
@@ -221,12 +197,32 @@ function enviarDatosAlServidor(equipos) {
     },
     body: JSON.stringify({ equipos: equipos }), // Convertir el array de equipos a JSON
   })
-    .then((response) => response.json()) // Respuesta del servidor
+    .then((response) => {
+      // Verificar si el status es 200
+      if (response.status === 200) {
+        return response.json(); // Procesar la respuesta si es exitosa
+      } else {
+        // Si el código no es 200, lanzar un error para manejarlo en el catch
+        throw new Error(`Error del servidor: ${response.status}`);
+      }
+    }) // Respuesta del servidor
     .then((data) => {
-      console.log("Respuesta del servidor:", data);
+      // Mostrar mensaje de éxito sólo si el status es 200
+      Swal.fire({
+        title: "¡Se guardaron los clasificados!",
+        color: "#000000",
+        icon: "success",
+        confirmButtonColor: "#000000",
+      });
     })
     .catch((error) => {
       console.error("Error al enviar los datos:", error);
+      Swal.fire({
+        title: "¡Error al intentar guardar los clasificados!",
+        color: "#ff4444",
+        icon: "error",
+        confirmButtonColor: "#ff4444",
+      });
     });
 }
 
@@ -234,7 +230,7 @@ document
   .getElementById("faseConfederaciones")
   .addEventListener("click", (event) => {
     if (event.target.classList.contains("up")) {
-      console.log('Se hizo clic en la flecha "⬆"');
+      // console.log('Se hizo clic en la flecha "⬆"');
       const fila = event.target.closest("tr");
       const filaAnterior = fila.previousElementSibling;
 
@@ -249,7 +245,7 @@ document
       fila.insertBefore(equipo2, fila.lastChild); // equipo2 en la fila actual
       filaAnterior.insertBefore(equipo1, filaAnterior.lastChild); // equipo1 en la fila anterior
     } else if (event.target.classList.contains("down")) {
-      console.log('Se hizo clic en la flecha "⬇"');
+      // console.log('Se hizo clic en la flecha "⬇"');
       const fila = event.target.closest("tr");
       const filaPosterior = fila.nextElementSibling;
 
@@ -265,3 +261,16 @@ document
       filaPosterior.insertBefore(equipo1, null); // equipo1 al final de la fila posterior
     }
   });
+
+const target = localStorage.getItem("targetSection");
+if (target) {
+  // console.log(target);
+  const targetElement = document.querySelector(`section.${target}`);
+  // console.log(targetElement);
+  if (targetElement) {
+    // targetElement.scrollIntoView({ behavior: "auto" }); // Desplázate suavemente
+    targetElement.classList.add("active");
+    // console.log("dentro");
+  }
+  localStorage.removeItem("targetSection"); // Limpia el valor para evitar comportamiento repetitivo
+}
