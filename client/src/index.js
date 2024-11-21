@@ -184,8 +184,8 @@ document
         });
       });
     });
-
     enviarDatosAlServidor(clasificados);
+
   });
 
 function enviarDatosAlServidor(equipos) {
@@ -197,12 +197,32 @@ function enviarDatosAlServidor(equipos) {
     },
     body: JSON.stringify({ equipos: equipos }), // Convertir el array de equipos a JSON
   })
-    .then((response) => response.json()) // Respuesta del servidor
+    .then((response) => {
+      // Verificar si el status es 200
+      if (response.status === 200) {
+        return response.json(); // Procesar la respuesta si es exitosa
+      } else {
+        // Si el código no es 200, lanzar un error para manejarlo en el catch
+        throw new Error(`Error del servidor: ${response.status}`);
+      }
+    }) // Respuesta del servidor
     .then((data) => {
-      // console.log("Respuesta del servidor:", data);
+      // Mostrar mensaje de éxito sólo si el status es 200
+      Swal.fire({
+        title: "¡Se guardaron los clasificados!",
+        color: "#000000",
+        icon: "success",
+        confirmButtonColor: "#000000",
+      });
     })
     .catch((error) => {
       console.error("Error al enviar los datos:", error);
+      Swal.fire({
+        title: "¡Error al intentar guardar los clasificados!",
+        color: "#ff4444",
+        icon: "error",
+        confirmButtonColor: "#ff4444",
+      });
     });
 }
 

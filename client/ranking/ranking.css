@@ -194,21 +194,37 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   width: 76%;
+  min-width: 25rem;
   justify-items: center;
   height: 100vh;
 }
 
 .item {
   display: flex;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Suavizar cambios */
   background-color: #e7e7e7;
   border-radius: 8px;
   width: 90%;
+  min-width: 23rem;
   text-align: center;
   height: 90%;
-  padding: 10px;
+  padding: 1rem;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra por defecto */
+}
+
+.item.has-background-light {
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+.item.has-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave al pasar el mouse */
+}
+
+.item.is-hovered {
+  transform: scale(1.02); /* Pequeño zoom al pasar el mouse */
 }
 
 .rank-id {
@@ -240,6 +256,7 @@ button:hover {
   align-items: center;
   padding: 10px;
   width: 68%;
+  min-width: 23rem;
   height: 30px;
   border-radius: 5px;
   justify-content: space-between;
@@ -291,6 +308,34 @@ button:hover {
 }
 
 /* Estilos adicionales para la ventana modal */
+/* Estado inicial del modal */
+.modal {
+  opacity: 0; /* Invisible */
+  transform: scale(0.95); /* Escala inicial más pequeña */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estado visible del modal */
+.modal.is-active {
+  opacity: 1; /* Totalmente visible */
+  transform: scale(1); /* Escala normal */
+  animation: modalBounceIn 0.4s ease; /* Agregar animación personalizada */
+}
+
+/* Animación personalizada */
+@keyframes modalBounceIn {
+  0% {
+    transform: scale(0.9); /* Comienza más pequeño */
+  }
+  60% {
+    transform: scale(1.05); /* Rebote hacia afuera */
+  }
+  100% {
+    transform: scale(1); /* Escala normal */
+  }
+}
+
+
 .modal-content {
   max-width: 600px;
   margin: 0 auto;
@@ -316,11 +361,21 @@ button:hover {
 }
 
 /* Animación de deslizamiento */
-@keyframes slideIn {
+/* @keyframes slideIn {
   from {
     transform: translateY(-100%);
   }
   to {
     transform: translateY(0);
   }
+} */
+
+/* Fondo del modal: transición de opacidad */
+.modal-background {
+  opacity: 0; /* Invisible */
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.modal.is-active .modal-background {
+  opacity: 0.8; /* Totalmente visible */
 }

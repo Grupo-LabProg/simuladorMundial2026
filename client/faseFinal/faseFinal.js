@@ -90,6 +90,9 @@ function determinarGanador(equipos) {
     ganadorIndex = Math.floor(Math.random() * equipos.length);
   }
 
+  // Asigna un id al equipo ganador
+  equipos[ganadorIndex].id = "ganador-final";
+
   // Retorna el equipo ganador
   return equipos[ganadorIndex];
 }
@@ -184,13 +187,21 @@ button.addEventListener("click", async () => {
     // console.log(ganadorFinal);
     // console.log(ganadorFinal[0]);
 
-    ganadorFinal = await procesarRonda("f-final", 1); // Supongo que esto es un arreglo con un <td>
+    // ganadorFinal = await procesarRonda("f-final", 1); // Supongo que esto es un arreglo con un <td>
+
     if (ganadorFinal.length > 0) {
       // Accede al primer (único) elemento del arreglo
       let tdElement = ganadorFinal[0];
+      if (tdElement) {
+        // console.log("Contenido de tdElement:", tdElement);
 
-      // Obtén solo el texto, excluyendo la imagen
-      let countryName = tdElement.textContent.trim(); // Devuelve "Ghana"
+        let countryName = ganadorFinal[0].replace(/<[^>]*>/g, '').trim();
+        // let countryName = tdElement.textContent.trim(); // Devuelve "Ghana"
+        // console.log("Ganador:", countryName);
+        
+      } else {
+        console.error("tdElement no se encontró en el ganador final");
+      }
 
       // console.log(countryName); // Muestra "Ghana"
     } else {

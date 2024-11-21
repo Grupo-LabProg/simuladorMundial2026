@@ -49,7 +49,17 @@ async function nuevo() {
       datos.forEach((item) => {
         const itemElement = document.createElement("div");
         itemElement.classList.add("item");
+        itemElement.classList.add("is-clickable");
         itemElement.dataset.id = item.id; // Agregar el ID del país como atributo de datos
+
+        // Agregar eventos para hover dinámico
+        itemElement.addEventListener("mouseover", () => {
+          itemElement.classList.add("has-background-light", "has-shadow", "is-hovered");
+        });
+
+        itemElement.addEventListener("mouseout", () => {
+          itemElement.classList.remove("has-background-light", "has-shadow", "is-hovered");
+        });
 
         const rankElement = document.createElement("span");
         rankElement.classList.add("rank-id");
